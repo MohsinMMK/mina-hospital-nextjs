@@ -51,7 +51,7 @@ export default function AboutPage() {
       <section className="relative py-20 bg-gradient-to-br from-[#6682a3] to-[#4a6382]">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <span className="text-[#c9826d] font-semibold text-sm uppercase tracking-wider">
+            <span className="text-[#3a5f6f] font-semibold text-sm uppercase tracking-wider">
               About Us
             </span>
             <h1 className="font-display text-4xl md:text-5xl font-bold text-white mt-3 mb-6">
@@ -70,7 +70,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="text-[#c9826d] font-semibold text-sm uppercase tracking-wider">
+              <span className="text-[#3a5f6f] font-semibold text-sm uppercase tracking-wider">
                 Our Story
               </span>
               <h2 className="font-display text-3xl md:text-4xl font-bold text-[#6682a3] mt-3 mb-6">
@@ -134,8 +134,8 @@ export default function AboutPage() {
             </Card>
             <Card className="border-0 shadow-lg">
               <CardContent className="p-8">
-                <div className="w-14 h-14 bg-[#c9826d]/10 rounded-xl flex items-center justify-center mb-6">
-                  <Eye className="h-7 w-7 text-[#c9826d]" />
+                <div className="w-14 h-14 bg-[#3a5f6f]/10 rounded-xl flex items-center justify-center mb-6">
+                  <Eye className="h-7 w-7 text-[#3a5f6f]" />
                 </div>
                 <h3 className="font-display text-2xl font-bold text-[#6682a3] mb-4">
                   Our Vision
@@ -156,7 +156,7 @@ export default function AboutPage() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-[#c9826d] font-semibold text-sm uppercase tracking-wider">
+            <span className="text-[#3a5f6f] font-semibold text-sm uppercase tracking-wider">
               What We Stand For
             </span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-[#6682a3] mt-3 mb-4">
@@ -187,7 +187,7 @@ export default function AboutPage() {
       <section className="py-20 bg-[#6682a3]">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-[#c9826d] font-semibold text-sm uppercase tracking-wider">
+            <span className="text-[#3a5f6f] font-semibold text-sm uppercase tracking-wider">
               Recognition
             </span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-white mt-3 mb-4">
@@ -200,7 +200,7 @@ export default function AboutPage() {
                 key={achievement}
                 className="flex items-center gap-3 bg-white/10 rounded-lg px-4 py-3"
               >
-                <CheckCircle className="h-5 w-5 text-[#c9826d] shrink-0" />
+                <CheckCircle className="h-5 w-5 text-[#3a5f6f] shrink-0" />
                 <span className="text-white">{achievement}</span>
               </div>
             ))}

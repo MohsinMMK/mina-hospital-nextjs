@@ -222,7 +222,7 @@ export default function ServicesPage() {
       <section className="relative py-20 bg-gradient-to-br from-[#6682a3] to-[#4a6382]">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <span className="text-[#c9826d] font-semibold text-sm uppercase tracking-wider">
+            <span className="text-[#3a5f6f] font-semibold text-sm uppercase tracking-wider">
               Our Services
             </span>
             <h1 className="font-display text-4xl md:text-5xl font-bold text-white mt-3 mb-6">
@@ -348,7 +348,7 @@ export default function ServicesPage() {
                           {service.category}
                         </Badge>
                       </div>
-                      <h3 className="font-semibold text-xl text-[#6682a3] mb-2 group-hover:text-[#c9826d] transition-colors">
+                      <h3 className="font-semibold text-xl text-[#6682a3] mb-2 group-hover:text-[#3a5f6f] transition-colors">
                         {service.name}
                       </h3>
                       <p className="text-gray-600 text-sm mb-4">{service.description}</p>

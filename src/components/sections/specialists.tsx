@@ -68,7 +68,7 @@ export function Specialists() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-[#c9826d] font-semibold text-sm uppercase tracking-wider"
+              className="text-[#3a5f6f] font-semibold text-sm uppercase tracking-wider"
             >
               Our Team
             </motion.span>
@@ -138,7 +138,7 @@ export function Specialists() {
                     {doctor.specialty}
                   </Badge>
                   <h3 className="font-semibold text-lg text-[#6682a3]">
-                    <Link href={`/doctors/${doctor.slug}`} className="hover:text-[#c9826d] transition-colors">
+                    <Link href={`/doctors/${doctor.slug}`} className="hover:text-[#3a5f6f] transition-colors">
                       {doctor.name}
                     </Link>
                   </h3>

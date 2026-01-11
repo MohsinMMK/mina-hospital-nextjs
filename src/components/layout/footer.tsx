@@ -80,14 +80,14 @@ export function Footer() {
             <div className="space-y-3">
               <a
                 href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
-                className="flex items-center gap-3 text-gray-300 hover:text-[#c9826d] transition-colors"
+                className="flex items-center gap-3 text-gray-300 hover:text-[#3a5f6f] transition-colors"
               >
                 <Phone className="h-5 w-5" />
                 <span>{siteConfig.contact.phone}</span>
               </a>
               <a
                 href={`mailto:${siteConfig.contact.email}`}
-                className="flex items-center gap-3 text-gray-300 hover:text-[#c9826d] transition-colors"
+                className="flex items-center gap-3 text-gray-300 hover:text-[#3a5f6f] transition-colors"
               >
                 <Mail className="h-5 w-5" />
                 <span>{siteConfig.contact.email}</span>
@@ -104,7 +104,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold text-lg mb-4 text-[#c9826d]">Quick Links</h4>
+            <h4 className="font-semibold text-lg mb-4 text-[#3a5f6f]">Quick Links</h4>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
@@ -121,7 +121,7 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-semibold text-lg mb-4 text-[#c9826d]">Our Services</h4>
+            <h4 className="font-semibold text-lg mb-4 text-[#3a5f6f]">Our Services</h4>
             <ul className="space-y-2">
               {services.map((service) => (
                 <li key={service.name}>
@@ -138,7 +138,7 @@ export function Footer() {
 
           {/* Patient Resources */}
           <div>
-            <h4 className="font-semibold text-lg mb-4 text-[#c9826d]">Patient Resources</h4>
+            <h4 className="font-semibold text-lg mb-4 text-[#3a5f6f]">Patient Resources</h4>
             <ul className="space-y-2">
               {patientResources.map((resource) => (
                 <li key={resource.name}>
@@ -156,7 +156,7 @@ export function Footer() {
 
         {/* Locations */}
         <div className="mt-12 pt-8 border-t border-gray-700">
-          <h4 className="font-semibold text-lg mb-6 text-[#c9826d]">Our Locations</h4>
+          <h4 className="font-semibold text-lg mb-6 text-[#3a5f6f]">Our Locations</h4>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {siteConfig.locations.map((location) => (
               <a
@@ -166,13 +166,13 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-start gap-3 p-4 bg-[#4a6382] rounded-lg hover:bg-[#001a33] transition-colors group"
               >
-                <MapPin className="h-5 w-5 text-[#c9826d] mt-1 group-hover:scale-110 transition-transform" />
+                <MapPin className="h-5 w-5 text-[#3a5f6f] mt-1 group-hover:scale-110 transition-transform" />
                 <div>
                   <h5 className="font-semibold">{location.name}</h5>
                   <p className="text-sm text-gray-300">
                     {location.address}, {location.city} - {location.pincode}
                   </p>
-                  <p className="text-sm text-[#c9826d] mt-1">{location.phone}</p>
+                  <p className="text-sm text-[#3a5f6f] mt-1">{location.phone}</p>
                 </div>
               </a>
             ))}
@@ -188,7 +188,7 @@ export function Footer() {
                 href={siteConfig.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-[#4a6382] rounded-full flex items-center justify-center hover:bg-[#c9826d] transition-colors"
+                className="w-10 h-10 bg-[#4a6382] rounded-full flex items-center justify-center hover:bg-[#3a5f6f] transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5" />
@@ -197,7 +197,7 @@ export function Footer() {
                 href={siteConfig.social.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-[#4a6382] rounded-full flex items-center justify-center hover:bg-[#c9826d] transition-colors"
+                className="w-10 h-10 bg-[#4a6382] rounded-full flex items-center justify-center hover:bg-[#3a5f6f] transition-colors"
                 aria-label="Twitter"
               >
                 <Twitter className="h-5 w-5" />
@@ -206,7 +206,7 @@ export function Footer() {
                 href={siteConfig.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-[#4a6382] rounded-full flex items-center justify-center hover:bg-[#c9826d] transition-colors"
+                className="w-10 h-10 bg-[#4a6382] rounded-full flex items-center justify-center hover:bg-[#3a5f6f] transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
@@ -215,7 +215,7 @@ export function Footer() {
                 href={siteConfig.social.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-[#4a6382] rounded-full flex items-center justify-center hover:bg-[#c9826d] transition-colors"
+                className="w-10 h-10 bg-[#4a6382] rounded-full flex items-center justify-center hover:bg-[#3a5f6f] transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
@@ -224,7 +224,7 @@ export function Footer() {
                 href={siteConfig.social.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-[#4a6382] rounded-full flex items-center justify-center hover:bg-[#c9826d] transition-colors"
+                className="w-10 h-10 bg-[#4a6382] rounded-full flex items-center justify-center hover:bg-[#3a5f6f] transition-colors"
                 aria-label="YouTube"
               >
                 <Youtube className="h-5 w-5" />

@@ -65,7 +65,7 @@ export default function LoginPage() {
                     <Label htmlFor="password">Password</Label>
                     <Link
                       href="/forgot-password"
-                      className="text-sm text-[#6682a3] hover:text-[#c9826d] transition-colors"
+                      className="text-sm text-[#6682a3] hover:text-[#3a5f6f] transition-colors"
                     >
                       Forgot password?
                     </Link>
@@ -121,7 +121,7 @@ export default function LoginPage() {
                 Don&apos;t have an account?{" "}
                 <Link
                   href="/register"
-                  className="text-[#6682a3] font-medium hover:text-[#c9826d] transition-colors"
+                  className="text-[#6682a3] font-medium hover:text-[#3a5f6f] transition-colors"
                 >
                   Register now
                 </Link>
@@ -162,25 +162,25 @@ export default function LoginPage() {
           </p>
           <div className="space-y-4 text-left">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-[#c9826d] rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#3a5f6f] rounded-full flex items-center justify-center">
                 <ArrowRight className="h-4 w-4" />
               </div>
               <span>Book appointments online</span>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-[#c9826d] rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#3a5f6f] rounded-full flex items-center justify-center">
                 <ArrowRight className="h-4 w-4" />
               </div>
               <span>View medical records & reports</span>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-[#c9826d] rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#3a5f6f] rounded-full flex items-center justify-center">
                 <ArrowRight className="h-4 w-4" />
               </div>
               <span>Message your doctors securely</span>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-[#c9826d] rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#3a5f6f] rounded-full flex items-center justify-center">
                 <ArrowRight className="h-4 w-4" />
               </div>
               <span>Manage bills & payments</span>

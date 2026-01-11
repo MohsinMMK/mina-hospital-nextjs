@@ -112,7 +112,7 @@ export function Stats() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-[#c9826d] font-semibold text-sm uppercase tracking-wider"
+            className="text-[#3a5f6f] font-semibold text-sm uppercase tracking-wider"
           >
             Our Numbers
           </motion.span>
@@ -147,7 +147,7 @@ export function Stats() {
               className="text-center"
             >
               <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <stat.icon className="h-8 w-8 text-[#c9826d]" />
+                <stat.icon className="h-8 w-8 text-[#3a5f6f]" />
               </div>
               <AnimatedCounter
                 value={stat.value}

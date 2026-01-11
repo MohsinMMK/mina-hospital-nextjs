@@ -500,7 +500,7 @@ export default async function SpecialtyPage({
               <IconComponent className="h-10 w-10" />
             </div>
             <div>
-              <span className="text-[#c9826d] font-semibold text-sm uppercase tracking-wider">
+              <span className="text-[#3a5f6f] font-semibold text-sm uppercase tracking-wider">
                 Department
               </span>
               <h1 className="font-display text-4xl md:text-5xl font-bold text-white mt-2 mb-4">

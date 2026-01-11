@@ -642,7 +642,7 @@ function DoctorsContent() {
       <section className="relative py-20 bg-gradient-to-br from-[#6682a3] to-[#4a6382]">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <span className="text-[#c9826d] font-semibold text-sm uppercase tracking-wider">
+            <span className="text-[#3a5f6f] font-semibold text-sm uppercase tracking-wider">
               Our Team
             </span>
             <h1 className="font-display text-4xl md:text-5xl font-bold text-white mt-3 mb-6">
@@ -710,7 +710,7 @@ function DoctorsContent() {
                     <h3 className="font-semibold text-lg text-[#6682a3]">
                       <Link
                         href={`/doctors/${doctor.slug}`}
-                        className="hover:text-[#c9826d] transition-colors"
+                        className="hover:text-[#3a5f6f] transition-colors"
                       >
                         {doctor.name}
                       </Link>

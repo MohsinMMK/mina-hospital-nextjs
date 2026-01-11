@@ -37,25 +37,25 @@ export default function RegisterPage() {
           </p>
           <div className="space-y-4 text-left">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-[#c9826d] rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#3a5f6f] rounded-full flex items-center justify-center">
                 <ArrowRight className="h-4 w-4" />
               </div>
               <span>Easy online appointment booking</span>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-[#c9826d] rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#3a5f6f] rounded-full flex items-center justify-center">
                 <ArrowRight className="h-4 w-4" />
               </div>
               <span>Secure access to medical records</span>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-[#c9826d] rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#3a5f6f] rounded-full flex items-center justify-center">
                 <ArrowRight className="h-4 w-4" />
               </div>
               <span>Direct messaging with doctors</span>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-[#c9826d] rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#3a5f6f] rounded-full flex items-center justify-center">
                 <ArrowRight className="h-4 w-4" />
               </div>
               <span>Appointment reminders & notifications</span>
@@ -204,7 +204,7 @@ export default function RegisterPage() {
                 Already have an account?{" "}
                 <Link
                   href="/login"
-                  className="text-[#6682a3] font-medium hover:text-[#c9826d] transition-colors"
+                  className="text-[#6682a3] font-medium hover:text-[#3a5f6f] transition-colors"
                 >
                   Login
                 </Link>

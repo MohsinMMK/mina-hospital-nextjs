@@ -21,7 +21,7 @@ export default function ContactPage() {
       <section className="relative py-20 bg-gradient-to-br from-[#6682a3] to-[#4a6382]">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <span className="text-[#c9826d] font-semibold text-sm uppercase tracking-wider">
+            <span className="text-[#3a5f6f] font-semibold text-sm uppercase tracking-wider">
               Contact Us
             </span>
             <h1 className="font-display text-4xl md:text-5xl font-bold text-white mt-3 mb-6">
@@ -51,7 +51,7 @@ export default function ContactPage() {
                       <h3 className="font-semibold text-[#6682a3] mb-1">Phone</h3>
                       <a
                         href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
-                        className="text-gray-600 hover:text-[#c9826d] transition-colors"
+                        className="text-gray-600 hover:text-[#3a5f6f] transition-colors"
                       >
                         {siteConfig.contact.phone}
                       </a>
@@ -95,7 +95,7 @@ export default function ContactPage() {
                       <h3 className="font-semibold text-[#6682a3] mb-1">Email</h3>
                       <a
                         href={`mailto:${siteConfig.contact.email}`}
-                        className="text-gray-600 hover:text-[#c9826d] transition-colors"
+                        className="text-gray-600 hover:text-[#3a5f6f] transition-colors"
                       >
                         {siteConfig.contact.email}
                       </a>
@@ -207,7 +207,7 @@ export default function ContactPage() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-[#c9826d] font-semibold text-sm uppercase tracking-wider">
+            <span className="text-[#3a5f6f] font-semibold text-sm uppercase tracking-wider">
               Our Locations
             </span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-[#6682a3] mt-3 mb-4">
@@ -237,13 +237,13 @@ export default function ContactPage() {
                   </h3>
                   <div className="space-y-2 text-gray-600">
                     <div className="flex items-start gap-2">
-                      <MapPin className="h-5 w-5 text-[#c9826d] shrink-0 mt-0.5" />
+                      <MapPin className="h-5 w-5 text-[#3a5f6f] shrink-0 mt-0.5" />
                       <span>
                         {location.address}, {location.city}, {location.state} - {location.pincode}
                       </span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Phone className="h-5 w-5 text-[#c9826d] shrink-0" />
+                      <Phone className="h-5 w-5 text-[#3a5f6f] shrink-0" />
                       <a
                         href={`tel:${location.phone.replace(/\s/g, "")}`}
                         className="hover:text-[#6682a3]"
