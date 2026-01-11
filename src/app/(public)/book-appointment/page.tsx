@@ -1,9 +1,9 @@
 "use client"
 
-import { useState, useEffect, Suspense } from "react"
+import { useState, useEffect, Suspense, useMemo } from "react"
 import { useSearchParams } from "next/navigation"
 import Image from "next/image"
-import { Calendar as CalendarIcon, Clock, User, Phone, Mail, CheckCircle, ArrowLeft, ArrowRight, Star, Globe } from "lucide-react"
+import { Calendar as CalendarIcon, Clock, User, Phone, Mail, CheckCircle, ArrowLeft, ArrowRight, Star, Globe, Search, X, Briefcase } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -12,6 +12,13 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
 import { Calendar } from "@/components/ui/calendar"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 import { siteConfig } from "@/config/site"
 
 // Unified doctor data for consistency across pages
@@ -372,6 +379,13 @@ const doctors = [
 // Get unique specialties for filter
 const specialties = [...new Set(doctors.map(d => d.specialty))].sort()
 
+// Experience ranges
+const experienceRanges = [
+  { value: "0-10", label: "0-10 yrs", min: 0, max: 10 },
+  { value: "10-20", label: "10-20 yrs", min: 10, max: 20 },
+  { value: "20+", label: "20+ yrs", min: 20, max: 100 },
+]
+
 const timeSlots = [
   "09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM",
   "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM",
@@ -386,7 +400,11 @@ function BookAppointmentContent() {
   const [selectedDoctor, setSelectedDoctor] = useState<typeof doctors[0] | null>(null)
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined)
   const [selectedTime, setSelectedTime] = useState("")
-  const [selectedSpecialty, setSelectedSpecialty] = useState<string>("all")
+  
+  // Filter states
+  const [searchQuery, setSearchQuery] = useState("")
+  const [selectedSpecialty, setSelectedSpecialty] = useState("all")
+  const [selectedExperience, setSelectedExperience] = useState("all")
 
   // Pre-select doctor if coming from doctors page
   useEffect(() => {
@@ -402,10 +420,41 @@ function BookAppointmentContent() {
 
   const doctor = selectedDoctor
 
-  // Filter doctors by specialty
-  const filteredDoctors = selectedSpecialty === "all"
-    ? doctors
-    : doctors.filter(d => d.specialty === selectedSpecialty)
+  // Filter doctors based on all criteria
+  const filteredDoctors = useMemo(() => {
+    return doctors.filter(doc => {
+      // Search filter
+      if (searchQuery) {
+        const query = searchQuery.toLowerCase()
+        const matchesName = doc.name.toLowerCase().includes(query)
+        const matchesSpecialty = doc.specialty.toLowerCase().includes(query)
+        if (!matchesName && !matchesSpecialty) return false
+      }
+
+      // Specialty filter
+      if (selectedSpecialty !== "all" && doc.specialty !== selectedSpecialty) {
+        return false
+      }
+
+      // Experience filter
+      if (selectedExperience !== "all") {
+        const range = experienceRanges.find(r => r.value === selectedExperience)
+        if (range && (doc.experience < range.min || doc.experience >= range.max)) {
+          return false
+        }
+      }
+
+      return true
+    })
+  }, [searchQuery, selectedSpecialty, selectedExperience])
+
+  const hasActiveFilters = searchQuery.length > 0 || selectedSpecialty !== "all" || selectedExperience !== "all"
+
+  const handleClearFilters = () => {
+    setSearchQuery("")
+    setSelectedSpecialty("all")
+    setSelectedExperience("all")
+  }
 
   // Disable past dates and weekends
   const disabledDays = [
@@ -430,75 +479,179 @@ function BookAppointmentContent() {
               </p>
             </div>
 
-            {/* Specialty Filter */}
-            <div className="mb-6 flex flex-wrap gap-2 justify-center">
-              <button
-                onClick={() => setSelectedSpecialty("all")}
-                className={`px-4 py-2 text-sm rounded-full transition-all ${
-                  selectedSpecialty === "all"
-                    ? "bg-[#003366] text-white"
-                    : "bg-white text-gray-700 border hover:border-[#003366]"
-                }`}
-              >
-                All ({doctors.length})
-              </button>
-              {specialties.map((spec) => (
-                <button
-                  key={spec}
-                  onClick={() => setSelectedSpecialty(spec)}
-                  className={`px-4 py-2 text-sm rounded-full transition-all ${
-                    selectedSpecialty === spec
-                      ? "bg-[#003366] text-white"
-                      : "bg-white text-gray-700 border hover:border-[#003366]"
-                  }`}
-                >
-                  {spec} ({doctors.filter(d => d.specialty === spec).length})
-                </button>
-              ))}
+            {/* Filter Bar */}
+            <div className="bg-white border rounded-xl p-4 shadow-sm mb-6">
+              <div className="flex flex-col gap-4">
+                {/* Search + Filters Row */}
+                <div className="flex flex-col lg:flex-row gap-3">
+                  {/* Search Input */}
+                  <div className="relative flex-1 min-w-0 lg:max-w-sm">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                    <Input
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      placeholder="Search doctors..."
+                      className="pl-10 h-11 bg-gray-50 border-gray-200"
+                    />
+                    {searchQuery && (
+                      <button
+                        onClick={() => setSearchQuery("")}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                      >
+                        <X className="h-4 w-4" />
+                      </button>
+                    )}
+                  </div>
+
+                  {/* Specialty Filter */}
+                  <Select value={selectedSpecialty} onValueChange={setSelectedSpecialty}>
+                    <SelectTrigger className="h-11 w-full lg:w-[200px] bg-gray-50 border-gray-200">
+                      <div className="flex items-center gap-2">
+                        <User className="h-4 w-4 text-gray-500" />
+                        <SelectValue placeholder="Specialty" />
+                      </div>
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Specialties</SelectItem>
+                      {specialties.map((spec) => (
+                        <SelectItem key={spec} value={spec}>
+                          {spec}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+
+                  {/* Experience Filter */}
+                  <Select value={selectedExperience} onValueChange={setSelectedExperience}>
+                    <SelectTrigger className="h-11 w-full lg:w-[160px] bg-gray-50 border-gray-200">
+                      <div className="flex items-center gap-2">
+                        <Briefcase className="h-4 w-4 text-gray-500" />
+                        <SelectValue placeholder="Experience" />
+                      </div>
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Experience</SelectItem>
+                      {experienceRanges.map((range) => (
+                        <SelectItem key={range.value} value={range.value}>
+                          {range.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+
+                  {/* Clear Filters */}
+                  {hasActiveFilters && (
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={handleClearFilters}
+                      className="h-11 text-gray-500 hover:text-gray-700"
+                    >
+                      <X className="h-4 w-4 mr-1" />
+                      Clear
+                    </Button>
+                  )}
+                </div>
+
+                {/* Active Filters + Count */}
+                {hasActiveFilters && (
+                  <div className="flex flex-wrap items-center gap-2 pt-2 border-t">
+                    {selectedSpecialty !== "all" && (
+                      <Badge
+                        variant="secondary"
+                        className="bg-[#003366]/10 text-[#003366] hover:bg-[#003366]/20 cursor-pointer px-3 py-1.5"
+                        onClick={() => setSelectedSpecialty("all")}
+                      >
+                        <span className="font-medium">Specialty:</span>
+                        <span className="ml-1">{selectedSpecialty}</span>
+                        <X className="h-3 w-3 ml-2" />
+                      </Badge>
+                    )}
+                    {selectedExperience !== "all" && (
+                      <Badge
+                        variant="secondary"
+                        className="bg-[#003366]/10 text-[#003366] hover:bg-[#003366]/20 cursor-pointer px-3 py-1.5"
+                        onClick={() => setSelectedExperience("all")}
+                      >
+                        <span className="font-medium">Experience:</span>
+                        <span className="ml-1">{experienceRanges.find(r => r.value === selectedExperience)?.label}</span>
+                        <X className="h-3 w-3 ml-2" />
+                      </Badge>
+                    )}
+                    {searchQuery && (
+                      <Badge
+                        variant="secondary"
+                        className="bg-[#003366]/10 text-[#003366] hover:bg-[#003366]/20 cursor-pointer px-3 py-1.5"
+                        onClick={() => setSearchQuery("")}
+                      >
+                        <span className="font-medium">Search:</span>
+                        <span className="ml-1">&quot;{searchQuery}&quot;</span>
+                        <X className="h-3 w-3 ml-2" />
+                      </Badge>
+                    )}
+                    <span className="text-sm text-gray-500 ml-auto">
+                      {filteredDoctors.length} doctors found
+                    </span>
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Doctors Grid */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-h-[500px] overflow-y-auto pr-2">
-              {filteredDoctors.map((doc) => (
-                <Card
-                  key={doc.id}
-                  className={`cursor-pointer transition-all hover:shadow-md ${
-                    selectedDoctor?.id === doc.id
-                      ? "ring-2 ring-[#003366] shadow-md"
-                      : "hover:border-gray-300"
-                  }`}
-                  onClick={() => setSelectedDoctor(doc)}
-                >
-                  <CardContent className="p-4">
-                    <div className="flex items-center gap-3">
-                      <Image
-                        src={doc.image}
-                        alt={doc.name}
-                        width={48}
-                        height={48}
-                        className="rounded-full object-cover"
-                      />
-                      <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold text-gray-900 truncate">
-                          {doc.name}
-                        </h3>
-                        <p className="text-sm text-gray-500">{doc.specialty}</p>
-                        <div className="flex items-center gap-2 mt-1">
-                          <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
-                          <span className="text-xs text-gray-600">{doc.rating}</span>
-                          <span className="text-xs text-gray-400">
-                            {doc.experience} yrs
-                          </span>
+            {filteredDoctors.length > 0 ? (
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-h-[500px] overflow-y-auto pr-2">
+                {filteredDoctors.map((doc) => (
+                  <Card
+                    key={doc.id}
+                    className={`cursor-pointer transition-all hover:shadow-md ${
+                      selectedDoctor?.id === doc.id
+                        ? "ring-2 ring-[#003366] shadow-md"
+                        : "hover:border-gray-300"
+                    }`}
+                    onClick={() => setSelectedDoctor(doc)}
+                  >
+                    <CardContent className="p-4">
+                      <div className="flex items-center gap-3">
+                        <Image
+                          src={doc.image}
+                          alt={doc.name}
+                          width={48}
+                          height={48}
+                          className="rounded-full object-cover"
+                        />
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-semibold text-gray-900 truncate">
+                            {doc.name}
+                          </h3>
+                          <p className="text-sm text-gray-500">{doc.specialty}</p>
+                          <div className="flex items-center gap-2 mt-1">
+                            <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                            <span className="text-xs text-gray-600">{doc.rating}</span>
+                            <span className="text-xs text-gray-400">
+                              {doc.experience} yrs
+                            </span>
+                          </div>
                         </div>
+                        {selectedDoctor?.id === doc.id && (
+                          <CheckCircle className="h-5 w-5 text-[#003366] shrink-0" />
+                        )}
                       </div>
-                      {selectedDoctor?.id === doc.id && (
-                        <CheckCircle className="h-5 w-5 text-[#003366] shrink-0" />
-                      )}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12 bg-white rounded-xl border">
+                <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <User className="h-8 w-8 text-gray-400" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">No doctors found</h3>
+                <p className="text-gray-500 mb-4">Try adjusting your filters</p>
+                <Button variant="outline" onClick={handleClearFilters}>
+                  Clear Filters
+                </Button>
+              </div>
+            )}
 
             <div className="mt-8 flex justify-center">
               <Button

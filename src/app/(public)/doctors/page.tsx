@@ -1,18 +1,15 @@
-import { Metadata } from "next"
+"use client"
+
+import { useState, useMemo } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Calendar, Star, Filter, Search } from "lucide-react"
+import { Calendar, Star, User, Briefcase, Globe } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Input } from "@/components/ui/input"
+import { FilterBar, FilterConfig } from "@/components/shared/filter-bar"
 import { siteConfig } from "@/config/site"
-
-export const metadata: Metadata = {
-  title: "Our Doctors",
-  description: `Meet our team of 50+ specialist doctors at ${siteConfig.shortName}. Find the right doctor for your healthcare needs and book an appointment.`,
-}
 
 // Real Mina Hospital doctors data
 const doctors = [
@@ -525,14 +522,109 @@ const doctors = [
   },
 ]
 
-// Get unique specialties for filter
-const specialties = ["All Specialties", ...new Set(doctors.map(d => d.specialty))].sort((a, b) => {
-  if (a === "All Specialties") return -1
-  if (b === "All Specialties") return 1
-  return a.localeCompare(b)
-})
+// Get unique values for filters
+const specialties = [...new Set(doctors.map(d => d.specialty))].sort()
+const languages = [...new Set(doctors.flatMap(d => d.languages))].sort()
+
+// Experience ranges
+const experienceRanges = [
+  { value: "0-10", label: "0-10 years", min: 0, max: 10 },
+  { value: "10-20", label: "10-20 years", min: 10, max: 20 },
+  { value: "20-30", label: "20-30 years", min: 20, max: 30 },
+  { value: "30+", label: "30+ years", min: 30, max: 100 },
+]
 
 export default function DoctorsPage() {
+  const [searchQuery, setSearchQuery] = useState("")
+  const [filterValues, setFilterValues] = useState<Record<string, string>>({
+    specialty: "all",
+    experience: "all",
+    language: "all",
+  })
+
+  // Filter configurations
+  const filterConfigs: FilterConfig[] = useMemo(() => [
+    {
+      id: "specialty",
+      label: "Specialty",
+      icon: <User className="h-4 w-4" />,
+      placeholder: "All Specialties",
+      options: specialties.map(s => ({
+        value: s,
+        label: s,
+        count: doctors.filter(d => d.specialty === s).length,
+      })),
+    },
+    {
+      id: "experience",
+      label: "Experience",
+      icon: <Briefcase className="h-4 w-4" />,
+      placeholder: "All Experience",
+      options: experienceRanges.map(r => ({
+        value: r.value,
+        label: r.label,
+        count: doctors.filter(d => d.experience >= r.min && d.experience < r.max).length,
+      })),
+    },
+    {
+      id: "language",
+      label: "Language",
+      icon: <Globe className="h-4 w-4" />,
+      placeholder: "All Languages",
+      options: languages.map(l => ({
+        value: l,
+        label: l,
+        count: doctors.filter(d => d.languages.includes(l)).length,
+      })),
+    },
+  ], [])
+
+  // Filter doctors based on all criteria
+  const filteredDoctors = useMemo(() => {
+    return doctors.filter(doctor => {
+      // Search filter
+      if (searchQuery) {
+        const query = searchQuery.toLowerCase()
+        const matchesName = doctor.name.toLowerCase().includes(query)
+        const matchesSpecialty = doctor.specialty.toLowerCase().includes(query)
+        if (!matchesName && !matchesSpecialty) return false
+      }
+
+      // Specialty filter
+      if (filterValues.specialty && filterValues.specialty !== "all") {
+        if (doctor.specialty !== filterValues.specialty) return false
+      }
+
+      // Experience filter
+      if (filterValues.experience && filterValues.experience !== "all") {
+        const range = experienceRanges.find(r => r.value === filterValues.experience)
+        if (range && (doctor.experience < range.min || doctor.experience >= range.max)) {
+          return false
+        }
+      }
+
+      // Language filter
+      if (filterValues.language && filterValues.language !== "all") {
+        if (!doctor.languages.includes(filterValues.language)) return false
+      }
+
+      return true
+    })
+  }, [searchQuery, filterValues])
+
+  const handleFilterChange = (filterId: string, value: string) => {
+    setFilterValues(prev => ({ ...prev, [filterId]: value }))
+  }
+
+  const handleClearAll = () => {
+    setSearchQuery("")
+    setFilterValues({
+      specialty: "all",
+      experience: "all",
+      language: "all",
+    })
+  }
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -553,120 +645,113 @@ export default function DoctorsPage() {
         </div>
       </section>
 
-      {/* Filters */}
-      <section className="py-8 border-b bg-white sticky top-0 z-40">
+      {/* Filters Section */}
+      <section className="py-6 bg-gray-50 sticky top-16 z-40 border-b">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
-            <div className="relative w-full md:w-96">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
-              <Input
-                placeholder="Search doctors by name..."
-                className="pl-10"
-              />
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {specialties.slice(0, 5).map((specialty) => (
-                <Button
-                  key={specialty}
-                  variant={specialty === "All Specialties" ? "default" : "outline"}
-                  size="sm"
-                >
-                  {specialty}
-                </Button>
-              ))}
-              <Button variant="outline" size="sm">
-                <Filter className="h-4 w-4 mr-1" />
-                More
-              </Button>
-            </div>
-          </div>
+          <FilterBar
+            filters={filterConfigs}
+            values={filterValues}
+            onFilterChange={handleFilterChange}
+            onClearAll={handleClearAll}
+            searchValue={searchQuery}
+            onSearchChange={setSearchQuery}
+            searchPlaceholder="Search doctors by name or specialty..."
+            resultsCount={filteredDoctors.length}
+            resultsLabel="doctors found"
+          />
         </div>
       </section>
 
       {/* Doctors Grid */}
       <section className="py-12">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {doctors.map((doctor) => (
-              <Card key={doctor.id} className="overflow-hidden group hover:shadow-lg transition-shadow">
-                <div className="relative aspect-square overflow-hidden">
-                  <Image
-                    src={doctor.image}
-                    alt={doctor.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  {!doctor.available && (
-                    <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                      <span className="text-white font-medium bg-black/70 px-3 py-1 rounded-full text-sm">
-                        Currently Unavailable
+          {filteredDoctors.length > 0 ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {filteredDoctors.map((doctor) => (
+                <Card key={doctor.id} className="overflow-hidden group hover:shadow-lg transition-shadow">
+                  <div className="relative aspect-square overflow-hidden">
+                    <Image
+                      src={doctor.image}
+                      alt={doctor.name}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    {!doctor.available && (
+                      <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                        <span className="text-white font-medium bg-black/70 px-3 py-1 rounded-full text-sm">
+                          Currently Unavailable
+                        </span>
+                      </div>
+                    )}
+                    <div className="absolute top-4 right-4">
+                      <Badge
+                        variant={doctor.available ? "success" : "secondary"}
+                        className="shadow"
+                      >
+                        {doctor.available ? "Available" : "Unavailable"}
+                      </Badge>
+                    </div>
+                  </div>
+                  <CardContent className="p-5">
+                    <Badge variant="gold" className="mb-2">
+                      {doctor.specialty}
+                    </Badge>
+                    <h3 className="font-semibold text-lg text-[#003366]">
+                      <Link
+                        href={`/doctors/${doctor.slug}`}
+                        className="hover:text-[#C78A3B] transition-colors"
+                      >
+                        {doctor.name}
+                      </Link>
+                    </h3>
+                    <p className="text-gray-500 text-sm mb-2">{doctor.qualification}</p>
+                    <p className="text-gray-600 text-sm mb-3">
+                      {doctor.experience} years experience
+                    </p>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-1">
+                        <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                        <span className="font-medium text-sm">{doctor.rating}</span>
+                        <span className="text-gray-400 text-sm">({doctor.reviews})</span>
+                      </div>
+                      <span className="text-xs text-gray-500">
+                        {doctor.languages.join(", ")}
                       </span>
                     </div>
-                  )}
-                  <div className="absolute top-4 right-4">
-                    <Badge
-                      variant={doctor.available ? "success" : "secondary"}
-                      className="shadow"
+                    <Button
+                      className="w-full"
+                      size="sm"
+                      disabled={!doctor.available}
+                      asChild={doctor.available}
                     >
-                      {doctor.available ? "Available" : "Unavailable"}
-                    </Badge>
-                  </div>
-                </div>
-                <CardContent className="p-5">
-                  <Badge variant="gold" className="mb-2">
-                    {doctor.specialty}
-                  </Badge>
-                  <h3 className="font-semibold text-lg text-[#003366]">
-                    <Link
-                      href={`/doctors/${doctor.slug}`}
-                      className="hover:text-[#C78A3B] transition-colors"
-                    >
-                      {doctor.name}
-                    </Link>
-                  </h3>
-                  <p className="text-gray-500 text-sm mb-2">{doctor.qualification}</p>
-                  <p className="text-gray-600 text-sm mb-3">
-                    {doctor.experience} years experience
-                  </p>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-1">
-                      <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                      <span className="font-medium text-sm">{doctor.rating}</span>
-                      <span className="text-gray-400 text-sm">({doctor.reviews})</span>
-                    </div>
-                    <span className="text-xs text-gray-500">
-                      {doctor.languages.join(", ")}
-                    </span>
-                  </div>
-                  <Button
-                    className="w-full"
-                    size="sm"
-                    disabled={!doctor.available}
-                    asChild={doctor.available}
-                  >
-                    {doctor.available ? (
-                      <Link href={`/book-appointment?doctor=${doctor.id}`}>
-                        <Calendar className="h-4 w-4 mr-2" />
-                        Book Appointment
-                      </Link>
-                    ) : (
-                      <>
-                        <Calendar className="h-4 w-4 mr-2" />
-                        Book Appointment
-                      </>
-                    )}
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          {/* Load More */}
-          <div className="text-center mt-12">
-            <Button variant="outline" size="lg">
-              Load More Doctors
-            </Button>
-          </div>
+                      {doctor.available ? (
+                        <Link href={`/book-appointment?doctor=${doctor.id}`}>
+                          <Calendar className="h-4 w-4 mr-2" />
+                          Book Appointment
+                        </Link>
+                      ) : (
+                        <>
+                          <Calendar className="h-4 w-4 mr-2" />
+                          Book Appointment
+                        </>
+                      )}
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-16">
+              <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <User className="h-10 w-10 text-gray-400" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">No doctors found</h3>
+              <p className="text-gray-500 mb-6">Try adjusting your filters or search query</p>
+              <Button variant="outline" onClick={handleClearAll}>
+                Clear All Filters
+              </Button>
+            </div>
+          )}
         </div>
       </section>
 
