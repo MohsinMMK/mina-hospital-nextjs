@@ -1,6 +1,7 @@
 # MINA Hospital Website - Project Documentation
 
 ## Overview
+
 A modern, full-featured hospital website for MINA Super & Multi Speciality Hospitals with patient portal, appointment booking, doctor directory, and admin panel. Built for accessibility, SEO optimization, and mobile-first design.
 
 ## Development Guidelines
@@ -14,19 +15,19 @@ A modern, full-featured hospital website for MINA Super & Multi Speciality Hospi
 
 ## Tech Stack
 
-| Category | Technology |
-|----------|-----------|
-| Framework | Next.js 16+ (App Router) |
-| Language | TypeScript (strict mode) |
-| Styling | Tailwind CSS v4 |
-| UI Components | shadcn/ui + Radix UI |
-| Database | Supabase (PostgreSQL) |
-| Authentication | Supabase Auth |
-| File Storage | Supabase Storage |
-| Animations | Framer Motion |
-| Forms | React Hook Form + Zod |
-| Icons | Lucide React |
-| Package Manager | Bun |
+| Category        | Technology               |
+| --------------- | ------------------------ |
+| Framework       | Next.js 16+ (App Router) |
+| Language        | TypeScript (strict mode) |
+| Styling         | Tailwind CSS v4          |
+| UI Components   | shadcn/ui + Radix UI     |
+| Database        | Supabase (PostgreSQL)    |
+| Authentication  | Supabase Auth            |
+| File Storage    | Supabase Storage         |
+| Animations      | Framer Motion            |
+| Forms           | React Hook Form + Zod    |
+| Icons           | Lucide React             |
+| Package Manager | Bun                      |
 
 ## Project Structure
 
@@ -89,33 +90,36 @@ bun lint             # Run ESLint
 ## Routes
 
 ### Public Pages
-| Path | Description |
-|------|-------------|
-| `/` | Homepage with hero, services, doctors, testimonials |
-| `/about` | Hospital history, mission, values |
-| `/services` | All medical services/departments |
-| `/doctors` | Doctor directory with filters |
-| `/contact` | Contact form and info |
-| `/emergency` | Emergency info, 24/7 contacts |
+
+| Path         | Description                                         |
+| ------------ | --------------------------------------------------- |
+| `/`          | Homepage with hero, services, doctors, testimonials |
+| `/about`     | Hospital history, mission, values                   |
+| `/services`  | All medical services/departments                    |
+| `/doctors`   | Doctor directory with filters                       |
+| `/contact`   | Contact form and info                               |
+| `/emergency` | Emergency info, 24/7 contacts                       |
 
 ### Patient Portal (Authenticated)
-| Path | Description |
-|------|-------------|
-| `/dashboard` | Patient dashboard |
-| `/appointments` | View/manage appointments |
-| `/medical-records` | Medical records |
-| `/billing` | Bills and payments |
-| `/messages` | Secure messaging |
-| `/profile` | Profile settings |
+
+| Path               | Description              |
+| ------------------ | ------------------------ |
+| `/dashboard`       | Patient dashboard        |
+| `/appointments`    | View/manage appointments |
+| `/medical-records` | Medical records          |
+| `/billing`         | Bills and payments       |
+| `/messages`        | Secure messaging         |
+| `/profile`         | Profile settings         |
 
 ### Admin Panel
-| Path | Description |
-|------|-------------|
-| `/admin` | Admin dashboard |
-| `/admin/doctors` | Manage doctors |
+
+| Path                  | Description         |
+| --------------------- | ------------------- |
+| `/admin`              | Admin dashboard     |
+| `/admin/doctors`      | Manage doctors      |
 | `/admin/appointments` | Manage appointments |
-| `/admin/patients` | Patient management |
-| `/admin/blog` | CMS for blog |
+| `/admin/patients`     | Patient management  |
+| `/admin/blog`         | CMS for blog        |
 
 ## Environment Variables
 
@@ -138,6 +142,7 @@ RESEND_API_KEY=
 ## Database Schema (Supabase)
 
 ### Core Tables
+
 ```sql
 -- Departments
 departments (id, name, slug, description, icon, image_url, is_active)
@@ -180,16 +185,48 @@ admin_users (id, user_id, role, permissions)
 
 ```css
 :root {
-  --primary: #003366;        /* Deep Blue */
-  --primary-dark: #002244;
-  --primary-light: #E6F0F8;
-  --secondary: #C78A3B;      /* Gold */
-  --secondary-light: #F5E6D3;
-  --emergency: #DC2626;      /* Red */
+  --primary: #2853aa; /* Primary Blue */
+  --primary-dark: #1e3f7d;
+  --primary-light: #f0eee9; /* Cloud Dancer */
+  --accent: #f4b942; /* Golden Amber */
+  --accent-dark: #d9a02e;
+  --emergency: #dc2626; /* Red */
 }
 ```
 
+## Custom UI Components
+
+| Component            | Path                                              | Description                                           |
+| -------------------- | ------------------------------------------------- | ----------------------------------------------------- |
+| `AnimatedBackground` | `components/ui/animated-blur-blob-background.tsx` | Animated blur blobs for hero backgrounds              |
+| `GlassCard`          | `components/ui/glass-card.tsx`                    | Glassmorphism card with backdrop blur                 |
+| `DoctorImage`        | `components/ui/doctor-image.tsx`                  | Doctor image with loading state and error fallback    |
+| `DoctorPlaceholder`  | `components/ui/doctor-placeholder.tsx`            | Animated SVG placeholder for missing doctor photos    |
+
+### DoctorImage Usage
+
+```tsx
+// Fill mode (for cards with aspect-square containers)
+<DoctorImage src={doctor.image} alt={doctor.name} className="object-cover" />
+
+// Fixed size mode (for thumbnails/avatars)
+<DoctorImage src={doctor.image} alt={doctor.name} width={48} height={48} className="rounded-full" />
+```
+
+Features:
+- Shows animated placeholder while loading
+- Falls back to placeholder on error or empty src
+- Supports both `fill` mode and `width/height` mode
+
+## Hero Section Features
+
+- Glassmorphism overlay with `backdrop-filter: blur(8px)`
+- Animated blur blobs (primary blue + amber accent)
+- GlassCard for Quick Appointment section
+- Frosty transparent effect
+
 ## Fonts
+
 - **Display:** Playfair Display (headings)
 - **Body:** Plus Jakarta Sans (text)
 
@@ -234,13 +271,13 @@ admin_users (id, user_id, role, permissions)
 
 ## Key Integrations
 
-| Integration | Purpose |
-|-------------|---------|
-| Supabase Auth | Patient/admin authentication |
-| Supabase DB | All data storage |
-| Supabase Storage | Medical records, images |
-| Google Maps | Location maps, directions |
-| Resend | Transactional emails |
+| Integration      | Purpose                      |
+| ---------------- | ---------------------------- |
+| Supabase Auth    | Patient/admin authentication |
+| Supabase DB      | All data storage             |
+| Supabase Storage | Medical records, images      |
+| Google Maps      | Location maps, directions    |
+| Resend           | Transactional emails         |
 
 ## Hospital Info
 
