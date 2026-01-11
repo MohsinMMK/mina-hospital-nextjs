@@ -528,7 +528,7 @@ export default async function SpecialtyPage({
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button size="lg" asChild>
-                  <Link href="/book-appointment">
+                  <Link href={`/book-appointment?specialty=${encodeURIComponent(specialty.doctorSpecialties[0] || specialty.name)}`}>
                     <Calendar className="h-4 w-4 mr-2" />
                     Book Appointment
                   </Link>
@@ -560,33 +560,9 @@ export default async function SpecialtyPage({
         </div>
       </section>
 
-      {/* Procedures Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-[#003366] mb-8 text-center">
-            Services & Procedures
-          </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
-            {specialty.procedures.map((procedure, index) => (
-              <div 
-                key={index}
-                className="bg-white rounded-xl p-4 shadow-sm border hover:shadow-md transition-shadow"
-              >
-                <div className="flex items-center gap-3">
-                  <div className={`w-10 h-10 rounded-lg ${specialty.color} flex items-center justify-center shrink-0`}>
-                    <Stethoscope className="h-5 w-5" />
-                  </div>
-                  <span className="font-medium text-gray-800">{procedure}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Doctors Section */}
       {specialtyDoctors.length > 0 && (
-        <section className="py-16">
+        <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="font-display text-2xl md:text-3xl font-bold text-[#003366] mb-4">
@@ -599,7 +575,7 @@ export default async function SpecialtyPage({
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {specialtyDoctors.slice(0, 8).map((doctor) => (
-                <Card key={doctor.id} className="overflow-hidden group hover:shadow-lg transition-shadow">
+                <Card key={doctor.id} className="overflow-hidden group hover:shadow-lg transition-shadow bg-white">
                   <div className="relative aspect-square overflow-hidden">
                     <Image
                       src={doctor.image}
@@ -669,6 +645,30 @@ export default async function SpecialtyPage({
         </section>
       )}
 
+      {/* Procedures Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-[#003366] mb-8 text-center">
+            Services & Procedures
+          </h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+            {specialty.procedures.map((procedure, index) => (
+              <div 
+                key={index}
+                className="bg-gray-50 rounded-xl p-4 shadow-sm border hover:shadow-md transition-shadow"
+              >
+                <div className="flex items-center gap-3">
+                  <div className={`w-10 h-10 rounded-lg ${specialty.color} flex items-center justify-center shrink-0`}>
+                    <Stethoscope className="h-5 w-5" />
+                  </div>
+                  <span className="font-medium text-gray-800">{procedure}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* No Doctors Message for Diagnostic Departments */}
       {specialtyDoctors.length === 0 && (
         <section className="py-16">
@@ -708,7 +708,7 @@ export default async function SpecialtyPage({
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button size="lg" variant="secondary" asChild>
-              <Link href="/book-appointment">
+              <Link href={`/book-appointment?specialty=${encodeURIComponent(specialty.doctorSpecialties[0] || specialty.name)}`}>
                 <Calendar className="h-4 w-4 mr-2" />
                 Book Appointment
               </Link>

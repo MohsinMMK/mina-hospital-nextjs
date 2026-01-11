@@ -395,6 +395,7 @@ const timeSlots = [
 function BookAppointmentContent() {
   const searchParams = useSearchParams()
   const doctorIdParam = searchParams.get("doctor")
+  const specialtyParam = searchParams.get("specialty")
 
   const [step, setStep] = useState(1)
   const [selectedDoctor, setSelectedDoctor] = useState<typeof doctors[0] | null>(null)
@@ -406,7 +407,7 @@ function BookAppointmentContent() {
   const [selectedSpecialty, setSelectedSpecialty] = useState("all")
   const [selectedExperience, setSelectedExperience] = useState("all")
 
-  // Pre-select doctor if coming from doctors page
+  // Pre-select doctor if coming from doctors page, or preset specialty filter
   useEffect(() => {
     if (doctorIdParam) {
       const doctorId = parseInt(doctorIdParam)
@@ -415,8 +416,19 @@ function BookAppointmentContent() {
         setSelectedDoctor(foundDoctor)
         setStep(2) // Skip to date/time selection
       }
+    } else if (specialtyParam) {
+      // Pre-filter by specialty when coming from specialty pages
+      // Match specialty from URL to available specialties (case-insensitive, partial match)
+      const matchedSpecialty = specialties.find(
+        s => s.toLowerCase() === specialtyParam.toLowerCase() ||
+             s.toLowerCase().includes(specialtyParam.toLowerCase()) ||
+             specialtyParam.toLowerCase().includes(s.toLowerCase())
+      )
+      if (matchedSpecialty) {
+        setSelectedSpecialty(matchedSpecialty)
+      }
     }
-  }, [doctorIdParam])
+  }, [doctorIdParam, specialtyParam])
 
   const doctor = selectedDoctor
 
