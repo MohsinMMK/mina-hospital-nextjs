@@ -156,7 +156,7 @@ export function FilterBar({
                   <Badge
                     key={filterId}
                     variant="secondary"
-                    className="bg-[#6682a3]/10 text-[#6682a3] hover:bg-[#6682a3]/20 cursor-pointer px-3 py-1.5"
+                    className="bg-[#2853aa]/10 text-[#2853aa] hover:bg-[#2853aa]/20 cursor-pointer px-3 py-1.5"
                     onClick={() => onFilterChange(filterId, "all")}
                   >
                     <span className="font-medium">{filter.label}:</span>
@@ -170,7 +170,7 @@ export function FilterBar({
               {searchValue && (
                 <Badge
                   variant="secondary"
-                  className="bg-[#6682a3]/10 text-[#6682a3] hover:bg-[#6682a3]/20 cursor-pointer px-3 py-1.5"
+                  className="bg-[#2853aa]/10 text-[#2853aa] hover:bg-[#2853aa]/20 cursor-pointer px-3 py-1.5"
                   onClick={() => onSearchChange?.("")}
                 >
                   <span className="font-medium">Search:</span>

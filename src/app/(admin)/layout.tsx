@@ -38,11 +38,11 @@ function Sidebar({ className }: { className?: string }) {
       {/* Logo */}
       <div className="p-6 border-b">
         <Link href="/admin" className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-[#6682a3] rounded-lg flex items-center justify-center">
+          <div className="w-10 h-10 bg-[#2853aa] rounded-lg flex items-center justify-center">
             <span className="text-white font-bold text-xl">M</span>
           </div>
           <div>
-            <h1 className="font-display text-lg font-bold text-[#6682a3]">
+            <h1 className="font-display text-lg font-bold text-[#2853aa]">
               MINA Hospitals
             </h1>
             <p className="text-xs text-muted-foreground">Admin Panel</p>
@@ -62,7 +62,7 @@ function Sidebar({ className }: { className?: string }) {
               className={cn(
                 "flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors",
                 isActive
-                  ? "bg-[#6682a3] text-white"
+                  ? "bg-[#2853aa] text-white"
                   : "text-gray-600 hover:bg-gray-100"
               )}
             >

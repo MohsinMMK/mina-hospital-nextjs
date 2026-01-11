@@ -26,7 +26,7 @@ export function Hero() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#6682a3]/95 via-[#6682a3]/80 to-[#6682a3]/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#2853aa]/95 via-[#2853aa]/80 to-[#2853aa]/60" />
       </div>
 
       {/* Content */}
@@ -112,7 +112,7 @@ export function Hero() {
             className="hidden lg:block"
           >
             <div className="glass-panel rounded-2xl p-8 max-w-md ml-auto">
-              <h3 className="font-display text-2xl font-bold text-[#6682a3] mb-2">
+              <h3 className="font-display text-2xl font-bold text-[#2853aa] mb-2">
                 Quick Appointment
               </h3>
               <p className="text-gray-600 mb-6">
@@ -120,10 +120,10 @@ export function Hero() {
               </p>
 
               <div className="space-y-4">
-                <div className="flex items-center gap-3 p-4 bg-[#6682a3]/5 rounded-lg">
-                  <Clock className="h-5 w-5 text-[#6682a3]" />
+                <div className="flex items-center gap-3 p-4 bg-[#2853aa]/5 rounded-lg">
+                  <Clock className="h-5 w-5 text-[#2853aa]" />
                   <div>
-                    <p className="font-medium text-[#6682a3]">OPD Timings</p>
+                    <p className="font-medium text-[#2853aa]">OPD Timings</p>
                     <p className="text-sm text-gray-600">{siteConfig.workingHours.opd}</p>
                   </div>
                 </div>
@@ -146,7 +146,7 @@ export function Hero() {
                   Or call us at{" "}
                   <a
                     href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
-                    className="text-[#6682a3] font-medium hover:underline"
+                    className="text-[#2853aa] font-medium hover:underline"
                   >
                     {siteConfig.contact.phone}
                   </a>

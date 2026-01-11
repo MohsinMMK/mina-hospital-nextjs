@@ -19,7 +19,7 @@ export default function RegisterPage() {
   return (
     <div className="min-h-screen flex">
       {/* Left Side - Image */}
-      <div className="hidden lg:flex flex-1 bg-[#6682a3] relative items-center justify-center p-12">
+      <div className="hidden lg:flex flex-1 bg-[#2853aa] relative items-center justify-center p-12">
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&q=80"
@@ -69,11 +69,11 @@ export default function RegisterPage() {
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
             <Link href="/" className="inline-flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-[#6682a3] rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 bg-[#2853aa] rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-2xl">M</span>
               </div>
               <div className="text-left">
-                <h1 className="font-display text-xl font-bold text-[#6682a3]">
+                <h1 className="font-display text-xl font-bold text-[#2853aa]">
                   MINA Hospitals
                 </h1>
                 <p className="text-xs text-muted-foreground">Patient Portal</p>
@@ -83,7 +83,7 @@ export default function RegisterPage() {
 
           <Card className="border-0 shadow-lg">
             <CardHeader className="text-center">
-              <CardTitle className="text-2xl font-display text-[#6682a3]">
+              <CardTitle className="text-2xl font-display text-[#2853aa]">
                 Create Account
               </CardTitle>
               <CardDescription>
@@ -204,7 +204,7 @@ export default function RegisterPage() {
                 Already have an account?{" "}
                 <Link
                   href="/login"
-                  className="text-[#6682a3] font-medium hover:text-[#f4b942] transition-colors"
+                  className="text-[#2853aa] font-medium hover:text-[#f4b942] transition-colors"
                 >
                   Login
                 </Link>

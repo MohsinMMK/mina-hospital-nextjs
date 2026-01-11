@@ -94,7 +94,7 @@ export function Stats() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section ref={ref} className="py-20 bg-[#6682a3] relative overflow-hidden">
+    <section ref={ref} className="py-20 bg-[#2853aa] relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div

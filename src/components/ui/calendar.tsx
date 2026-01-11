@@ -54,8 +54,8 @@ function Calendar({
         range_start: "day-range-start rounded-l-md",
         range_end: "day-range-end rounded-r-md",
         selected: cn(
-          "bg-[#6682a3] text-white hover:bg-[#6682a3] hover:text-white",
-          "focus:bg-[#6682a3] focus:text-white"
+          "bg-[#2853aa] text-white hover:bg-[#2853aa] hover:text-white",
+          "focus:bg-[#2853aa] focus:text-white"
         ),
         today: "bg-gray-100 text-gray-900 font-semibold",
         outside: "text-gray-400 opacity-50",

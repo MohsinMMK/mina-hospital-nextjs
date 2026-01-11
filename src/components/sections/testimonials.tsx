@@ -74,7 +74,7 @@ export function Testimonials() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-display text-3xl md:text-4xl font-bold text-[#6682a3] mt-3 mb-4"
+            className="font-display text-3xl md:text-4xl font-bold text-[#2853aa] mt-3 mb-4"
           >
             What Our Patients Say
           </motion.h2>
@@ -117,7 +117,7 @@ export function Testimonials() {
                     />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-[#6682a3]">
+                    <h4 className="font-semibold text-[#2853aa]">
                       {testimonials[current].name}
                     </h4>
                     <p className="text-sm text-gray-500">
@@ -164,7 +164,7 @@ export function Testimonials() {
                 key={index}
                 onClick={() => setCurrent(index)}
                 className={`w-3 h-3 rounded-full transition-colors ${
-                  index === current ? "bg-[#6682a3]" : "bg-gray-300"
+                  index === current ? "bg-[#2853aa]" : "bg-gray-300"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />

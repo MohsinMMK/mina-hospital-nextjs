@@ -3,52 +3,52 @@
 /* MINA Hospital Branding Colors - Sapphire & Cloud Dancer Theme */
 :root {
   --background: 40 17% 93%; /* Cloud Dancer #f0eee9 */
-  --foreground: 215 28% 32%; /* Dark text based on Sapphire */
+  --foreground: 220 50% 25%; /* Dark text based on primary */
   --card: 40 20% 97%; /* Slightly lighter than Cloud Dancer for cards */
-  --card-foreground: 215 28% 25%;
+  --card-foreground: 220 50% 20%;
   --popover: 0 0% 100%;
-  --popover-foreground: 215 28% 25%;
-  --primary: 215 28% 52%; /* Sapphire #6682a3 */
-  --primary-foreground: 40 17% 97%;
+  --popover-foreground: 220 50% 20%;
+  --primary: 220 62% 41%; /* Blue #2853aa */
+  --primary-foreground: 0 0% 100%;
   --secondary: 41 90% 61%; /* Golden amber #f4b942 */
-  --secondary-foreground: 215 30% 20%;
+  --secondary-foreground: 220 50% 15%;
   --muted: 40 12% 88%;
-  --muted-foreground: 215 15% 45%;
+  --muted-foreground: 220 20% 45%;
   --accent: 41 90% 61%; /* Golden amber #f4b942 */
-  --accent-foreground: 215 30% 20%;
+  --accent-foreground: 220 50% 15%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 210 40% 98%;
   --border: 40 15% 85%;
   --input: 40 15% 85%;
-  --ring: 215 28% 52%; /* Sapphire */
+  --ring: 220 62% 41%; /* Blue #2853aa */
   --radius: 0.75rem;
   --chart-1: 41 90% 61%;
-  --chart-2: 215 28% 52%;
-  --chart-3: 215 30% 40%;
+  --chart-2: 220 62% 41%;
+  --chart-3: 220 50% 30%;
   --chart-4: 40 30% 70%;
   --chart-5: 41 85% 50%;
 }
 
 .dark {
-  --background: 215 30% 15%;
+  --background: 220 40% 12%;
   --foreground: 40 17% 93%;
-  --card: 215 30% 18%;
+  --card: 220 40% 15%;
   --card-foreground: 40 17% 93%;
-  --popover: 215 30% 18%;
+  --popover: 220 40% 15%;
   --popover-foreground: 40 17% 93%;
-  --primary: 215 28% 60%;
-  --primary-foreground: 215 30% 15%;
+  --primary: 220 55% 55%;
+  --primary-foreground: 220 40% 12%;
   --secondary: 41 85% 50%;
-  --secondary-foreground: 215 30% 15%;
-  --muted: 215 25% 25%;
-  --muted-foreground: 215 15% 65%;
+  --secondary-foreground: 220 40% 12%;
+  --muted: 220 30% 22%;
+  --muted-foreground: 220 15% 65%;
   --accent: 41 85% 50%;
   --accent-foreground: 40 17% 97%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 210 40% 98%;
-  --border: 215 25% 25%;
-  --input: 215 25% 25%;
-  --ring: 215 28% 60%;
+  --border: 220 30% 22%;
+  --input: 220 30% 22%;
+  --ring: 220 55% 55%;
 }
 
 @theme inline {
@@ -76,9 +76,9 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
-  /* MINA Brand Colors - Sapphire Theme */
-  --color-primary-deep: #6682a3; /* Sapphire */
-  --color-primary-dark: #4a6382; /* Darker Sapphire */
+  /* MINA Brand Colors - Blue & Cloud Dancer Theme */
+  --color-primary-deep: #2853aa; /* Primary Blue */
+  --color-primary-dark: #1e3f7d; /* Darker Blue */
   --color-primary-light: #f0eee9; /* Cloud Dancer */
   --color-gold: #f4b942; /* Golden amber accent */
   --color-gold-light: #fef3dc; /* Light amber */
@@ -110,12 +110,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #6682a3;
+  background: #2853aa;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #4a6382;
+  background: #1e3f7d;
 }
 
 /* Glass Panel Effect */

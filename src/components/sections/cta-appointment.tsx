@@ -9,7 +9,7 @@ import { siteConfig } from "@/config/site"
 
 export function CTAAppointment() {
   return (
-    <section className="py-20 bg-gradient-to-br from-[#6682a3] via-[#6682a3] to-[#4a6382] relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-[#2853aa] via-[#2853aa] to-[#1e3f7d] relative overflow-hidden">
       {/* Background Decorations */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#f4b942]/10 rounded-full blur-3xl" />

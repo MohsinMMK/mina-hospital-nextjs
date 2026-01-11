@@ -37,11 +37,11 @@ function Sidebar({ className }: { className?: string }) {
       {/* Logo */}
       <div className="p-6 border-b">
         <Link href="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-[#6682a3] rounded-lg flex items-center justify-center">
+          <div className="w-10 h-10 bg-[#2853aa] rounded-lg flex items-center justify-center">
             <span className="text-white font-bold text-xl">M</span>
           </div>
           <div>
-            <h1 className="font-display text-lg font-bold text-[#6682a3]">
+            <h1 className="font-display text-lg font-bold text-[#2853aa]">
               MINA Hospitals
             </h1>
             <p className="text-xs text-muted-foreground">Patient Portal</p>
@@ -60,7 +60,7 @@ function Sidebar({ className }: { className?: string }) {
               className={cn(
                 "flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors",
                 isActive
-                  ? "bg-[#6682a3] text-white"
+                  ? "bg-[#2853aa] text-white"
                   : "text-gray-600 hover:bg-gray-100"
               )}
             >
@@ -76,7 +76,7 @@ function Sidebar({ className }: { className?: string }) {
         <div className="flex items-center gap-3 px-4 py-3">
           <Avatar>
             <AvatarImage src="/placeholder-avatar.jpg" />
-            <AvatarFallback className="bg-[#6682a3] text-white">JD</AvatarFallback>
+            <AvatarFallback className="bg-[#2853aa] text-white">JD</AvatarFallback>
           </Avatar>
           <div className="flex-1 min-w-0">
             <p className="font-medium text-sm truncate">John Doe</p>
@@ -148,7 +148,7 @@ export default function PortalLayout({
               </Button>
               <Avatar className="h-8 w-8 lg:hidden">
                 <AvatarImage src="/placeholder-avatar.jpg" />
-                <AvatarFallback className="bg-[#6682a3] text-white text-xs">JD</AvatarFallback>
+                <AvatarFallback className="bg-[#2853aa] text-white text-xs">JD</AvatarFallback>
               </Avatar>
             </div>
           </div>

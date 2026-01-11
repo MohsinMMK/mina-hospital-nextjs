@@ -48,7 +48,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full">
       {/* Top Bar */}
-      <div className="bg-[#6682a3] text-white py-2 text-sm hidden md:block">
+      <div className="bg-[#2853aa] text-white py-2 text-sm hidden md:block">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center gap-6">
             <a
@@ -89,11 +89,11 @@ export function Header() {
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-[#6682a3] rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-[#2853aa] rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xl">M</span>
               </div>
               <div>
-                <h1 className="font-display text-base sm:text-lg font-bold text-[#6682a3] leading-tight">
+                <h1 className="font-display text-base sm:text-lg font-bold text-[#2853aa] leading-tight">
                   MINA Hospitals
                 </h1>
                 <p className="text-xs text-muted-foreground hidden sm:block">
@@ -111,8 +111,8 @@ export function Header() {
                     className={cn(
                       "px-4 py-2 text-sm font-medium rounded-md transition-colors",
                       pathname === item.href
-                        ? "text-[#6682a3] bg-[#6682a3]/5"
-                        : "text-gray-700 hover:text-[#6682a3] hover:bg-[#6682a3]/5"
+                        ? "text-[#2853aa] bg-[#2853aa]/5"
+                        : "text-gray-700 hover:text-[#2853aa] hover:bg-[#2853aa]/5"
                     )}
                   >
                     {item.name}
@@ -124,7 +124,7 @@ export function Header() {
                           <Link
                             key={child.name}
                             href={child.href}
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#6682a3]/5 hover:text-[#6682a3]"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#2853aa]/5 hover:text-[#2853aa]"
                           >
                             {child.name}
                           </Link>
@@ -182,8 +182,8 @@ export function Header() {
                         className={cn(
                           "block py-2 text-lg font-medium transition-colors",
                           pathname === item.href
-                            ? "text-[#6682a3]"
-                            : "text-gray-700 hover:text-[#6682a3]"
+                            ? "text-[#2853aa]"
+                            : "text-gray-700 hover:text-[#2853aa]"
                         )}
                       >
                         {item.name}

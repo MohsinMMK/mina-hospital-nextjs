@@ -33,7 +33,7 @@ export default function LocationsPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-[#6682a3] to-[#4a6382]">
+      <section className="relative py-20 bg-gradient-to-br from-[#2853aa] to-[#1e3f7d]">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
             <span className="text-[#f4b942] font-semibold text-sm uppercase tracking-wider">
@@ -68,22 +68,22 @@ export default function LocationsPage() {
                     title={`Map of ${location.name}`}
                   />
                   {/* Location Badge */}
-                  <div className="absolute top-4 left-4 bg-[#6682a3] text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                  <div className="absolute top-4 left-4 bg-[#2853aa] text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
                     {index === 0 ? "Main Branch" : "Branch 2"}
                   </div>
                 </div>
                 
                 <CardContent className="p-8">
                   {/* Location Name */}
-                  <h2 className="font-display text-2xl font-bold text-[#6682a3] mb-4 group-hover:text-[#f4b942] transition-colors">
+                  <h2 className="font-display text-2xl font-bold text-[#2853aa] mb-4 group-hover:text-[#f4b942] transition-colors">
                     {location.name}
                   </h2>
                   
                   {/* Location Details */}
                   <div className="space-y-4 mb-6">
                     <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 bg-[#6682a3]/10 rounded-lg flex items-center justify-center shrink-0">
-                        <MapPin className="h-5 w-5 text-[#6682a3]" />
+                      <div className="w-10 h-10 bg-[#2853aa]/10 rounded-lg flex items-center justify-center shrink-0">
+                        <MapPin className="h-5 w-5 text-[#2853aa]" />
                       </div>
                       <div>
                         <p className="font-medium text-gray-900">Address</p>
@@ -94,8 +94,8 @@ export default function LocationsPage() {
                     </div>
                     
                     <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 bg-[#6682a3]/10 rounded-lg flex items-center justify-center shrink-0">
-                        <Phone className="h-5 w-5 text-[#6682a3]" />
+                      <div className="w-10 h-10 bg-[#2853aa]/10 rounded-lg flex items-center justify-center shrink-0">
+                        <Phone className="h-5 w-5 text-[#2853aa]" />
                       </div>
                       <div>
                         <p className="font-medium text-gray-900">Phone</p>
@@ -109,8 +109,8 @@ export default function LocationsPage() {
                     </div>
                     
                     <div className="flex items-start gap-3">
-                      <div className="w-10 h-10 bg-[#6682a3]/10 rounded-lg flex items-center justify-center shrink-0">
-                        <Clock className="h-5 w-5 text-[#6682a3]" />
+                      <div className="w-10 h-10 bg-[#2853aa]/10 rounded-lg flex items-center justify-center shrink-0">
+                        <Clock className="h-5 w-5 text-[#2853aa]" />
                       </div>
                       <div>
                         <p className="font-medium text-gray-900">Working Hours</p>
@@ -150,7 +150,7 @@ export default function LocationsPage() {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="font-display text-3xl font-bold text-[#6682a3] mb-4">
+            <h2 className="font-display text-3xl font-bold text-[#2853aa] mb-4">
               What We Offer at Both Locations
             </h2>
             <p className="text-gray-600">
@@ -162,10 +162,10 @@ export default function LocationsPage() {
             {locationFeatures.map((feature) => (
               <Card key={feature.title} className="text-center">
                 <CardContent className="p-6">
-                  <div className="w-14 h-14 bg-[#6682a3]/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <feature.icon className="h-7 w-7 text-[#6682a3]" />
+                  <div className="w-14 h-14 bg-[#2853aa]/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <feature.icon className="h-7 w-7 text-[#2853aa]" />
                   </div>
-                  <h3 className="font-semibold text-[#6682a3] mb-2">{feature.title}</h3>
+                  <h3 className="font-semibold text-[#2853aa] mb-2">{feature.title}</h3>
                   <p className="text-gray-600 text-sm">{feature.description}</p>
                 </CardContent>
               </Card>
@@ -175,7 +175,7 @@ export default function LocationsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-[#6682a3]">
+      <section className="py-16 bg-[#2853aa]">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-display text-2xl md:text-3xl font-bold text-white mb-4">
             Need Immediate Assistance?

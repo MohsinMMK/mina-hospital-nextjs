@@ -79,7 +79,7 @@ export default function DashboardPage() {
       {/* Welcome Section */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-[#6682a3]">Welcome back, John!</h1>
+          <h1 className="text-2xl font-bold text-[#2853aa]">Welcome back, John!</h1>
           <p className="text-muted-foreground">
             Here&apos;s an overview of your healthcare activity
           </p>
@@ -98,8 +98,8 @@ export default function DashboardPage() {
           <Link key={action.name} href={action.href}>
             <Card className="hover:shadow-md transition-shadow cursor-pointer h-full">
               <CardContent className="p-4 flex flex-col items-center text-center">
-                <div className="w-12 h-12 bg-[#6682a3]/10 rounded-xl flex items-center justify-center mb-3">
-                  <action.icon className="h-6 w-6 text-[#6682a3]" />
+                <div className="w-12 h-12 bg-[#2853aa]/10 rounded-xl flex items-center justify-center mb-3">
+                  <action.icon className="h-6 w-6 text-[#2853aa]" />
                 </div>
                 <span className="font-medium text-sm">{action.name}</span>
               </CardContent>
@@ -238,7 +238,7 @@ export default function DashboardPage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-2xl font-bold text-[#6682a3]">Rs. 2,500</p>
+              <p className="text-2xl font-bold text-[#2853aa]">Rs. 2,500</p>
               <p className="text-sm text-muted-foreground mb-3">Due by Jan 20, 2026</p>
               <Button size="sm" className="w-full" asChild>
                 <Link href="/billing">Pay Now</Link>

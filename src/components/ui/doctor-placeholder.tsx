@@ -25,7 +25,7 @@ export function DoctorPlaceholder({ className }: DoctorPlaceholderProps) {
           cx="100"
           cy="100"
           r="90"
-          className="fill-[#6682a3]/10 animate-pulse"
+          className="fill-[#2853aa]/10 animate-pulse"
         />
 
         {/* Doctor silhouette - Head */}
@@ -33,7 +33,7 @@ export function DoctorPlaceholder({ className }: DoctorPlaceholderProps) {
           cx="100"
           cy="65"
           r="30"
-          className="fill-[#6682a3]/30"
+          className="fill-[#2853aa]/30"
         >
           <animate
             attributeName="opacity"
@@ -46,7 +46,7 @@ export function DoctorPlaceholder({ className }: DoctorPlaceholderProps) {
         {/* Doctor silhouette - Body/Coat */}
         <path
           d="M60 120 C60 100, 80 95, 100 95 C120 95, 140 100, 140 120 L140 160 C140 165, 135 170, 130 170 L70 170 C65 170, 60 165, 60 160 Z"
-          className="fill-[#6682a3]/30"
+          className="fill-[#2853aa]/30"
         >
           <animate
             attributeName="opacity"

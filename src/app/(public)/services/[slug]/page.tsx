@@ -484,7 +484,7 @@ export default async function SpecialtyPage({
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-[#6682a3] to-[#4a6382]">
+      <section className="relative py-20 bg-gradient-to-br from-[#2853aa] to-[#1e3f7d]">
         <div className="container mx-auto px-4">
           {/* Back Button */}
           <Link 
@@ -520,7 +520,7 @@ export default async function SpecialtyPage({
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Description */}
             <div>
-              <h2 className="font-display text-2xl md:text-3xl font-bold text-[#6682a3] mb-6">
+              <h2 className="font-display text-2xl md:text-3xl font-bold text-[#2853aa] mb-6">
                 About Our {specialty.name} Department
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-8">
@@ -544,7 +544,7 @@ export default async function SpecialtyPage({
 
             {/* Key Features */}
             <div className="bg-gray-50 rounded-2xl p-8">
-              <h3 className="font-semibold text-xl text-[#6682a3] mb-6">
+              <h3 className="font-semibold text-xl text-[#2853aa] mb-6">
                 Key Features
               </h3>
               <ul className="space-y-4">
@@ -565,7 +565,7 @@ export default async function SpecialtyPage({
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="font-display text-2xl md:text-3xl font-bold text-[#6682a3] mb-4">
+              <h2 className="font-display text-2xl md:text-3xl font-bold text-[#2853aa] mb-4">
                 Our {specialty.name} Specialists
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
@@ -596,7 +596,7 @@ export default async function SpecialtyPage({
                     <Badge variant="gold" className="mb-2">
                       {doctor.specialty}
                     </Badge>
-                    <h3 className="font-semibold text-lg text-[#6682a3]">
+                    <h3 className="font-semibold text-lg text-[#2853aa]">
                       {doctor.name}
                     </h3>
                     <p className="text-gray-500 text-sm mb-2">{doctor.qualification}</p>
@@ -648,7 +648,7 @@ export default async function SpecialtyPage({
       {/* Procedures Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-[#6682a3] mb-8 text-center">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-[#2853aa] mb-8 text-center">
             Services & Procedures
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
@@ -677,7 +677,7 @@ export default async function SpecialtyPage({
               <div className={`w-16 h-16 rounded-full ${specialty.color} flex items-center justify-center mx-auto mb-6`}>
                 <IconComponent className="h-8 w-8" />
               </div>
-              <h2 className="font-display text-2xl font-bold text-[#6682a3] mb-4">
+              <h2 className="font-display text-2xl font-bold text-[#2853aa] mb-4">
                 {specialty.name} Services
               </h2>
               <p className="text-gray-600 mb-8">
@@ -698,7 +698,7 @@ export default async function SpecialtyPage({
       )}
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-[#6682a3] to-[#4a6382]">
+      <section className="py-20 bg-gradient-to-br from-[#2853aa] to-[#1e3f7d]">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to Get Expert {specialty.name} Care?

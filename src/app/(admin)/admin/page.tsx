@@ -118,7 +118,7 @@ export default function AdminDashboardPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-[#6682a3]">Dashboard</h1>
+          <h1 className="text-2xl font-bold text-[#2853aa]">Dashboard</h1>
           <p className="text-muted-foreground">
             Welcome back! Here&apos;s what&apos;s happening today.
           </p>
@@ -137,8 +137,8 @@ export default function AdminDashboardPage() {
           <Card key={stat.title}>
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
-                <div className="w-12 h-12 bg-[#6682a3]/10 rounded-xl flex items-center justify-center">
-                  <stat.icon className="h-6 w-6 text-[#6682a3]" />
+                <div className="w-12 h-12 bg-[#2853aa]/10 rounded-xl flex items-center justify-center">
+                  <stat.icon className="h-6 w-6 text-[#2853aa]" />
                 </div>
                 <Badge
                   variant={stat.trend === "up" ? "success" : "destructive"}
@@ -153,7 +153,7 @@ export default function AdminDashboardPage() {
                 </Badge>
               </div>
               <div className="mt-4">
-                <p className="text-2xl font-bold text-[#6682a3]">{stat.value}</p>
+                <p className="text-2xl font-bold text-[#2853aa]">{stat.value}</p>
                 <p className="text-sm text-muted-foreground">{stat.title}</p>
               </div>
             </CardContent>
@@ -186,7 +186,7 @@ export default function AdminDashboardPage() {
                   >
                     <div className="flex items-center gap-4">
                       <Avatar className="h-10 w-10">
-                        <AvatarFallback className="bg-[#6682a3] text-white">
+                        <AvatarFallback className="bg-[#2853aa] text-white">
                           {appointment.patient.split(" ").map(n => n[0]).join("")}
                         </AvatarFallback>
                       </Avatar>

@@ -639,7 +639,7 @@ function DoctorsContent() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-[#6682a3] to-[#4a6382]">
+      <section className="relative py-20 bg-gradient-to-br from-[#2853aa] to-[#1e3f7d]">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
             <span className="text-[#f4b942] font-semibold text-sm uppercase tracking-wider">
@@ -706,7 +706,7 @@ function DoctorsContent() {
                     <Badge variant="gold" className="mb-2">
                       {doctor.specialty}
                     </Badge>
-                    <h3 className="font-semibold text-lg text-[#6682a3]">
+                    <h3 className="font-semibold text-lg text-[#2853aa]">
                       <Link
                         href={`/doctors/${doctor.slug}`}
                         className="hover:text-[#f4b942] transition-colors"
@@ -768,7 +768,7 @@ function DoctorsContent() {
       {/* CTA */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-[#6682a3] mb-6">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-[#2853aa] mb-6">
             Can&apos;t Find the Right Doctor?
           </h2>
           <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
@@ -796,7 +796,7 @@ export default function DoctorsPage() {
     <Suspense fallback={
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#6682a3] mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#2853aa] mx-auto mb-4"></div>
           <p className="text-gray-500">Loading doctors...</p>
         </div>
       </div>

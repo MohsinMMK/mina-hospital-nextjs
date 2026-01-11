@@ -18,7 +18,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-[#6682a3] to-[#4a6382]">
+      <section className="relative py-20 bg-gradient-to-br from-[#2853aa] to-[#1e3f7d]">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
             <span className="text-[#f4b942] font-semibold text-sm uppercase tracking-wider">
@@ -44,11 +44,11 @@ export default function ContactPage() {
               <Card>
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#6682a3]/10 rounded-xl flex items-center justify-center shrink-0">
-                      <Phone className="h-6 w-6 text-[#6682a3]" />
+                    <div className="w-12 h-12 bg-[#2853aa]/10 rounded-xl flex items-center justify-center shrink-0">
+                      <Phone className="h-6 w-6 text-[#2853aa]" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-[#6682a3] mb-1">Phone</h3>
+                      <h3 className="font-semibold text-[#2853aa] mb-1">Phone</h3>
                       <a
                         href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
                         className="text-gray-600 hover:text-[#f4b942] transition-colors"
@@ -88,11 +88,11 @@ export default function ContactPage() {
               <Card>
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#6682a3]/10 rounded-xl flex items-center justify-center shrink-0">
-                      <Mail className="h-6 w-6 text-[#6682a3]" />
+                    <div className="w-12 h-12 bg-[#2853aa]/10 rounded-xl flex items-center justify-center shrink-0">
+                      <Mail className="h-6 w-6 text-[#2853aa]" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-[#6682a3] mb-1">Email</h3>
+                      <h3 className="font-semibold text-[#2853aa] mb-1">Email</h3>
                       <a
                         href={`mailto:${siteConfig.contact.email}`}
                         className="text-gray-600 hover:text-[#f4b942] transition-colors"
@@ -134,11 +134,11 @@ export default function ContactPage() {
               <Card>
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#6682a3]/10 rounded-xl flex items-center justify-center shrink-0">
-                      <Clock className="h-6 w-6 text-[#6682a3]" />
+                    <div className="w-12 h-12 bg-[#2853aa]/10 rounded-xl flex items-center justify-center shrink-0">
+                      <Clock className="h-6 w-6 text-[#2853aa]" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-[#6682a3] mb-1">Working Hours</h3>
+                      <h3 className="font-semibold text-[#2853aa] mb-1">Working Hours</h3>
                       <p className="text-gray-600">OPD: {siteConfig.workingHours.opd}</p>
                       <p className="text-gray-600">Emergency: {siteConfig.workingHours.emergency}</p>
                       <p className="text-gray-600">Pharmacy: {siteConfig.workingHours.pharmacy}</p>
@@ -152,7 +152,7 @@ export default function ContactPage() {
             <div className="lg:col-span-2">
               <Card>
                 <CardContent className="p-8">
-                  <h2 className="font-display text-2xl font-bold text-[#6682a3] mb-2">
+                  <h2 className="font-display text-2xl font-bold text-[#2853aa] mb-2">
                     Send Us a Message
                   </h2>
                   <p className="text-gray-600 mb-6">
@@ -210,7 +210,7 @@ export default function ContactPage() {
             <span className="text-[#f4b942] font-semibold text-sm uppercase tracking-wider">
               Our Locations
             </span>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#6682a3] mt-3 mb-4">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#2853aa] mt-3 mb-4">
               Visit Us
             </h2>
             <p className="text-gray-600 text-lg">
@@ -232,7 +232,7 @@ export default function ContactPage() {
                   />
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="font-semibold text-xl text-[#6682a3] mb-3">
+                  <h3 className="font-semibold text-xl text-[#2853aa] mb-3">
                     {location.name}
                   </h3>
                   <div className="space-y-2 text-gray-600">
@@ -246,7 +246,7 @@ export default function ContactPage() {
                       <Phone className="h-5 w-5 text-[#f4b942] shrink-0" />
                       <a
                         href={`tel:${location.phone.replace(/\s/g, "")}`}
-                        className="hover:text-[#6682a3]"
+                        className="hover:text-[#2853aa]"
                       >
                         {location.phone}
                       </a>

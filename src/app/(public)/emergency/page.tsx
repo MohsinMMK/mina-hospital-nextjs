@@ -109,7 +109,7 @@ export default function EmergencyPage() {
                 <span className="text-[#f4b942] font-semibold text-sm uppercase tracking-wider">
                   24/7 Emergency Care
                 </span>
-                <h2 className="font-display text-3xl md:text-4xl font-bold text-[#6682a3] mt-3 mb-6">
+                <h2 className="font-display text-3xl md:text-4xl font-bold text-[#2853aa] mt-3 mb-6">
                   Round-the-Clock Emergency Services
                 </h2>
                 <p className="text-gray-600 text-lg mb-6">
@@ -118,15 +118,15 @@ export default function EmergencyPage() {
                   staff who are trained to handle all types of medical emergencies.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <div className="flex items-center gap-2 text-[#6682a3]">
+                  <div className="flex items-center gap-2 text-[#2853aa]">
                     <Clock className="h-5 w-5 text-[#f4b942]" />
                     <span className="font-medium">24/7 Availability</span>
                   </div>
-                  <div className="flex items-center gap-2 text-[#6682a3]">
+                  <div className="flex items-center gap-2 text-[#2853aa]">
                     <Ambulance className="h-5 w-5 text-[#f4b942]" />
                     <span className="font-medium">Ambulance Service</span>
                   </div>
-                  <div className="flex items-center gap-2 text-[#6682a3]">
+                  <div className="flex items-center gap-2 text-[#2853aa]">
                     <Heart className="h-5 w-5 text-[#f4b942]" />
                     <span className="font-medium">ICU Backup</span>
                   </div>
@@ -135,7 +135,7 @@ export default function EmergencyPage() {
 
               {/* Emergency Services */}
               <div>
-                <h3 className="font-display text-2xl font-bold text-[#6682a3] mb-6">
+                <h3 className="font-display text-2xl font-bold text-[#2853aa] mb-6">
                   Emergency Services We Offer
                 </h3>
                 <div className="grid sm:grid-cols-2 gap-4">
@@ -147,7 +147,7 @@ export default function EmergencyPage() {
                             <service.icon className="h-6 w-6 text-red-600" />
                           </div>
                           <div>
-                            <h4 className="font-semibold text-[#6682a3] mb-1">
+                            <h4 className="font-semibold text-[#2853aa] mb-1">
                               {service.title}
                             </h4>
                             <p className="text-sm text-gray-600">{service.description}</p>
@@ -161,7 +161,7 @@ export default function EmergencyPage() {
 
               {/* When to Visit */}
               <div>
-                <h3 className="font-display text-2xl font-bold text-[#6682a3] mb-6">
+                <h3 className="font-display text-2xl font-bold text-[#2853aa] mb-6">
                   When to Visit Emergency?
                 </h3>
                 <Card className="border-red-200 bg-red-50/50">
@@ -207,13 +207,13 @@ export default function EmergencyPage() {
               {/* Locations */}
               <Card>
                 <CardContent className="p-6">
-                  <h3 className="font-semibold text-[#6682a3] mb-4">
+                  <h3 className="font-semibold text-[#2853aa] mb-4">
                     Emergency Locations
                   </h3>
                   <div className="space-y-4">
                     {siteConfig.locations.map((location) => (
                       <div key={location.name} className="border-b pb-4 last:border-0 last:pb-0">
-                        <h4 className="font-medium text-[#6682a3]">{location.name}</h4>
+                        <h4 className="font-medium text-[#2853aa]">{location.name}</h4>
                         <div className="flex items-start gap-2 text-sm text-gray-600 mt-1">
                           <MapPin className="h-4 w-4 shrink-0 mt-0.5" />
                           <span>{location.address}, {location.city}</span>
@@ -245,7 +245,7 @@ export default function EmergencyPage() {
               {/* Quick Links */}
               <Card>
                 <CardContent className="p-6">
-                  <h3 className="font-semibold text-[#6682a3] mb-4">Quick Links</h3>
+                  <h3 className="font-semibold text-[#2853aa] mb-4">Quick Links</h3>
                   <div className="space-y-2">
                     <Button variant="ghost" className="w-full justify-start" asChild>
                       <Link href="/doctors">Find a Doctor</Link>

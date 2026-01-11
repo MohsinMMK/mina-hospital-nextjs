@@ -43,7 +43,7 @@ const patientResources = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#6682a3] text-white">
+    <footer className="bg-[#2853aa] text-white">
       {/* Emergency Banner */}
       <div className="bg-red-600 py-3">
         <div className="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
@@ -65,7 +65,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
-                <span className="text-[#6682a3] font-bold text-2xl">M</span>
+                <span className="text-[#2853aa] font-bold text-2xl">M</span>
               </div>
               <div>
                 <h3 className="font-display text-xl font-bold">MINA Hospitals</h3>
@@ -164,7 +164,7 @@ export function Footer() {
                 href={location.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-start gap-3 p-4 bg-[#4a6382] rounded-lg hover:bg-[#001a33] transition-colors group"
+                className="flex items-start gap-3 p-4 bg-[#1e3f7d] rounded-lg hover:bg-[#001a33] transition-colors group"
               >
                 <MapPin className="h-5 w-5 text-[#f4b942] mt-1 group-hover:scale-110 transition-transform" />
                 <div>
@@ -188,7 +188,7 @@ export function Footer() {
                 href={siteConfig.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-[#4a6382] rounded-full flex items-center justify-center hover:bg-[#f4b942] transition-colors"
+                className="w-10 h-10 bg-[#1e3f7d] rounded-full flex items-center justify-center hover:bg-[#f4b942] transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5" />
@@ -197,7 +197,7 @@ export function Footer() {
                 href={siteConfig.social.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-[#4a6382] rounded-full flex items-center justify-center hover:bg-[#f4b942] transition-colors"
+                className="w-10 h-10 bg-[#1e3f7d] rounded-full flex items-center justify-center hover:bg-[#f4b942] transition-colors"
                 aria-label="Twitter"
               >
                 <Twitter className="h-5 w-5" />
@@ -206,7 +206,7 @@ export function Footer() {
                 href={siteConfig.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-[#4a6382] rounded-full flex items-center justify-center hover:bg-[#f4b942] transition-colors"
+                className="w-10 h-10 bg-[#1e3f7d] rounded-full flex items-center justify-center hover:bg-[#f4b942] transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
@@ -215,7 +215,7 @@ export function Footer() {
                 href={siteConfig.social.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-[#4a6382] rounded-full flex items-center justify-center hover:bg-[#f4b942] transition-colors"
+                className="w-10 h-10 bg-[#1e3f7d] rounded-full flex items-center justify-center hover:bg-[#f4b942] transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
@@ -224,7 +224,7 @@ export function Footer() {
                 href={siteConfig.social.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-[#4a6382] rounded-full flex items-center justify-center hover:bg-[#f4b942] transition-colors"
+                className="w-10 h-10 bg-[#1e3f7d] rounded-full flex items-center justify-center hover:bg-[#f4b942] transition-colors"
                 aria-label="YouTube"
               >
                 <Youtube className="h-5 w-5" />
