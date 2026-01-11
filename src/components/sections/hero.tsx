@@ -6,6 +6,8 @@ import { Phone, Calendar, Clock, Shield, Award, Users } from "lucide-react"
 import { motion } from "framer-motion"
 
 import { Button } from "@/components/ui/button"
+import { AnimatedBackground } from "@/components/ui/animated-blur-blob-background"
+import { GlassCard, GlassCardHeader, GlassCardTitle, GlassCardDescription, GlassCardContent, GlassCardFooter } from "@/components/ui/glass-card"
 import { siteConfig } from "@/config/site"
 
 const trustIndicators = [
@@ -17,7 +19,7 @@ const trustIndicators = [
 export function Hero() {
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-      {/* Background Image with Overlay */}
+      {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
           src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80"
@@ -26,8 +28,19 @@ export function Hero() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#2853aa]/95 via-[#2853aa]/80 to-[#2853aa]/60" />
+        {/* Glassmorphism overlay instead of gradient */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(135deg, rgba(40, 83, 170, 0.7) 0%, rgba(40, 83, 170, 0.4) 50%, rgba(40, 83, 170, 0.3) 100%)',
+            backdropFilter: 'blur(8px)',
+            WebkitBackdropFilter: 'blur(8px)',
+          }}
+        />
       </div>
+      
+      {/* Animated Blur Blobs - On top of glass, behind content */}
+      <AnimatedBackground className="z-[5]" />
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
@@ -111,48 +124,52 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="hidden lg:block"
           >
-            <div className="glass-panel rounded-2xl p-8 max-w-md ml-auto">
-              <h3 className="font-display text-2xl font-bold text-[#2853aa] mb-2">
-                Quick Appointment
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Book your appointment in just a few clicks
-              </p>
+            <GlassCard className="max-w-md ml-auto p-2">
+              <GlassCardHeader>
+                <GlassCardTitle className="font-display text-2xl">
+                  Quick Appointment
+                </GlassCardTitle>
+                <GlassCardDescription>
+                  Book your appointment in just a few clicks
+                </GlassCardDescription>
+              </GlassCardHeader>
 
-              <div className="space-y-4">
-                <div className="flex items-center gap-3 p-4 bg-[#2853aa]/5 rounded-lg">
-                  <Clock className="h-5 w-5 text-[#2853aa]" />
+              <GlassCardContent className="space-y-4">
+                <div className="flex items-center gap-3 p-4 bg-white/10 rounded-lg backdrop-blur-sm">
+                  <Clock className="h-5 w-5 text-[#f4b942]" />
                   <div>
-                    <p className="font-medium text-[#2853aa]">OPD Timings</p>
-                    <p className="text-sm text-gray-600">{siteConfig.workingHours.opd}</p>
+                    <p className="font-medium text-white">OPD Timings</p>
+                    <p className="text-sm text-white/70">{siteConfig.workingHours.opd}</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 p-4 bg-red-50 rounded-lg">
-                  <Phone className="h-5 w-5 text-red-600" />
+                <div className="flex items-center gap-3 p-4 bg-red-500/20 rounded-lg backdrop-blur-sm">
+                  <Phone className="h-5 w-5 text-red-300" />
                   <div>
-                    <p className="font-medium text-red-600">Emergency</p>
-                    <p className="text-sm text-gray-600">{siteConfig.workingHours.emergency}</p>
+                    <p className="font-medium text-red-200">Emergency</p>
+                    <p className="text-sm text-white/70">{siteConfig.workingHours.emergency}</p>
                   </div>
                 </div>
+              </GlassCardContent>
 
-                <Button className="w-full" size="lg" asChild>
+              <GlassCardFooter className="flex-col gap-3">
+                <Button className="w-full" variant="gold" size="lg" asChild>
                   <Link href="/book-appointment">
                     Book Appointment Now
                   </Link>
                 </Button>
 
-                <p className="text-center text-sm text-gray-500">
+                <p className="text-center text-sm text-white/70">
                   Or call us at{" "}
                   <a
                     href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
-                    className="text-[#2853aa] font-medium hover:underline"
+                    className="text-[#f4b942] font-medium hover:underline"
                   >
                     {siteConfig.contact.phone}
                   </a>
                 </p>
-              </div>
-            </div>
+              </GlassCardFooter>
+            </GlassCard>
           </motion.div>
         </div>
       </div>
