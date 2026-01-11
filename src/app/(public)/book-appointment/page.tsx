@@ -611,7 +611,7 @@ function BookAppointmentContent() {
 
             {/* Doctors Grid */}
             {filteredDoctors.length > 0 ? (
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-h-[500px] overflow-y-auto pr-2">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-h-[calc(100vh-400px)] sm:max-h-[500px] overflow-y-auto pr-2 pb-20 sm:pb-0">
                 {filteredDoctors.map((doc) => (
                   <Card
                     key={doc.id}
@@ -665,12 +665,13 @@ function BookAppointmentContent() {
               </div>
             )}
 
-            <div className="mt-8 flex justify-center">
+            {/* Continue Button - Sticky on mobile */}
+            <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t shadow-lg sm:relative sm:bottom-auto sm:left-auto sm:right-auto sm:p-0 sm:bg-transparent sm:border-0 sm:shadow-none sm:mt-8 flex justify-center z-50">
               <Button
                 size="lg"
                 onClick={() => setStep(2)}
                 disabled={!selectedDoctor}
-                className="min-w-[200px]"
+                className="w-full sm:w-auto sm:min-w-[200px]"
               >
                 Continue
                 <ArrowRight className="ml-2 h-4 w-4" />
