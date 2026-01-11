@@ -165,34 +165,19 @@ export function Header() {
                   <SheetTitle className="text-left">Menu</SheetTitle>
                   <div className="flex flex-col gap-4 mt-8">
                     {navigation.map((item) => (
-                      <div key={item.name}>
-                        <Link
-                          href={item.href}
-                          onClick={() => setIsOpen(false)}
-                          className={cn(
-                            "block py-2 text-lg font-medium transition-colors",
-                            pathname === item.href
-                              ? "text-[#003366]"
-                              : "text-gray-700 hover:text-[#003366]"
-                          )}
-                        >
-                          {item.name}
-                        </Link>
-                        {item.children && (
-                          <div className="ml-4 mt-2 space-y-2">
-                            {item.children.map((child) => (
-                              <Link
-                                key={child.name}
-                                href={child.href}
-                                onClick={() => setIsOpen(false)}
-                                className="block py-1 text-sm text-gray-600 hover:text-[#003366]"
-                              >
-                                {child.name}
-                              </Link>
-                            ))}
-                          </div>
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        onClick={() => setIsOpen(false)}
+                        className={cn(
+                          "block py-2 text-lg font-medium transition-colors",
+                          pathname === item.href
+                            ? "text-[#003366]"
+                            : "text-gray-700 hover:text-[#003366]"
                         )}
-                      </div>
+                      >
+                        {item.name}
+                      </Link>
                     ))}
                     <div className="pt-4 border-t space-y-3">
                       <Button className="w-full" asChild>
