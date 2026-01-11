@@ -10,23 +10,23 @@
   --popover-foreground: 215 28% 25%;
   --primary: 215 28% 52%; /* Sapphire #6682a3 */
   --primary-foreground: 40 17% 97%;
-  --secondary: 192 30% 33%; /* Teal accent #3a5f6f */
-  --secondary-foreground: 40 17% 97%;
+  --secondary: 41 90% 61%; /* Golden amber #f4b942 */
+  --secondary-foreground: 215 30% 20%;
   --muted: 40 12% 88%;
   --muted-foreground: 215 15% 45%;
-  --accent: 192 30% 33%; /* Teal accent #3a5f6f */
-  --accent-foreground: 40 17% 97%;
+  --accent: 41 90% 61%; /* Golden amber #f4b942 */
+  --accent-foreground: 215 30% 20%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 210 40% 98%;
   --border: 40 15% 85%;
   --input: 40 15% 85%;
   --ring: 215 28% 52%; /* Sapphire */
   --radius: 0.75rem;
-  --chart-1: 192 30% 33%;
+  --chart-1: 41 90% 61%;
   --chart-2: 215 28% 52%;
   --chart-3: 215 30% 40%;
   --chart-4: 40 30% 70%;
-  --chart-5: 192 35% 45%;
+  --chart-5: 41 85% 50%;
 }
 
 .dark {
@@ -38,11 +38,11 @@
   --popover-foreground: 40 17% 93%;
   --primary: 215 28% 60%;
   --primary-foreground: 215 30% 15%;
-  --secondary: 192 30% 40%;
-  --secondary-foreground: 40 17% 97%;
+  --secondary: 41 85% 50%;
+  --secondary-foreground: 215 30% 15%;
   --muted: 215 25% 25%;
   --muted-foreground: 215 15% 65%;
-  --accent: 192 30% 40%;
+  --accent: 41 85% 50%;
   --accent-foreground: 40 17% 97%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 210 40% 98%;
@@ -80,8 +80,8 @@
   --color-primary-deep: #6682a3; /* Sapphire */
   --color-primary-dark: #4a6382; /* Darker Sapphire */
   --color-primary-light: #f0eee9; /* Cloud Dancer */
-  --color-gold: #3a5f6f; /* Teal accent */
-  --color-gold-light: #e8f0f2; /* Light teal */
+  --color-gold: #f4b942; /* Golden amber accent */
+  --color-gold-light: #fef3dc; /* Light amber */
   --color-emergency: #dc2626;
 
   /* Fonts */

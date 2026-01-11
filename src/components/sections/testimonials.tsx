@@ -66,7 +66,7 @@ export function Testimonials() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-[#3a5f6f] font-semibold text-sm uppercase tracking-wider"
+            className="text-[#f4b942] font-semibold text-sm uppercase tracking-wider"
           >
             Testimonials
           </motion.span>
@@ -100,7 +100,7 @@ export function Testimonials() {
               transition={{ duration: 0.3 }}
               className="bg-white rounded-2xl shadow-lg p-8 md:p-12"
             >
-              <Quote className="h-12 w-12 text-[#3a5f6f]/20 mb-6" />
+              <Quote className="h-12 w-12 text-[#f4b942]/20 mb-6" />
 
               <p className="text-gray-700 text-lg md:text-xl leading-relaxed mb-8">
                 &ldquo;{testimonials[current].text}&rdquo;

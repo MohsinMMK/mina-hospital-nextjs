@@ -78,7 +78,7 @@ function Sidebar({ className }: { className?: string }) {
         <div className="flex items-center gap-3 px-4 py-3">
           <Avatar>
             <AvatarImage src="/placeholder-avatar.jpg" />
-            <AvatarFallback className="bg-[#3a5f6f] text-white">AD</AvatarFallback>
+            <AvatarFallback className="bg-[#f4b942] text-white">AD</AvatarFallback>
           </Avatar>
           <div className="flex-1 min-w-0">
             <p className="font-medium text-sm truncate">Admin User</p>

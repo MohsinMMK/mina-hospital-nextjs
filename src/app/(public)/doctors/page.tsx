@@ -2,13 +2,13 @@
 
 import { useState, useMemo, useEffect, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
-import Image from "next/image"
 import Link from "next/link"
 import { Calendar, Star, User, Briefcase, Globe } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { DoctorImage } from "@/components/ui/doctor-image"
 import { FilterBar, FilterConfig } from "@/components/shared/filter-bar"
 import { siteConfig } from "@/config/site"
 
@@ -642,7 +642,7 @@ function DoctorsContent() {
       <section className="relative py-20 bg-gradient-to-br from-[#6682a3] to-[#4a6382]">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <span className="text-[#3a5f6f] font-semibold text-sm uppercase tracking-wider">
+            <span className="text-[#f4b942] font-semibold text-sm uppercase tracking-wider">
               Our Team
             </span>
             <h1 className="font-display text-4xl md:text-5xl font-bold text-white mt-3 mb-6">
@@ -681,10 +681,9 @@ function DoctorsContent() {
               {filteredDoctors.map((doctor) => (
                 <Card key={doctor.id} className="overflow-hidden group hover:shadow-lg transition-shadow">
                   <div className="relative aspect-square overflow-hidden">
-                    <Image
+                    <DoctorImage
                       src={doctor.image}
                       alt={doctor.name}
-                      fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     {!doctor.available && (
@@ -710,7 +709,7 @@ function DoctorsContent() {
                     <h3 className="font-semibold text-lg text-[#6682a3]">
                       <Link
                         href={`/doctors/${doctor.slug}`}
-                        className="hover:text-[#3a5f6f] transition-colors"
+                        className="hover:text-[#f4b942] transition-colors"
                       >
                         {doctor.name}
                       </Link>

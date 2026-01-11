@@ -44,7 +44,7 @@ export function Hero() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 bg-[#3a5f6f]/20 border border-[#3a5f6f]/30 rounded-full px-4 py-2 mb-6"
+              className="inline-flex items-center gap-2 bg-[#f4b942]/20 border border-[#f4b942]/30 rounded-full px-4 py-2 mb-6"
             >
               <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
               <span className="text-sm font-medium">24/7 Emergency Services Available</span>
@@ -53,7 +53,7 @@ export function Hero() {
             {/* Headline */}
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               Your Health,{" "}
-              <span className="text-[#3a5f6f]">Our Priority</span>
+              <span className="text-[#f4b942]">Our Priority</span>
             </h1>
 
             <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-xl">
@@ -93,7 +93,7 @@ export function Hero() {
                   className="flex items-center gap-3"
                 >
                   <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center">
-                    <item.icon className="h-6 w-6 text-[#3a5f6f]" />
+                    <item.icon className="h-6 w-6 text-[#f4b942]" />
                   </div>
                   <div>
                     <p className="font-bold text-lg">{item.value}</p>

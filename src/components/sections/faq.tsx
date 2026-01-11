@@ -65,7 +65,7 @@ export function FAQ() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-[#3a5f6f] font-semibold text-sm uppercase tracking-wider"
+              className="text-[#f4b942] font-semibold text-sm uppercase tracking-wider"
             >
               FAQ
             </motion.span>
@@ -113,7 +113,7 @@ export function FAQ() {
                   value={`item-${index}`}
                   className="bg-white rounded-lg border px-6 data-[state=open]:shadow-md transition-shadow"
                 >
-                  <AccordionTrigger className="text-left text-[#6682a3] hover:text-[#3a5f6f] hover:no-underline py-5">
+                  <AccordionTrigger className="text-left text-[#6682a3] hover:text-[#f4b942] hover:no-underline py-5">
                     {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-gray-600 pb-5">

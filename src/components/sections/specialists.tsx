@@ -1,13 +1,13 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
 import { Calendar, ArrowRight, Star } from "lucide-react"
 import { motion } from "framer-motion"
 
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { DoctorImage } from "@/components/ui/doctor-image"
 
 // Sample data - In production, this would come from Supabase
 const doctors = [
@@ -68,7 +68,7 @@ export function Specialists() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-[#3a5f6f] font-semibold text-sm uppercase tracking-wider"
+              className="text-[#f4b942] font-semibold text-sm uppercase tracking-wider"
             >
               Our Team
             </motion.span>
@@ -117,10 +117,9 @@ export function Specialists() {
             >
               <Card className="overflow-hidden group hover:shadow-lg transition-shadow duration-300">
                 <div className="relative aspect-square overflow-hidden">
-                  <Image
+                  <DoctorImage
                     src={doctor.image}
                     alt={doctor.name}
-                    fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -138,7 +137,7 @@ export function Specialists() {
                     {doctor.specialty}
                   </Badge>
                   <h3 className="font-semibold text-lg text-[#6682a3]">
-                    <Link href={`/doctors/${doctor.slug}`} className="hover:text-[#3a5f6f] transition-colors">
+                    <Link href={`/doctors/${doctor.slug}`} className="hover:text-[#f4b942] transition-colors">
                       {doctor.name}
                     </Link>
                   </h3>

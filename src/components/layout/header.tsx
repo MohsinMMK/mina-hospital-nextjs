@@ -53,7 +53,7 @@ export function Header() {
           <div className="flex items-center gap-6">
             <a
               href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
-              className="flex items-center gap-2 hover:text-[#3a5f6f] transition-colors"
+              className="flex items-center gap-2 hover:text-[#f4b942] transition-colors"
             >
               <Phone className="h-4 w-4" />
               <span>{siteConfig.contact.phone}</span>
@@ -71,7 +71,7 @@ export function Header() {
             <Link href="/emergency" className="text-red-400 font-semibold hover:text-red-300 animate-pulse">
               Emergency Services
             </Link>
-            <Link href="/login" className="hover:text-[#3a5f6f] transition-colors">
+            <Link href="/login" className="hover:text-[#f4b942] transition-colors">
               Patient Portal
             </Link>
           </div>

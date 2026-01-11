@@ -101,7 +101,7 @@ export function ServicesOverview() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-[#3a5f6f] font-semibold text-sm uppercase tracking-wider"
+            className="text-[#f4b942] font-semibold text-sm uppercase tracking-wider"
           >
             Our Specialities
           </motion.span>
@@ -143,7 +143,7 @@ export function ServicesOverview() {
                     >
                       <service.icon className="h-7 w-7" />
                     </div>
-                    <h3 className="font-semibold text-lg text-[#6682a3] mb-2 group-hover:text-[#3a5f6f] transition-colors">
+                    <h3 className="font-semibold text-lg text-[#6682a3] mb-2 group-hover:text-[#f4b942] transition-colors">
                       {service.name}
                     </h3>
                     <p className="text-gray-600 text-sm mb-4">
