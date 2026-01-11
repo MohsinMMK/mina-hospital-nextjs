@@ -2,10 +2,10 @@
 
 import { useState, useEffect, Suspense, useMemo } from "react"
 import { useSearchParams } from "next/navigation"
-import Image from "next/image"
 import { Calendar as CalendarIcon, Clock, User, Phone, Mail, CheckCircle, ArrowLeft, ArrowRight, Star, Globe, Search, X, Briefcase } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
+import { DoctorImage } from "@/components/ui/doctor-image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -57,7 +57,7 @@ const doctors = [
     qualification: 'Senior Pulmonologist',
     experience: 45,
     rating: 4.9,
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC5JCV2XTMxm8Rx_PGkTbHYdIBZhEPcYtf7CFYnsC__9ZGHWqy_ySAmBwBtq5dUUoE5qrJSwPDWJv0TCr_Pyq3AFqxo65aQOuCe_9RernpNjdnEUxfkTUDFA-mqSXzVXmNAOXxeI2LuiyKJfiD3qFktMhS0bes4ni4AEhcfwnhmdNp4va3sj3TnAlWroENwQ32gexb6HC_Q39I5So6_N3dXguEwD2acpd_idKKqJWspQtD2Wy1a22TqKnmT1ZOv60OHonUb10qUfpc',
+    image: '',
   },
   {
     id: 5,
@@ -66,7 +66,7 @@ const doctors = [
     qualification: 'Senior Pediatrician',
     experience: 47,
     rating: 4.8,
-    image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=300&h=350',
+    image: '',
   },
   {
     id: 6,
@@ -93,7 +93,7 @@ const doctors = [
     qualification: 'Eye Surgery Specialist',
     experience: 28,
     rating: 4.7,
-    image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=350',
+    image: '',
   },
   {
     id: 9,
@@ -102,7 +102,7 @@ const doctors = [
     qualification: 'MD Cardiology',
     experience: 12,
     rating: 4.7,
-    image: 'https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&q=80&w=300&h=350',
+    image: '',
   },
   {
     id: 10,
@@ -111,7 +111,7 @@ const doctors = [
     qualification: 'MBBS, DGO',
     experience: 18,
     rating: 4.8,
-    image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=300&h=350',
+    image: '',
   },
   {
     id: 11,
@@ -129,7 +129,7 @@ const doctors = [
     qualification: 'MS General Surgery',
     experience: 14,
     rating: 4.8,
-    image: 'https://images.unsplash.com/photo-1594824476969-513346381849?auto=format&fit=crop&q=80&w=300&h=350',
+    image: '',
   },
   {
     id: 13,
@@ -300,7 +300,7 @@ const doctors = [
     qualification: 'Pediatric Specialist',
     experience: 12,
     rating: 4.7,
-    image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=300&h=350',
+    image: '',
   },
   {
     id: 32,
@@ -309,7 +309,7 @@ const doctors = [
     qualification: 'Pulmonologist',
     experience: 11,
     rating: 4.8,
-    image: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=300&h=350',
+    image: '',
   },
   {
     id: 33,
@@ -318,7 +318,7 @@ const doctors = [
     qualification: 'ENT Surgeon',
     experience: 13,
     rating: 4.7,
-    image: 'https://images.unsplash.com/photo-1594824476969-513346381849?auto=format&fit=crop&q=80&w=300&h=350',
+    image: '',
   },
   {
     id: 34,
@@ -327,7 +327,7 @@ const doctors = [
     qualification: 'Cardiac Specialist',
     experience: 16,
     rating: 4.8,
-    image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=300&h=350',
+    image: '',
   },
   {
     id: 35,
@@ -336,7 +336,7 @@ const doctors = [
     qualification: 'Obs & Gynae Consultant',
     experience: 14,
     rating: 4.7,
-    image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=300&h=350',
+    image: '',
   },
   {
     id: 36,
@@ -345,7 +345,7 @@ const doctors = [
     qualification: 'Senior Pediatrician',
     experience: 19,
     rating: 4.9,
-    image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=300&h=350',
+    image: '',
   },
   {
     id: 37,
@@ -354,7 +354,7 @@ const doctors = [
     qualification: 'Obs & Gynae Expert',
     experience: 10,
     rating: 4.8,
-    image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=300&h=350',
+    image: '',
   },
   {
     id: 38,
@@ -363,7 +363,7 @@ const doctors = [
     qualification: 'Orthopedic Surgeon',
     experience: 12,
     rating: 4.8,
-    image: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=300&h=350',
+    image: '',
   },
   {
     id: 39,
@@ -372,7 +372,7 @@ const doctors = [
     qualification: 'MBBS, DPM, Psychiatry',
     experience: 24,
     rating: 4.9,
-    image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=300&h=350',
+    image: '',
   },
 ]
 
@@ -624,7 +624,7 @@ function BookAppointmentContent() {
                   >
                     <CardContent className="p-4">
                       <div className="flex items-center gap-3">
-                        <Image
+                        <DoctorImage
                           src={doc.image}
                           alt={doc.name}
                           width={48}
@@ -694,7 +694,7 @@ function BookAppointmentContent() {
                   >
                     <ArrowLeft className="h-5 w-5 text-gray-500" />
                   </button>
-                  <Image
+                  <DoctorImage
                     src={doctor.image}
                     alt={doctor.name}
                     width={56}
@@ -809,7 +809,7 @@ function BookAppointmentContent() {
               {/* Booking Summary */}
               <div className="bg-gray-50 rounded-lg p-4 mb-6">
                 <div className="flex items-center gap-4">
-                  <Image
+                  <DoctorImage
                     src={doctor.image}
                     alt={doctor.name}
                     width={48}
