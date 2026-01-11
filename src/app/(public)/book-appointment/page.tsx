@@ -229,12 +229,12 @@ export default function BookAppointmentPage() {
                       <p className="text-sm text-gray-500 mb-4">
                         Available time slots
                       </p>
-                      <div className="space-y-2 max-h-[400px] overflow-y-auto pr-2">
+                      <div className="grid grid-cols-3 gap-2 max-h-[400px] overflow-y-auto pr-2">
                         {timeSlots.map((time) => (
                           <button
                             key={time}
                             onClick={() => setSelectedTime(time)}
-                            className={`w-full py-3 px-4 text-sm font-medium rounded-md border transition-all ${
+                            className={`py-2 px-2 text-xs font-medium rounded-md border transition-all ${
                               selectedTime === time
                                 ? "bg-[#003366] text-white border-[#003366]"
                                 : "bg-white text-gray-900 border-gray-200 hover:border-[#003366]"
