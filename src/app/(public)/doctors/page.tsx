@@ -1,6 +1,7 @@
 "use client"
 
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect, Suspense } from "react"
+import { useSearchParams } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
 import { Calendar, Star, User, Briefcase, Globe } from "lucide-react"
@@ -534,13 +535,23 @@ const experienceRanges = [
   { value: "30+", label: "30+ years", min: 30, max: 100 },
 ]
 
-export default function DoctorsPage() {
+function DoctorsContent() {
+  const searchParams = useSearchParams()
+  const specialtyParam = searchParams.get("specialty")
+
   const [searchQuery, setSearchQuery] = useState("")
   const [filterValues, setFilterValues] = useState<Record<string, string>>({
     specialty: "all",
     experience: "all",
     language: "all",
   })
+
+  // Pre-set specialty filter from URL params (when coming from services page)
+  useEffect(() => {
+    if (specialtyParam && specialties.includes(specialtyParam)) {
+      setFilterValues(prev => ({ ...prev, specialty: specialtyParam }))
+    }
+  }, [specialtyParam])
 
   // Filter configurations
   const filterConfigs: FilterConfig[] = useMemo(() => [
@@ -778,5 +789,20 @@ export default function DoctorsPage() {
         </div>
       </section>
     </div>
+  )
+}
+
+export default function DoctorsPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#003366] mx-auto mb-4"></div>
+          <p className="text-gray-500">Loading doctors...</p>
+        </div>
+      </div>
+    }>
+      <DoctorsContent />
+    </Suspense>
   )
 }

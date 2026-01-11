@@ -39,6 +39,7 @@ const services = [
     icon: Heart,
     name: "Cardiology",
     category: "Specialty",
+    specialty: "Cardiology", // Maps to doctor specialty
     description: "Complete heart care including ECG, Echo, stress tests, angiography, and cardiac surgeries.",
     href: "/services/cardiology",
     features: ["ECG & Echo", "Angiography", "Pacemaker Implant", "Cardiac Rehab"],
@@ -47,6 +48,7 @@ const services = [
     icon: Bone,
     name: "Orthopedics",
     category: "Surgical",
+    specialty: "Orthopedics",
     description: "Expert bone, joint, and spine care with advanced surgical and non-surgical treatments.",
     href: "/services/orthopedics",
     features: ["Joint Replacement", "Spine Surgery", "Sports Medicine", "Fracture Care"],
@@ -55,6 +57,7 @@ const services = [
     icon: Baby,
     name: "Obstetrics & Gynecology",
     category: "Specialty",
+    specialty: "Obstetrics & Gynecology",
     description: "Complete women's healthcare from pregnancy care to menopause management.",
     href: "/services/obstetrics-gynecology",
     features: ["Prenatal Care", "Normal & C-Section Delivery", "Gynec Surgeries", "Infertility Treatment"],
@@ -63,6 +66,7 @@ const services = [
     icon: Brain,
     name: "Neurology",
     category: "Specialty",
+    specialty: "Neurosurgery", // Maps to Neurosurgery doctors
     description: "Specialized care for brain, spine, and nervous system disorders.",
     href: "/services/neurology",
     features: ["Stroke Care", "Epilepsy Treatment", "Headache Clinic", "Movement Disorders"],
@@ -71,6 +75,7 @@ const services = [
     icon: Stethoscope,
     name: "General Medicine",
     category: "Primary Care",
+    specialty: "General Medicine",
     description: "Primary healthcare and internal medicine for all age groups.",
     href: "/services/general-medicine",
     features: ["Health Checkups", "Diabetes Care", "Hypertension", "Infectious Diseases"],
@@ -79,6 +84,7 @@ const services = [
     icon: Syringe,
     name: "General Surgery",
     category: "Surgical",
+    specialty: "General Surgery",
     description: "Advanced surgical procedures using minimally invasive techniques.",
     href: "/services/general-surgery",
     features: ["Laparoscopic Surgery", "Hernia Repair", "Appendectomy", "Gallbladder Surgery"],
@@ -87,6 +93,7 @@ const services = [
     icon: Eye,
     name: "Ophthalmology",
     category: "Specialty",
+    specialty: "Ophthalmology",
     description: "Complete eye care including LASIK, cataract surgery, and retinal treatments.",
     href: "/services/ophthalmology",
     features: ["Cataract Surgery", "LASIK", "Glaucoma Treatment", "Retina Care"],
@@ -95,6 +102,7 @@ const services = [
     icon: Activity,
     name: "Emergency Care",
     category: "Emergency",
+    specialty: "Emergency Medicine",
     description: "24/7 emergency services with rapid response team and ICU backup.",
     href: "/emergency",
     features: ["24/7 Availability", "Trauma Care", "ICU Support", "Ambulance Service"],
@@ -103,6 +111,7 @@ const services = [
     icon: Microscope,
     name: "Pathology & Lab",
     category: "Diagnostic",
+    specialty: null, // No specific doctor specialty
     description: "State-of-the-art diagnostic laboratory with accurate and timely reports.",
     href: "/services/pathology",
     features: ["Blood Tests", "Histopathology", "Microbiology", "Biochemistry"],
@@ -111,6 +120,7 @@ const services = [
     icon: Scan,
     name: "Radiology",
     category: "Diagnostic",
+    specialty: null, // No specific doctor specialty
     description: "Advanced imaging services including CT, MRI, X-ray, and ultrasound.",
     href: "/services/radiology",
     features: ["CT Scan", "MRI", "Digital X-Ray", "Ultrasound"],
@@ -119,6 +129,7 @@ const services = [
     icon: Thermometer,
     name: "Pediatrics",
     category: "Primary Care",
+    specialty: "Pediatrics",
     description: "Specialized healthcare for infants, children, and adolescents.",
     href: "/services/pediatrics",
     features: ["Well Baby Clinic", "Vaccinations", "NICU", "Child Development"],
@@ -127,6 +138,7 @@ const services = [
     icon: Pill,
     name: "Gastroenterology",
     category: "Specialty",
+    specialty: "Gastroenterology",
     description: "Comprehensive digestive system care and advanced endoscopic procedures.",
     href: "/services/gastroenterology",
     features: ["Endoscopy", "Colonoscopy", "Liver Care", "ERCP"],
@@ -135,6 +147,7 @@ const services = [
     icon: Waves,
     name: "Nephrology",
     category: "Specialty",
+    specialty: "Nephrology",
     description: "Kidney disease management and dialysis services.",
     href: "/services/nephrology",
     features: ["Dialysis", "Kidney Transplant Support", "CKD Management", "Hypertension"],
@@ -143,6 +156,7 @@ const services = [
     icon: Ear,
     name: "ENT",
     category: "Specialty",
+    specialty: "ENT",
     description: "Expert care for ear, nose, throat, and head & neck conditions.",
     href: "/services/ent",
     features: ["Hearing Tests", "Sinus Surgery", "Tonsillectomy", "Voice Disorders"],
@@ -151,6 +165,7 @@ const services = [
     icon: ShieldCheck,
     name: "Dermatology",
     category: "Specialty",
+    specialty: "Dermatology",
     description: "Skin, hair, and nail care including cosmetic dermatology.",
     href: "/services/dermatology",
     features: ["Skin Diseases", "Hair Treatment", "Laser Therapy", "Cosmetic Procedures"],
@@ -159,6 +174,7 @@ const services = [
     icon: FlaskConical,
     name: "Pulmonology",
     category: "Specialty",
+    specialty: "Pulmonology",
     description: "Respiratory care including asthma, COPD, and sleep disorders.",
     href: "/services/pulmonology",
     features: ["Asthma Care", "COPD Management", "Sleep Study", "Bronchoscopy"],
@@ -316,8 +332,13 @@ export default function ServicesPage() {
           {filteredServices.length > 0 ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredServices.map((service) => (
-                <Link key={service.name} href={service.href}>
-                  <Card className="h-full hover:shadow-lg transition-shadow duration-300 group cursor-pointer">
+                <Link 
+                  key={service.name} 
+                  href={service.specialty 
+                    ? `/doctors?specialty=${encodeURIComponent(service.specialty)}` 
+                    : service.href
+                  }
+                >                  <Card className="h-full hover:shadow-lg transition-shadow duration-300 group cursor-pointer">
                     <CardContent className="p-6">
                       <div className="flex items-start justify-between mb-4">
                         <div className="w-14 h-14 bg-[#003366]/10 rounded-xl flex items-center justify-center group-hover:bg-[#003366] transition-colors">
