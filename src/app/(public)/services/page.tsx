@@ -219,10 +219,10 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-[#003366] to-[#002244]">
+      <section className="relative py-20 bg-gradient-to-br from-[#6682a3] to-[#4a6382]">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <span className="text-[#C78A3B] font-semibold text-sm uppercase tracking-wider">
+            <span className="text-[#c9826d] font-semibold text-sm uppercase tracking-wider">
               Our Services
             </span>
             <h1 className="font-display text-4xl md:text-5xl font-bold text-white mt-3 mb-6">
@@ -297,7 +297,7 @@ export default function ServicesPage() {
                   {selectedCategory !== "all" && (
                     <Badge
                       variant="secondary"
-                      className="bg-[#003366]/10 text-[#003366] hover:bg-[#003366]/20 cursor-pointer px-3 py-1.5"
+                      className="bg-[#6682a3]/10 text-[#6682a3] hover:bg-[#6682a3]/20 cursor-pointer px-3 py-1.5"
                       onClick={() => setSelectedCategory("all")}
                     >
                       <span className="font-medium">Category:</span>
@@ -308,7 +308,7 @@ export default function ServicesPage() {
                   {searchQuery && (
                     <Badge
                       variant="secondary"
-                      className="bg-[#003366]/10 text-[#003366] hover:bg-[#003366]/20 cursor-pointer px-3 py-1.5"
+                      className="bg-[#6682a3]/10 text-[#6682a3] hover:bg-[#6682a3]/20 cursor-pointer px-3 py-1.5"
                       onClick={() => setSearchQuery("")}
                     >
                       <span className="font-medium">Search:</span>
@@ -341,14 +341,14 @@ export default function ServicesPage() {
                 >                  <Card className="h-full hover:shadow-lg transition-shadow duration-300 group cursor-pointer">
                     <CardContent className="p-6">
                       <div className="flex items-start justify-between mb-4">
-                        <div className="w-14 h-14 bg-[#003366]/10 rounded-xl flex items-center justify-center group-hover:bg-[#003366] transition-colors">
-                          <service.icon className="h-7 w-7 text-[#003366] group-hover:text-white transition-colors" />
+                        <div className="w-14 h-14 bg-[#6682a3]/10 rounded-xl flex items-center justify-center group-hover:bg-[#6682a3] transition-colors">
+                          <service.icon className="h-7 w-7 text-[#6682a3] group-hover:text-white transition-colors" />
                         </div>
                         <Badge variant="outline" className="text-xs">
                           {service.category}
                         </Badge>
                       </div>
-                      <h3 className="font-semibold text-xl text-[#003366] mb-2 group-hover:text-[#C78A3B] transition-colors">
+                      <h3 className="font-semibold text-xl text-[#6682a3] mb-2 group-hover:text-[#c9826d] transition-colors">
                         {service.name}
                       </h3>
                       <p className="text-gray-600 text-sm mb-4">{service.description}</p>
@@ -385,7 +385,7 @@ export default function ServicesPage() {
       {/* CTA */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-[#003366] mb-6">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-[#6682a3] mb-6">
             Need Help Choosing a Service?
           </h2>
           <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">

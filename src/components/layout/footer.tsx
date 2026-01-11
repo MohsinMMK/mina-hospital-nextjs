@@ -43,7 +43,7 @@ const patientResources = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#003366] text-white">
+    <footer className="bg-[#6682a3] text-white">
       {/* Emergency Banner */}
       <div className="bg-red-600 py-3">
         <div className="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
@@ -65,7 +65,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
-                <span className="text-[#003366] font-bold text-2xl">M</span>
+                <span className="text-[#6682a3] font-bold text-2xl">M</span>
               </div>
               <div>
                 <h3 className="font-display text-xl font-bold">MINA Hospitals</h3>
@@ -80,14 +80,14 @@ export function Footer() {
             <div className="space-y-3">
               <a
                 href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
-                className="flex items-center gap-3 text-gray-300 hover:text-[#C78A3B] transition-colors"
+                className="flex items-center gap-3 text-gray-300 hover:text-[#c9826d] transition-colors"
               >
                 <Phone className="h-5 w-5" />
                 <span>{siteConfig.contact.phone}</span>
               </a>
               <a
                 href={`mailto:${siteConfig.contact.email}`}
-                className="flex items-center gap-3 text-gray-300 hover:text-[#C78A3B] transition-colors"
+                className="flex items-center gap-3 text-gray-300 hover:text-[#c9826d] transition-colors"
               >
                 <Mail className="h-5 w-5" />
                 <span>{siteConfig.contact.email}</span>
@@ -104,7 +104,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold text-lg mb-4 text-[#C78A3B]">Quick Links</h4>
+            <h4 className="font-semibold text-lg mb-4 text-[#c9826d]">Quick Links</h4>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
@@ -121,7 +121,7 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-semibold text-lg mb-4 text-[#C78A3B]">Our Services</h4>
+            <h4 className="font-semibold text-lg mb-4 text-[#c9826d]">Our Services</h4>
             <ul className="space-y-2">
               {services.map((service) => (
                 <li key={service.name}>
@@ -138,7 +138,7 @@ export function Footer() {
 
           {/* Patient Resources */}
           <div>
-            <h4 className="font-semibold text-lg mb-4 text-[#C78A3B]">Patient Resources</h4>
+            <h4 className="font-semibold text-lg mb-4 text-[#c9826d]">Patient Resources</h4>
             <ul className="space-y-2">
               {patientResources.map((resource) => (
                 <li key={resource.name}>
@@ -156,7 +156,7 @@ export function Footer() {
 
         {/* Locations */}
         <div className="mt-12 pt-8 border-t border-gray-700">
-          <h4 className="font-semibold text-lg mb-6 text-[#C78A3B]">Our Locations</h4>
+          <h4 className="font-semibold text-lg mb-6 text-[#c9826d]">Our Locations</h4>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {siteConfig.locations.map((location) => (
               <a
@@ -164,15 +164,15 @@ export function Footer() {
                 href={location.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-start gap-3 p-4 bg-[#002244] rounded-lg hover:bg-[#001a33] transition-colors group"
+                className="flex items-start gap-3 p-4 bg-[#4a6382] rounded-lg hover:bg-[#001a33] transition-colors group"
               >
-                <MapPin className="h-5 w-5 text-[#C78A3B] mt-1 group-hover:scale-110 transition-transform" />
+                <MapPin className="h-5 w-5 text-[#c9826d] mt-1 group-hover:scale-110 transition-transform" />
                 <div>
                   <h5 className="font-semibold">{location.name}</h5>
                   <p className="text-sm text-gray-300">
                     {location.address}, {location.city} - {location.pincode}
                   </p>
-                  <p className="text-sm text-[#C78A3B] mt-1">{location.phone}</p>
+                  <p className="text-sm text-[#c9826d] mt-1">{location.phone}</p>
                 </div>
               </a>
             ))}
@@ -188,7 +188,7 @@ export function Footer() {
                 href={siteConfig.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-[#002244] rounded-full flex items-center justify-center hover:bg-[#C78A3B] transition-colors"
+                className="w-10 h-10 bg-[#4a6382] rounded-full flex items-center justify-center hover:bg-[#c9826d] transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5" />
@@ -197,7 +197,7 @@ export function Footer() {
                 href={siteConfig.social.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-[#002244] rounded-full flex items-center justify-center hover:bg-[#C78A3B] transition-colors"
+                className="w-10 h-10 bg-[#4a6382] rounded-full flex items-center justify-center hover:bg-[#c9826d] transition-colors"
                 aria-label="Twitter"
               >
                 <Twitter className="h-5 w-5" />
@@ -206,7 +206,7 @@ export function Footer() {
                 href={siteConfig.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-[#002244] rounded-full flex items-center justify-center hover:bg-[#C78A3B] transition-colors"
+                className="w-10 h-10 bg-[#4a6382] rounded-full flex items-center justify-center hover:bg-[#c9826d] transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
@@ -215,7 +215,7 @@ export function Footer() {
                 href={siteConfig.social.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-[#002244] rounded-full flex items-center justify-center hover:bg-[#C78A3B] transition-colors"
+                className="w-10 h-10 bg-[#4a6382] rounded-full flex items-center justify-center hover:bg-[#c9826d] transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
@@ -224,7 +224,7 @@ export function Footer() {
                 href={siteConfig.social.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-[#002244] rounded-full flex items-center justify-center hover:bg-[#C78A3B] transition-colors"
+                className="w-10 h-10 bg-[#4a6382] rounded-full flex items-center justify-center hover:bg-[#c9826d] transition-colors"
                 aria-label="YouTube"
               >
                 <Youtube className="h-5 w-5" />

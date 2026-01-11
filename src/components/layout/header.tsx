@@ -48,12 +48,12 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full">
       {/* Top Bar */}
-      <div className="bg-[#003366] text-white py-2 text-sm hidden md:block">
+      <div className="bg-[#6682a3] text-white py-2 text-sm hidden md:block">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center gap-6">
             <a
               href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
-              className="flex items-center gap-2 hover:text-[#C78A3B] transition-colors"
+              className="flex items-center gap-2 hover:text-[#c9826d] transition-colors"
             >
               <Phone className="h-4 w-4" />
               <span>{siteConfig.contact.phone}</span>
@@ -71,7 +71,7 @@ export function Header() {
             <Link href="/emergency" className="text-red-400 font-semibold hover:text-red-300 animate-pulse">
               Emergency Services
             </Link>
-            <Link href="/login" className="hover:text-[#C78A3B] transition-colors">
+            <Link href="/login" className="hover:text-[#c9826d] transition-colors">
               Patient Portal
             </Link>
           </div>
@@ -89,11 +89,11 @@ export function Header() {
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-[#003366] rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-[#6682a3] rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xl">M</span>
               </div>
               <div>
-                <h1 className="font-display text-base sm:text-lg font-bold text-[#003366] leading-tight">
+                <h1 className="font-display text-base sm:text-lg font-bold text-[#6682a3] leading-tight">
                   MINA Hospitals
                 </h1>
                 <p className="text-xs text-muted-foreground hidden sm:block">
@@ -111,8 +111,8 @@ export function Header() {
                     className={cn(
                       "px-4 py-2 text-sm font-medium rounded-md transition-colors",
                       pathname === item.href
-                        ? "text-[#003366] bg-[#003366]/5"
-                        : "text-gray-700 hover:text-[#003366] hover:bg-[#003366]/5"
+                        ? "text-[#6682a3] bg-[#6682a3]/5"
+                        : "text-gray-700 hover:text-[#6682a3] hover:bg-[#6682a3]/5"
                     )}
                   >
                     {item.name}
@@ -124,7 +124,7 @@ export function Header() {
                           <Link
                             key={child.name}
                             href={child.href}
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#003366]/5 hover:text-[#003366]"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#6682a3]/5 hover:text-[#6682a3]"
                           >
                             {child.name}
                           </Link>
@@ -182,8 +182,8 @@ export function Header() {
                         className={cn(
                           "block py-2 text-lg font-medium transition-colors",
                           pathname === item.href
-                            ? "text-[#003366]"
-                            : "text-gray-700 hover:text-[#003366]"
+                            ? "text-[#6682a3]"
+                            : "text-gray-700 hover:text-[#6682a3]"
                         )}
                       >
                         {item.name}

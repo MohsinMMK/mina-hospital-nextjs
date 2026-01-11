@@ -23,11 +23,11 @@ export default function LoginPage() {
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
             <Link href="/" className="inline-flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-[#003366] rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 bg-[#6682a3] rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-2xl">M</span>
               </div>
               <div className="text-left">
-                <h1 className="font-display text-xl font-bold text-[#003366]">
+                <h1 className="font-display text-xl font-bold text-[#6682a3]">
                   MINA Hospitals
                 </h1>
                 <p className="text-xs text-muted-foreground">Patient Portal</p>
@@ -37,7 +37,7 @@ export default function LoginPage() {
 
           <Card className="border-0 shadow-lg">
             <CardHeader className="text-center">
-              <CardTitle className="text-2xl font-display text-[#003366]">
+              <CardTitle className="text-2xl font-display text-[#6682a3]">
                 Welcome Back
               </CardTitle>
               <CardDescription>
@@ -65,7 +65,7 @@ export default function LoginPage() {
                     <Label htmlFor="password">Password</Label>
                     <Link
                       href="/forgot-password"
-                      className="text-sm text-[#003366] hover:text-[#C78A3B] transition-colors"
+                      className="text-sm text-[#6682a3] hover:text-[#c9826d] transition-colors"
                     >
                       Forgot password?
                     </Link>
@@ -121,7 +121,7 @@ export default function LoginPage() {
                 Don&apos;t have an account?{" "}
                 <Link
                   href="/register"
-                  className="text-[#003366] font-medium hover:text-[#C78A3B] transition-colors"
+                  className="text-[#6682a3] font-medium hover:text-[#c9826d] transition-colors"
                 >
                   Register now
                 </Link>
@@ -143,7 +143,7 @@ export default function LoginPage() {
       </div>
 
       {/* Right Side - Image */}
-      <div className="hidden lg:flex flex-1 bg-[#003366] relative items-center justify-center p-12">
+      <div className="hidden lg:flex flex-1 bg-[#6682a3] relative items-center justify-center p-12">
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80"
@@ -162,25 +162,25 @@ export default function LoginPage() {
           </p>
           <div className="space-y-4 text-left">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-[#C78A3B] rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#c9826d] rounded-full flex items-center justify-center">
                 <ArrowRight className="h-4 w-4" />
               </div>
               <span>Book appointments online</span>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-[#C78A3B] rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#c9826d] rounded-full flex items-center justify-center">
                 <ArrowRight className="h-4 w-4" />
               </div>
               <span>View medical records & reports</span>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-[#C78A3B] rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#c9826d] rounded-full flex items-center justify-center">
                 <ArrowRight className="h-4 w-4" />
               </div>
               <span>Message your doctors securely</span>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-[#C78A3B] rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#c9826d] rounded-full flex items-center justify-center">
                 <ArrowRight className="h-4 w-4" />
               </div>
               <span>Manage bills & payments</span>

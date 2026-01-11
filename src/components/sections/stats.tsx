@@ -94,7 +94,7 @@ export function Stats() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section ref={ref} className="py-20 bg-[#003366] relative overflow-hidden">
+    <section ref={ref} className="py-20 bg-[#6682a3] relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div
@@ -112,7 +112,7 @@ export function Stats() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-[#C78A3B] font-semibold text-sm uppercase tracking-wider"
+            className="text-[#c9826d] font-semibold text-sm uppercase tracking-wider"
           >
             Our Numbers
           </motion.span>
@@ -147,7 +147,7 @@ export function Stats() {
               className="text-center"
             >
               <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <stat.icon className="h-8 w-8 text-[#C78A3B]" />
+                <stat.icon className="h-8 w-8 text-[#c9826d]" />
               </div>
               <AnimatedCounter
                 value={stat.value}

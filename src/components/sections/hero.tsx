@@ -26,7 +26,7 @@ export function Hero() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#003366]/95 via-[#003366]/80 to-[#003366]/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#6682a3]/95 via-[#6682a3]/80 to-[#6682a3]/60" />
       </div>
 
       {/* Content */}
@@ -44,7 +44,7 @@ export function Hero() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 bg-[#C78A3B]/20 border border-[#C78A3B]/30 rounded-full px-4 py-2 mb-6"
+              className="inline-flex items-center gap-2 bg-[#c9826d]/20 border border-[#c9826d]/30 rounded-full px-4 py-2 mb-6"
             >
               <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
               <span className="text-sm font-medium">24/7 Emergency Services Available</span>
@@ -53,7 +53,7 @@ export function Hero() {
             {/* Headline */}
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               Your Health,{" "}
-              <span className="text-[#C78A3B]">Our Priority</span>
+              <span className="text-[#c9826d]">Our Priority</span>
             </h1>
 
             <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-xl">
@@ -93,7 +93,7 @@ export function Hero() {
                   className="flex items-center gap-3"
                 >
                   <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center">
-                    <item.icon className="h-6 w-6 text-[#C78A3B]" />
+                    <item.icon className="h-6 w-6 text-[#c9826d]" />
                   </div>
                   <div>
                     <p className="font-bold text-lg">{item.value}</p>
@@ -112,7 +112,7 @@ export function Hero() {
             className="hidden lg:block"
           >
             <div className="glass-panel rounded-2xl p-8 max-w-md ml-auto">
-              <h3 className="font-display text-2xl font-bold text-[#003366] mb-2">
+              <h3 className="font-display text-2xl font-bold text-[#6682a3] mb-2">
                 Quick Appointment
               </h3>
               <p className="text-gray-600 mb-6">
@@ -120,10 +120,10 @@ export function Hero() {
               </p>
 
               <div className="space-y-4">
-                <div className="flex items-center gap-3 p-4 bg-[#003366]/5 rounded-lg">
-                  <Clock className="h-5 w-5 text-[#003366]" />
+                <div className="flex items-center gap-3 p-4 bg-[#6682a3]/5 rounded-lg">
+                  <Clock className="h-5 w-5 text-[#6682a3]" />
                   <div>
-                    <p className="font-medium text-[#003366]">OPD Timings</p>
+                    <p className="font-medium text-[#6682a3]">OPD Timings</p>
                     <p className="text-sm text-gray-600">{siteConfig.workingHours.opd}</p>
                   </div>
                 </div>
@@ -146,7 +146,7 @@ export function Hero() {
                   Or call us at{" "}
                   <a
                     href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
-                    className="text-[#003366] font-medium hover:underline"
+                    className="text-[#6682a3] font-medium hover:underline"
                   >
                     {siteConfig.contact.phone}
                   </a>

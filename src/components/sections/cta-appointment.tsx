@@ -9,11 +9,11 @@ import { siteConfig } from "@/config/site"
 
 export function CTAAppointment() {
   return (
-    <section className="py-20 bg-gradient-to-br from-[#003366] via-[#003366] to-[#002244] relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-[#6682a3] via-[#6682a3] to-[#4a6382] relative overflow-hidden">
       {/* Background Decorations */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#C78A3B]/10 rounded-full blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#C78A3B]/10 rounded-full blur-3xl" />
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#c9826d]/10 rounded-full blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#c9826d]/10 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -22,7 +22,7 @@ export function CTAAppointment() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-[#C78A3B] font-semibold text-sm uppercase tracking-wider"
+            className="text-[#c9826d] font-semibold text-sm uppercase tracking-wider"
           >
             Get Started Today
           </motion.span>
@@ -35,7 +35,7 @@ export function CTAAppointment() {
           >
             Ready to Experience
             <br />
-            <span className="text-[#C78A3B]">Quality Healthcare?</span>
+            <span className="text-[#c9826d]">Quality Healthcare?</span>
           </motion.h2>
 
           <motion.p

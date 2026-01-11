@@ -18,10 +18,10 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-[#003366] to-[#002244]">
+      <section className="relative py-20 bg-gradient-to-br from-[#6682a3] to-[#4a6382]">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <span className="text-[#C78A3B] font-semibold text-sm uppercase tracking-wider">
+            <span className="text-[#c9826d] font-semibold text-sm uppercase tracking-wider">
               Contact Us
             </span>
             <h1 className="font-display text-4xl md:text-5xl font-bold text-white mt-3 mb-6">
@@ -44,14 +44,14 @@ export default function ContactPage() {
               <Card>
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#003366]/10 rounded-xl flex items-center justify-center shrink-0">
-                      <Phone className="h-6 w-6 text-[#003366]" />
+                    <div className="w-12 h-12 bg-[#6682a3]/10 rounded-xl flex items-center justify-center shrink-0">
+                      <Phone className="h-6 w-6 text-[#6682a3]" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-[#003366] mb-1">Phone</h3>
+                      <h3 className="font-semibold text-[#6682a3] mb-1">Phone</h3>
                       <a
                         href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
-                        className="text-gray-600 hover:text-[#C78A3B] transition-colors"
+                        className="text-gray-600 hover:text-[#c9826d] transition-colors"
                       >
                         {siteConfig.contact.phone}
                       </a>
@@ -88,14 +88,14 @@ export default function ContactPage() {
               <Card>
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#003366]/10 rounded-xl flex items-center justify-center shrink-0">
-                      <Mail className="h-6 w-6 text-[#003366]" />
+                    <div className="w-12 h-12 bg-[#6682a3]/10 rounded-xl flex items-center justify-center shrink-0">
+                      <Mail className="h-6 w-6 text-[#6682a3]" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-[#003366] mb-1">Email</h3>
+                      <h3 className="font-semibold text-[#6682a3] mb-1">Email</h3>
                       <a
                         href={`mailto:${siteConfig.contact.email}`}
-                        className="text-gray-600 hover:text-[#C78A3B] transition-colors"
+                        className="text-gray-600 hover:text-[#c9826d] transition-colors"
                       >
                         {siteConfig.contact.email}
                       </a>
@@ -134,11 +134,11 @@ export default function ContactPage() {
               <Card>
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#003366]/10 rounded-xl flex items-center justify-center shrink-0">
-                      <Clock className="h-6 w-6 text-[#003366]" />
+                    <div className="w-12 h-12 bg-[#6682a3]/10 rounded-xl flex items-center justify-center shrink-0">
+                      <Clock className="h-6 w-6 text-[#6682a3]" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-[#003366] mb-1">Working Hours</h3>
+                      <h3 className="font-semibold text-[#6682a3] mb-1">Working Hours</h3>
                       <p className="text-gray-600">OPD: {siteConfig.workingHours.opd}</p>
                       <p className="text-gray-600">Emergency: {siteConfig.workingHours.emergency}</p>
                       <p className="text-gray-600">Pharmacy: {siteConfig.workingHours.pharmacy}</p>
@@ -152,7 +152,7 @@ export default function ContactPage() {
             <div className="lg:col-span-2">
               <Card>
                 <CardContent className="p-8">
-                  <h2 className="font-display text-2xl font-bold text-[#003366] mb-2">
+                  <h2 className="font-display text-2xl font-bold text-[#6682a3] mb-2">
                     Send Us a Message
                   </h2>
                   <p className="text-gray-600 mb-6">
@@ -207,10 +207,10 @@ export default function ContactPage() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-[#C78A3B] font-semibold text-sm uppercase tracking-wider">
+            <span className="text-[#c9826d] font-semibold text-sm uppercase tracking-wider">
               Our Locations
             </span>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#003366] mt-3 mb-4">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#6682a3] mt-3 mb-4">
               Visit Us
             </h2>
             <p className="text-gray-600 text-lg">
@@ -232,21 +232,21 @@ export default function ContactPage() {
                   />
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="font-semibold text-xl text-[#003366] mb-3">
+                  <h3 className="font-semibold text-xl text-[#6682a3] mb-3">
                     {location.name}
                   </h3>
                   <div className="space-y-2 text-gray-600">
                     <div className="flex items-start gap-2">
-                      <MapPin className="h-5 w-5 text-[#C78A3B] shrink-0 mt-0.5" />
+                      <MapPin className="h-5 w-5 text-[#c9826d] shrink-0 mt-0.5" />
                       <span>
                         {location.address}, {location.city}, {location.state} - {location.pincode}
                       </span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Phone className="h-5 w-5 text-[#C78A3B] shrink-0" />
+                      <Phone className="h-5 w-5 text-[#c9826d] shrink-0" />
                       <a
                         href={`tel:${location.phone.replace(/\s/g, "")}`}
-                        className="hover:text-[#003366]"
+                        className="hover:text-[#6682a3]"
                       >
                         {location.phone}
                       </a>

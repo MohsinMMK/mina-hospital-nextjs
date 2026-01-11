@@ -19,7 +19,7 @@ export default function RegisterPage() {
   return (
     <div className="min-h-screen flex">
       {/* Left Side - Image */}
-      <div className="hidden lg:flex flex-1 bg-[#003366] relative items-center justify-center p-12">
+      <div className="hidden lg:flex flex-1 bg-[#6682a3] relative items-center justify-center p-12">
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&q=80"
@@ -37,25 +37,25 @@ export default function RegisterPage() {
           </p>
           <div className="space-y-4 text-left">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-[#C78A3B] rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#c9826d] rounded-full flex items-center justify-center">
                 <ArrowRight className="h-4 w-4" />
               </div>
               <span>Easy online appointment booking</span>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-[#C78A3B] rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#c9826d] rounded-full flex items-center justify-center">
                 <ArrowRight className="h-4 w-4" />
               </div>
               <span>Secure access to medical records</span>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-[#C78A3B] rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#c9826d] rounded-full flex items-center justify-center">
                 <ArrowRight className="h-4 w-4" />
               </div>
               <span>Direct messaging with doctors</span>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-[#C78A3B] rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#c9826d] rounded-full flex items-center justify-center">
                 <ArrowRight className="h-4 w-4" />
               </div>
               <span>Appointment reminders & notifications</span>
@@ -69,11 +69,11 @@ export default function RegisterPage() {
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
             <Link href="/" className="inline-flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-[#003366] rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 bg-[#6682a3] rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-2xl">M</span>
               </div>
               <div className="text-left">
-                <h1 className="font-display text-xl font-bold text-[#003366]">
+                <h1 className="font-display text-xl font-bold text-[#6682a3]">
                   MINA Hospitals
                 </h1>
                 <p className="text-xs text-muted-foreground">Patient Portal</p>
@@ -83,7 +83,7 @@ export default function RegisterPage() {
 
           <Card className="border-0 shadow-lg">
             <CardHeader className="text-center">
-              <CardTitle className="text-2xl font-display text-[#003366]">
+              <CardTitle className="text-2xl font-display text-[#6682a3]">
                 Create Account
               </CardTitle>
               <CardDescription>
@@ -204,7 +204,7 @@ export default function RegisterPage() {
                 Already have an account?{" "}
                 <Link
                   href="/login"
-                  className="text-[#003366] font-medium hover:text-[#C78A3B] transition-colors"
+                  className="text-[#6682a3] font-medium hover:text-[#c9826d] transition-colors"
                 >
                   Login
                 </Link>

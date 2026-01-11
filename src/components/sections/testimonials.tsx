@@ -66,7 +66,7 @@ export function Testimonials() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-[#C78A3B] font-semibold text-sm uppercase tracking-wider"
+            className="text-[#c9826d] font-semibold text-sm uppercase tracking-wider"
           >
             Testimonials
           </motion.span>
@@ -74,7 +74,7 @@ export function Testimonials() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-display text-3xl md:text-4xl font-bold text-[#003366] mt-3 mb-4"
+            className="font-display text-3xl md:text-4xl font-bold text-[#6682a3] mt-3 mb-4"
           >
             What Our Patients Say
           </motion.h2>
@@ -100,7 +100,7 @@ export function Testimonials() {
               transition={{ duration: 0.3 }}
               className="bg-white rounded-2xl shadow-lg p-8 md:p-12"
             >
-              <Quote className="h-12 w-12 text-[#C78A3B]/20 mb-6" />
+              <Quote className="h-12 w-12 text-[#c9826d]/20 mb-6" />
 
               <p className="text-gray-700 text-lg md:text-xl leading-relaxed mb-8">
                 &ldquo;{testimonials[current].text}&rdquo;
@@ -117,7 +117,7 @@ export function Testimonials() {
                     />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-[#003366]">
+                    <h4 className="font-semibold text-[#6682a3]">
                       {testimonials[current].name}
                     </h4>
                     <p className="text-sm text-gray-500">
@@ -164,7 +164,7 @@ export function Testimonials() {
                 key={index}
                 onClick={() => setCurrent(index)}
                 className={`w-3 h-3 rounded-full transition-colors ${
-                  index === current ? "bg-[#003366]" : "bg-gray-300"
+                  index === current ? "bg-[#6682a3]" : "bg-gray-300"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />

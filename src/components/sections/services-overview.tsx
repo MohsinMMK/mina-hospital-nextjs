@@ -101,7 +101,7 @@ export function ServicesOverview() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-[#C78A3B] font-semibold text-sm uppercase tracking-wider"
+            className="text-[#c9826d] font-semibold text-sm uppercase tracking-wider"
           >
             Our Specialities
           </motion.span>
@@ -109,7 +109,7 @@ export function ServicesOverview() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-display text-3xl md:text-4xl font-bold text-[#003366] mt-3 mb-4"
+            className="font-display text-3xl md:text-4xl font-bold text-[#6682a3] mt-3 mb-4"
           >
             Comprehensive Healthcare Services
           </motion.h2>
@@ -143,13 +143,13 @@ export function ServicesOverview() {
                     >
                       <service.icon className="h-7 w-7" />
                     </div>
-                    <h3 className="font-semibold text-lg text-[#003366] mb-2 group-hover:text-[#C78A3B] transition-colors">
+                    <h3 className="font-semibold text-lg text-[#6682a3] mb-2 group-hover:text-[#c9826d] transition-colors">
                       {service.name}
                     </h3>
                     <p className="text-gray-600 text-sm mb-4">
                       {service.description}
                     </p>
-                    <span className="text-[#003366] text-sm font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                    <span className="text-[#6682a3] text-sm font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all">
                       Learn More
                       <ArrowRight className="h-4 w-4" />
                     </span>

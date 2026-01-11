@@ -571,7 +571,7 @@ function BookAppointmentContent() {
                     {selectedSpecialty !== "all" && (
                       <Badge
                         variant="secondary"
-                        className="bg-[#003366]/10 text-[#003366] hover:bg-[#003366]/20 cursor-pointer px-3 py-1.5"
+                        className="bg-[#6682a3]/10 text-[#6682a3] hover:bg-[#6682a3]/20 cursor-pointer px-3 py-1.5"
                         onClick={() => setSelectedSpecialty("all")}
                       >
                         <span className="font-medium">Specialty:</span>
@@ -582,7 +582,7 @@ function BookAppointmentContent() {
                     {selectedExperience !== "all" && (
                       <Badge
                         variant="secondary"
-                        className="bg-[#003366]/10 text-[#003366] hover:bg-[#003366]/20 cursor-pointer px-3 py-1.5"
+                        className="bg-[#6682a3]/10 text-[#6682a3] hover:bg-[#6682a3]/20 cursor-pointer px-3 py-1.5"
                         onClick={() => setSelectedExperience("all")}
                       >
                         <span className="font-medium">Experience:</span>
@@ -593,7 +593,7 @@ function BookAppointmentContent() {
                     {searchQuery && (
                       <Badge
                         variant="secondary"
-                        className="bg-[#003366]/10 text-[#003366] hover:bg-[#003366]/20 cursor-pointer px-3 py-1.5"
+                        className="bg-[#6682a3]/10 text-[#6682a3] hover:bg-[#6682a3]/20 cursor-pointer px-3 py-1.5"
                         onClick={() => setSearchQuery("")}
                       >
                         <span className="font-medium">Search:</span>
@@ -617,7 +617,7 @@ function BookAppointmentContent() {
                     key={doc.id}
                     className={`cursor-pointer transition-all hover:shadow-md ${
                       selectedDoctor?.id === doc.id
-                        ? "ring-2 ring-[#003366] shadow-md"
+                        ? "ring-2 ring-[#6682a3] shadow-md"
                         : "hover:border-gray-300"
                     }`}
                     onClick={() => setSelectedDoctor(doc)}
@@ -645,7 +645,7 @@ function BookAppointmentContent() {
                           </div>
                         </div>
                         {selectedDoctor?.id === doc.id && (
-                          <CheckCircle className="h-5 w-5 text-[#003366] shrink-0" />
+                          <CheckCircle className="h-5 w-5 text-[#6682a3] shrink-0" />
                         )}
                       </div>
                     </CardContent>
@@ -759,8 +759,8 @@ function BookAppointmentContent() {
                             onClick={() => setSelectedTime(time)}
                             className={`py-2 px-2 text-xs font-medium rounded-md border transition-all ${
                               selectedTime === time
-                                ? "bg-[#003366] text-white border-[#003366]"
-                                : "bg-white text-gray-900 border-gray-200 hover:border-[#003366]"
+                                ? "bg-[#6682a3] text-white border-[#6682a3]"
+                                : "bg-white text-gray-900 border-gray-200 hover:border-[#6682a3]"
                             }`}
                           >
                             {time}
@@ -878,7 +878,7 @@ function BookAppointmentContent() {
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full bg-[#003366] hover:bg-[#002244]"
+                    className="w-full bg-[#6682a3] hover:bg-[#4a6382]"
                   >
                     <CheckCircle className="mr-2 h-4 w-4" />
                     Confirm Booking
@@ -899,7 +899,7 @@ function BookAppointmentContent() {
             Need help? Call us at{" "}
             <a
               href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
-              className="text-[#003366] font-medium hover:underline"
+              className="text-[#6682a3] font-medium hover:underline"
             >
               {siteConfig.contact.phone}
             </a>
@@ -915,7 +915,7 @@ export default function BookAppointmentPage() {
     <Suspense fallback={
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#003366] mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#6682a3] mx-auto mb-4"></div>
           <p className="text-gray-500">Loading...</p>
         </div>
       </div>
