@@ -92,11 +92,11 @@ export function Header() {
               <div className="w-10 h-10 bg-[#003366] rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xl">M</span>
               </div>
-              <div className="hidden sm:block">
-                <h1 className="font-display text-lg font-bold text-[#003366] leading-tight">
+              <div>
+                <h1 className="font-display text-base sm:text-lg font-bold text-[#003366] leading-tight">
                   MINA Hospitals
                 </h1>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-xs text-muted-foreground hidden sm:block">
                   Super & Multi Speciality
                 </p>
               </div>
@@ -138,6 +138,16 @@ export function Header() {
 
             {/* CTA Buttons */}
             <div className="flex items-center gap-3">
+              <Button
+                variant="emergency"
+                size="icon"
+                className="flex sm:hidden"
+                asChild
+              >
+                <a href={`tel:${siteConfig.contact.emergencyPhone.replace(/\s/g, "")}`} aria-label="Emergency Call">
+                  <Phone className="h-4 w-4" />
+                </a>
+              </Button>
               <Button
                 variant="emergency"
                 size="sm"
