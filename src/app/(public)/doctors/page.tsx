@@ -645,7 +645,7 @@ export default function DoctorsPage() {
                     asChild={doctor.available}
                   >
                     {doctor.available ? (
-                      <Link href="/book-appointment">
+                      <Link href={`/book-appointment?doctor=${doctor.id}`}>
                         <Calendar className="h-4 w-4 mr-2" />
                         Book Appointment
                       </Link>

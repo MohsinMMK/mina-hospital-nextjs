@@ -1,6 +1,7 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect, Suspense } from "react"
+import { useSearchParams } from "next/navigation"
 import Image from "next/image"
 import { Calendar as CalendarIcon, Clock, User, Phone, Mail, CheckCircle, ArrowLeft, ArrowRight, Star, Globe } from "lucide-react"
 
@@ -377,12 +378,27 @@ const timeSlots = [
   "05:00 PM", "05:30 PM"
 ]
 
-export default function BookAppointmentPage() {
+function BookAppointmentContent() {
+  const searchParams = useSearchParams()
+  const doctorIdParam = searchParams.get("doctor")
+
   const [step, setStep] = useState(1)
   const [selectedDoctor, setSelectedDoctor] = useState<typeof doctors[0] | null>(null)
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined)
   const [selectedTime, setSelectedTime] = useState("")
   const [selectedSpecialty, setSelectedSpecialty] = useState<string>("all")
+
+  // Pre-select doctor if coming from doctors page
+  useEffect(() => {
+    if (doctorIdParam) {
+      const doctorId = parseInt(doctorIdParam)
+      const foundDoctor = doctors.find(d => d.id === doctorId)
+      if (foundDoctor) {
+        setSelectedDoctor(foundDoctor)
+        setStep(2) // Skip to date/time selection
+      }
+    }
+  }, [doctorIdParam])
 
   const doctor = selectedDoctor
 
@@ -725,5 +741,20 @@ export default function BookAppointmentPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function BookAppointmentPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#003366] mx-auto mb-4"></div>
+          <p className="text-gray-500">Loading...</p>
+        </div>
+      </div>
+    }>
+      <BookAppointmentContent />
+    </Suspense>
   )
 }
