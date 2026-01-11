@@ -13,56 +13,363 @@ import { Badge } from "@/components/ui/badge"
 import { Calendar } from "@/components/ui/calendar"
 import { siteConfig } from "@/config/site"
 
+// Unified doctor data for consistency across pages
 const doctors = [
   {
     id: 1,
-    name: "Dr. Rajesh Kumar",
-    specialty: "Cardiology",
-    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=100&h=100&q=80",
+    name: 'Dr. Soheba Shukoor',
+    specialty: 'Obstetrics & Gynecology',
+    qualification: 'MBBS, DGO, FMAS (WALS. USA)',
+    experience: 29,
     rating: 4.9,
-    experience: 20,
+    image: 'https://minahospitals.whitecoats.com/wp-content/uploads/sites/120/2024/02/3223-1-150x150.jpg',
   },
   {
     id: 2,
-    name: "Dr. Priya Sharma",
-    specialty: "Obstetrics & Gynecology",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=100&h=100&q=80",
+    name: 'Dr. Hidayatullah Khan',
+    specialty: 'Ophthalmology',
+    qualification: 'MS Ophthalmology (Gold Medalist)',
+    experience: 10,
     rating: 4.8,
-    experience: 15,
+    image: 'https://minahospitals.whitecoats.com/wp-content/uploads/sites/120/2024/02/Hiday.png',
   },
   {
     id: 3,
-    name: "Dr. Anil Reddy",
-    specialty: "Orthopedics",
-    image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=100&h=100&q=80",
+    name: 'Dr. Sachin Narkhede',
+    specialty: 'Pediatrics & Neonatology',
+    qualification: 'MBBS, DCh, FIAP (Neonatology)',
+    experience: 15,
     rating: 4.9,
-    experience: 18,
+    image: 'https://minahospitals.whitecoats.com/wp-content/uploads/sites/120/2024/02/Dr.-Sachin-Narkhede.jpg',
   },
   {
     id: 4,
-    name: "Dr. Meera Patel",
-    specialty: "Pediatrics",
-    image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=100&h=100&q=80",
-    rating: 4.7,
-    experience: 12,
+    name: 'Dr. P. Navanith Sagar Reddy',
+    specialty: 'Pulmonology',
+    qualification: 'Senior Pulmonologist',
+    experience: 45,
+    rating: 4.9,
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC5JCV2XTMxm8Rx_PGkTbHYdIBZhEPcYtf7CFYnsC__9ZGHWqy_ySAmBwBtq5dUUoE5qrJSwPDWJv0TCr_Pyq3AFqxo65aQOuCe_9RernpNjdnEUxfkTUDFA-mqSXzVXmNAOXxeI2LuiyKJfiD3qFktMhS0bes4ni4AEhcfwnhmdNp4va3sj3TnAlWroENwQ32gexb6HC_Q39I5So6_N3dXguEwD2acpd_idKKqJWspQtD2Wy1a22TqKnmT1ZOv60OHonUb10qUfpc',
   },
   {
     id: 5,
-    name: "Dr. Suresh Rao",
-    specialty: "Neurology",
-    image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=100&h=100&q=80",
+    name: 'Dr. D. Ramesh',
+    specialty: 'Pediatrics',
+    qualification: 'Senior Pediatrician',
+    experience: 47,
     rating: 4.8,
-    experience: 16,
+    image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=300&h=350',
   },
   {
     id: 6,
-    name: "Dr. Kavitha Menon",
-    specialty: "Dermatology",
-    image: "https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?auto=format&fit=crop&w=100&h=100&q=80",
+    name: 'Dr. Naseemuddin N Shaikh',
+    specialty: 'Endocrinology',
+    qualification: 'MBBS, MD, DM Endocrinology',
+    experience: 20,
+    rating: 4.7,
+    image: 'https://minahospitals.whitecoats.com/wp-content/uploads/sites/120/2024/02/Dr.-NASEEMUDDIN.jpg',
+  },
+  {
+    id: 7,
+    name: 'Dr. Hameed Parekh',
+    specialty: 'Orthopedics',
+    qualification: 'Joint Replacement & Trauma Specialist',
+    experience: 23,
+    rating: 4.8,
+    image: 'https://minahospitals.whitecoats.com/wp-content/uploads/sites/120/2024/02/Dr.-Hameeed-Parekh.jpg',
+  },
+  {
+    id: 8,
+    name: 'Dr. Basith Hussain',
+    specialty: 'Ophthalmology',
+    qualification: 'Eye Surgery Specialist',
+    experience: 28,
+    rating: 4.7,
+    image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=350',
+  },
+  {
+    id: 9,
+    name: 'Dr. Shoaib Ahmed',
+    specialty: 'Cardiology',
+    qualification: 'MD Cardiology',
+    experience: 12,
+    rating: 4.7,
+    image: 'https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&q=80&w=300&h=350',
+  },
+  {
+    id: 10,
+    name: 'Dr. Syeda Bushra',
+    specialty: 'Obstetrics & Gynecology',
+    qualification: 'MBBS, DGO',
+    experience: 18,
+    rating: 4.8,
+    image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=300&h=350',
+  },
+  {
+    id: 11,
+    name: 'Dr. Khizar Raoof Mohammed',
+    specialty: 'Urology',
+    qualification: 'MBBS, MS, MCH in Urology',
+    experience: 15,
     rating: 4.6,
+    image: 'https://minahospitals.whitecoats.com/wp-content/uploads/sites/120/2024/02/Dr.-Khizar-Raof.jpg',
+  },
+  {
+    id: 12,
+    name: 'Dr. Asim',
+    specialty: 'General Surgery',
+    qualification: 'MS General Surgery',
+    experience: 14,
+    rating: 4.8,
+    image: 'https://images.unsplash.com/photo-1594824476969-513346381849?auto=format&fit=crop&q=80&w=300&h=350',
+  },
+  {
+    id: 13,
+    name: 'Dr. Asrar',
+    specialty: 'Anaesthesia',
+    qualification: 'MD Anaesthesia',
+    experience: 16,
+    rating: 4.9,
+    image: 'https://minahospitals.whitecoats.com/wp-content/uploads/sites/120/elementor/thumbs/Dr.-Asrar-2-qken33rfiuimann0nve4gdxjzxpoqzyy67x9mtrgdo.jpg',
+  },
+  {
+    id: 14,
+    name: 'Dr. Ayesha Nazneen',
+    specialty: 'Dental Surgery',
+    qualification: 'BDS, FCE, MHA, PGDFC',
     experience: 10,
+    rating: 4.8,
+    image: 'https://minahospitals.whitecoats.com/wp-content/uploads/sites/120/elementor/thumbs/Dr-Ayesha-Nazneen-qkdkxeinja0uub0m42yeh1aajsifjegzz13coyk9t8.jpg',
+  },
+  {
+    id: 15,
+    name: 'Dr. B Sushmitha Reddy',
+    specialty: 'Dermatology',
+    qualification: 'M.B.B.S, MD DVL',
+    experience: 11,
+    rating: 4.7,
+    image: 'https://minahospitals.whitecoats.com/wp-content/uploads/sites/120/2024/02/Dr-Sushmita_1-1.jpg',
+  },
+  {
+    id: 16,
+    name: 'Dr. Syed Mohd. Azhar Hassan',
+    specialty: 'Nephrology',
+    qualification: 'M.B.B.S, MD, DM (Nephrology)',
+    experience: 17,
+    rating: 4.9,
+    image: 'https://minahospitals.whitecoats.com/wp-content/uploads/sites/120/2024/02/Dr.-Syed-Mohd.-Azhar-Hassan.jpg',
+  },
+  {
+    id: 17,
+    name: 'Dr. FAHAD',
+    specialty: 'Pulmonology',
+    qualification: 'MD, Pulmonology',
+    experience: 15,
+    rating: 4.8,
+    image: 'https://minahospitals.whitecoats.com/wp-content/uploads/sites/120/2024/02/Dr.-FAHAD.jpg',
+  },
+  {
+    id: 18,
+    name: 'Dr. Mohammed Moiz Uddin Ansari',
+    specialty: 'Physiotherapy',
+    qualification: 'Senior Physiotherapist',
+    experience: 12,
+    rating: 4.7,
+    image: 'https://minahospitals.whitecoats.com/wp-content/uploads/sites/120/2024/02/moiz.jpg',
+  },
+  {
+    id: 19,
+    name: 'Dr. Nikitha Shirine Todeti',
+    specialty: 'General Medicine',
+    qualification: 'M.B.B.S, M.D, General Medicine',
+    experience: 8,
+    rating: 4.8,
+    image: 'https://minahospitals.whitecoats.com/wp-content/uploads/sites/120/2024/02/Dr.Nikitha-Shirine-Todeti.jpeg',
+  },
+  {
+    id: 20,
+    name: 'Dr. Zeeshan',
+    specialty: 'Gastroenterology',
+    qualification: 'MBBS. MD, DM (Gastroenterology)',
+    experience: 9,
+    rating: 4.9,
+    image: 'https://minahospitals.whitecoats.com/wp-content/uploads/sites/120/2024/02/Dr.-ZEESHAN-1.jpeg',
+  },
+  {
+    id: 21,
+    name: 'Dr. Mohd Hameed Shareef',
+    specialty: 'Neurosurgery',
+    qualification: 'Consultant Neuro Surgeon',
+    experience: 20,
+    rating: 4.9,
+    image: 'https://minahospitals.whitecoats.com/wp-content/uploads/sites/120/2024/02/Dr.-Mohd-Hameed-Shareef.jpg',
+  },
+  {
+    id: 22,
+    name: 'Dr. Mohammed Nawar',
+    specialty: 'Dental Surgery',
+    qualification: 'Dental Surgeon',
+    experience: 12,
+    rating: 4.7,
+    image: 'https://minahospitals.whitecoats.com/wp-content/uploads/sites/120/2024/02/Dr.-Mohammed-Nawar.jpg',
+  },
+  {
+    id: 23,
+    name: 'Dr. Mir Zia Ur Rahman Ali',
+    specialty: 'Orthopedics',
+    qualification: 'Joint Replacement Surgeon',
+    experience: 22,
+    rating: 4.8,
+    image: 'https://minahospitals.whitecoats.com/wp-content/uploads/sites/120/2024/02/zia-2.jpg',
+  },
+  {
+    id: 24,
+    name: 'Dr. Ahmed Abdul Khabeer',
+    specialty: 'ENT',
+    qualification: 'MBBS, MS, ENT Specialist',
+    experience: 18,
+    rating: 4.9,
+    image: 'https://minahospitals.whitecoats.com/wp-content/uploads/sites/120/elementor/thumbs/Dr.-Ahmed-Abdul-Khabir-qk4jmj2rfapyf9ppdzqhc8f1apwzfr477l746ee3sc.jpeg',
+  },
+  {
+    id: 25,
+    name: 'Dr. Revanth',
+    specialty: 'Emergency Medicine',
+    qualification: 'MBBS, MD Emergency Medicine',
+    experience: 10,
+    rating: 4.8,
+    image: 'https://minahospitals.whitecoats.com/wp-content/uploads/sites/120/2024/02/Dr.-REVANTH.jpg',
+  },
+  {
+    id: 26,
+    name: 'Dr. Md. Zia Ul Haq',
+    specialty: 'Cardiology',
+    qualification: 'MD, DNB (Cardiology)',
+    experience: 14,
+    rating: 4.9,
+    image: 'https://minahospitals.whitecoats.com/wp-content/uploads/sites/120/2024/02/zia.jpg',
+  },
+  {
+    id: 27,
+    name: 'Dr. Syed Mukarrumuddin Hussain',
+    specialty: 'Ophthalmology',
+    qualification: 'MBBS, M.D. (Ophthal)',
+    experience: 25,
+    rating: 4.7,
+    image: 'https://minahospitals.whitecoats.com/wp-content/uploads/sites/120/2024/02/Mukaram.jpg',
+  },
+  {
+    id: 28,
+    name: 'Dr. Syed Sayeeduddin',
+    specialty: 'General Surgery',
+    qualification: 'MBBS, MS, General Surgery',
+    experience: 30,
+    rating: 4.9,
+    image: 'https://minahospitals.whitecoats.com/wp-content/uploads/sites/120/2024/02/Dr.-Syed-Sayeeduddin.jpg',
+  },
+  {
+    id: 29,
+    name: 'Dr. Syed Musaab Mohiuddin',
+    specialty: 'Ophthalmology',
+    qualification: 'FRCS, MRCS, FICO',
+    experience: 15,
+    rating: 4.9,
+    image: 'https://minahospitals.whitecoats.com/wp-content/uploads/sites/120/2024/02/Musaab.jpg',
+  },
+  {
+    id: 30,
+    name: 'Rafiya',
+    specialty: 'Dietetics',
+    qualification: 'Msc Nutrition and Dietetics',
+    experience: 8,
+    rating: 4.8,
+    image: 'https://minahospitals.whitecoats.com/wp-content/uploads/sites/120/2024/02/Rafiya.jpg',
+  },
+  {
+    id: 31,
+    name: 'Dr. NARESH',
+    specialty: 'Pediatrics',
+    qualification: 'Pediatric Specialist',
+    experience: 12,
+    rating: 4.7,
+    image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=300&h=350',
+  },
+  {
+    id: 32,
+    name: 'Dr. SAGAR',
+    specialty: 'Pulmonology',
+    qualification: 'Pulmonologist',
+    experience: 11,
+    rating: 4.8,
+    image: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=300&h=350',
+  },
+  {
+    id: 33,
+    name: 'Dr. SHAIZAD',
+    specialty: 'ENT',
+    qualification: 'ENT Surgeon',
+    experience: 13,
+    rating: 4.7,
+    image: 'https://images.unsplash.com/photo-1594824476969-513346381849?auto=format&fit=crop&q=80&w=300&h=350',
+  },
+  {
+    id: 34,
+    name: 'Dr. SHOAIB',
+    specialty: 'Cardiac Surgery',
+    qualification: 'Cardiac Specialist',
+    experience: 16,
+    rating: 4.8,
+    image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=300&h=350',
+  },
+  {
+    id: 35,
+    name: 'Dr. SIDDIQUA',
+    specialty: 'Obstetrics & Gynecology',
+    qualification: 'Obs & Gynae Consultant',
+    experience: 14,
+    rating: 4.7,
+    image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=300&h=350',
+  },
+  {
+    id: 36,
+    name: 'Dr. TAJAMUL',
+    specialty: 'Pediatrics',
+    qualification: 'Senior Pediatrician',
+    experience: 19,
+    rating: 4.9,
+    image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=300&h=350',
+  },
+  {
+    id: 37,
+    name: 'Dr. VIDYASRI',
+    specialty: 'Obstetrics & Gynecology',
+    qualification: 'Obs & Gynae Expert',
+    experience: 10,
+    rating: 4.8,
+    image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=300&h=350',
+  },
+  {
+    id: 38,
+    name: 'Dr. ZUHAIR',
+    specialty: 'Orthopedics',
+    qualification: 'Orthopedic Surgeon',
+    experience: 12,
+    rating: 4.8,
+    image: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=300&h=350',
+  },
+  {
+    id: 39,
+    name: 'Dr. AFTAB ALI KHAN',
+    specialty: 'Psychiatry',
+    qualification: 'MBBS, DPM, Psychiatry',
+    experience: 24,
+    rating: 4.9,
+    image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=300&h=350',
   },
 ]
+
+// Get unique specialties for filter
+const specialties = [...new Set(doctors.map(d => d.specialty))].sort()
 
 const timeSlots = [
   "09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM",
@@ -75,8 +382,14 @@ export default function BookAppointmentPage() {
   const [selectedDoctor, setSelectedDoctor] = useState<typeof doctors[0] | null>(null)
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined)
   const [selectedTime, setSelectedTime] = useState("")
+  const [selectedSpecialty, setSelectedSpecialty] = useState<string>("all")
 
   const doctor = selectedDoctor
+
+  // Filter doctors by specialty
+  const filteredDoctors = selectedSpecialty === "all"
+    ? doctors
+    : doctors.filter(d => d.specialty === selectedSpecialty)
 
   // Disable past dates and weekends
   const disabledDays = [
@@ -91,8 +404,8 @@ export default function BookAppointmentPage() {
 
         {/* Step 1: Select Doctor */}
         {step === 1 && (
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-8">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-6">
               <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
                 Book an Appointment
               </h1>
@@ -101,8 +414,36 @@ export default function BookAppointmentPage() {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {doctors.map((doc) => (
+            {/* Specialty Filter */}
+            <div className="mb-6 flex flex-wrap gap-2 justify-center">
+              <button
+                onClick={() => setSelectedSpecialty("all")}
+                className={`px-4 py-2 text-sm rounded-full transition-all ${
+                  selectedSpecialty === "all"
+                    ? "bg-[#003366] text-white"
+                    : "bg-white text-gray-700 border hover:border-[#003366]"
+                }`}
+              >
+                All ({doctors.length})
+              </button>
+              {specialties.map((spec) => (
+                <button
+                  key={spec}
+                  onClick={() => setSelectedSpecialty(spec)}
+                  className={`px-4 py-2 text-sm rounded-full transition-all ${
+                    selectedSpecialty === spec
+                      ? "bg-[#003366] text-white"
+                      : "bg-white text-gray-700 border hover:border-[#003366]"
+                  }`}
+                >
+                  {spec} ({doctors.filter(d => d.specialty === spec).length})
+                </button>
+              ))}
+            </div>
+
+            {/* Doctors Grid */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-h-[500px] overflow-y-auto pr-2">
+              {filteredDoctors.map((doc) => (
                 <Card
                   key={doc.id}
                   className={`cursor-pointer transition-all hover:shadow-md ${
