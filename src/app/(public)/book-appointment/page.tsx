@@ -669,10 +669,10 @@ function BookAppointmentContent() {
             {/* Continue Button - Sticky on mobile */}
             <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t shadow-lg sm:relative sm:bottom-auto sm:left-auto sm:right-auto sm:p-0 sm:bg-transparent sm:border-0 sm:shadow-none sm:mt-8 flex justify-center z-50">
               <CartoonButton
-                label="Continue →"
+                label="Continue"
                 onClick={() => setStep(2)}
                 disabled={!selectedDoctor}
-                className="w-full sm:w-auto"
+                className="w-full sm:w-auto sm:min-w-[200px]"
               />
             </div>
           </div>
@@ -767,11 +767,12 @@ function BookAppointmentContent() {
                       </div>
 
                       {selectedTime && (
-                        <CartoonButton
-                          label="Continue →"
-                          onClick={() => setStep(3)}
-                          className="w-full mt-4"
-                        />
+                        <div className="flex justify-center mt-4">
+                          <CartoonButton
+                            label="Continue"
+                            onClick={() => setStep(3)}
+                          />
+                        </div>
                       )}
                     </>
                   ) : (
@@ -870,12 +871,14 @@ function BookAppointmentContent() {
                     />
                   </div>
 
-                  <CartoonButton
-                    label="✓ Confirm Booking"
-                    type="submit"
-                    color="bg-[#2853aa]"
-                    className="w-full"
-                  />
+                  <div className="flex justify-center">
+                    <CartoonButton
+                      label="✓ Confirm Booking"
+                      type="submit"
+                      color="bg-[#2853aa]"
+                      className="w-full sm:w-auto sm:min-w-[250px]"
+                    />
+                  </div>
 
                   <p className="text-xs text-center text-gray-500">
                     By booking, you agree to our terms of service and privacy policy
