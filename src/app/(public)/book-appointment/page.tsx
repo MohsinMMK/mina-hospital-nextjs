@@ -1,6 +1,8 @@
 "use client"
 
+import { format } from "date-fns"
 import { useState, useEffect, Suspense, useMemo } from "react"
+import { ScrollArea } from "@/components/ui/scroll-area"
 import { useSearchParams } from "next/navigation"
 import { Calendar as CalendarIcon, Clock, User, Phone, Mail, CheckCircle, ArrowLeft, ArrowRight, Star, Globe, Search, X, Briefcase } from "lucide-react"
 
@@ -681,109 +683,67 @@ function BookAppointmentContent() {
         {/* Step 2: Calendar + Time Selection (Cal.com style) */}
         {step === 2 && doctor && (
           <Card className="max-w-4xl mx-auto overflow-hidden">
-            <div className="grid md:grid-cols-[1fr,300px] divide-y md:divide-y-0 md:divide-x">
-              {/* Left Side - Doctor Info + Calendar */}
-              <div className="p-6">
-                {/* Doctor Header */}
-                <div className="flex items-center gap-4 mb-6 pb-6 border-b">
-                  <button
-                    onClick={() => setStep(1)}
-                    className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-                  >
-                    <ArrowLeft className="h-5 w-5 text-gray-500" />
-                  </button>
-                  <DoctorImage
-                    src={doctor.image}
-                    alt={doctor.name}
-                    width={56}
-                    height={56}
-                    className="rounded-full object-cover"
-                  />
-                  <div>
-                    <h2 className="font-semibold text-gray-900">{doctor.name}</h2>
-                    <p className="text-sm text-gray-500">{doctor.specialty}</p>
-                  </div>
-                </div>
-
-                {/* Appointment Info */}
-                <div className="mb-6">
-                  <h3 className="font-semibold text-gray-900 mb-3">Consultation</h3>
-                  <div className="flex items-center gap-4 text-sm text-gray-600">
-                    <div className="flex items-center gap-1.5">
-                      <Clock className="h-4 w-4" />
-                      <span>30 min</span>
-                    </div>
-                    <div className="flex items-center gap-1.5">
-                      <Globe className="h-4 w-4" />
-                      <span>Asia/Kolkata</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Calendar */}
-                <div className="flex justify-center">
-                  <Calendar
-                    mode="single"
-                    selected={selectedDate}
-                    onSelect={(date) => {
-                      setSelectedDate(date)
-                      setSelectedTime("")
-                    }}
-                    disabled={disabledDays}
-                    className="rounded-md border-0"
-                  />
-                </div>
+            {/* Step 2 Content */}
+            <div className="flex flex-col sm:flex-row border-t h-auto sm:h-[400px]">
+              {/* Left Side - Calendar */}
+              <div className="flex-1 p-0 py-4 sm:p-4 flex items-start justify-center bg-white">
+                <Calendar
+                  mode="single"
+                  selected={selectedDate}
+                  onSelect={(date) => {
+                    setSelectedDate(date)
+                    setSelectedTime("")
+                  }}
+                  disabled={disabledDays}
+                  className="rounded-md border-0 scale-95 sm:scale-100 origin-top"
+                />
               </div>
 
               {/* Right Side - Time Slots */}
-              <div className="p-6 bg-gray-50">
-                <div className="sticky top-6">
-                  {selectedDate ? (
-                    <>
-                      <h3 className="font-semibold text-gray-900 mb-1">
-                        {selectedDate.toLocaleDateString('en-US', {
-                          weekday: 'long',
-                          month: 'long',
-                          day: 'numeric'
-                        })}
-                      </h3>
-                      <p className="text-sm text-gray-500 mb-4">
-                        Available time slots
-                      </p>
-                      <div className="grid grid-cols-3 gap-2 max-h-[400px] overflow-y-auto pr-2">
-                        {timeSlots.map((time) => (
-                          <button
-                            key={time}
-                            onClick={() => setSelectedTime(time)}
-                            className={`py-2 px-2 text-xs font-medium rounded-md border transition-all ${
-                              selectedTime === time
-                                ? "bg-[#2853aa] text-white border-[#2853aa]"
-                                : "bg-white text-gray-900 border-gray-200 hover:border-[#2853aa]"
-                            }`}
-                          >
-                            {time}
-                          </button>
-                        ))}
-                      </div>
-
-                      {selectedTime && (
-                        <div className="flex justify-center mt-4">
-                          <CartoonButton
-                            label="Continue"
-                            onClick={() => setStep(3)}
-                          />
+              <div className="relative w-full h-80 sm:h-full sm:w-72 border-t sm:border-t-0 sm:border-l bg-gray-50/50">
+                <ScrollArea className="h-full">
+                  <div className="p-4 space-y-4">
+                    {selectedDate ? (
+                      <>
+                        <div className="flex h-5 shrink-0 items-center justify-between">
+                          <p className="font-medium text-sm">
+                            {format(selectedDate, "EEEE, d MMMM")}
+                          </p>
+                          <span className="text-xs text-gray-500">{timeSlots.length} slots</span>
                         </div>
-                      )}
-                    </>
-                  ) : (
-                    <div className="text-center py-12">
-                      <CalendarIcon className="h-12 w-12 text-gray-300 mx-auto mb-3" />
-                      <p className="text-gray-500">
-                        Select a date to view available times
-                      </p>
-                    </div>
-                  )}
-                </div>
+                        <div className="grid grid-cols-3 sm:grid-cols-2 gap-2">
+                          {timeSlots.map((time) => (
+                            <Button
+                              key={time}
+                              onClick={() => setSelectedTime(time)}
+                              variant={selectedTime === time ? "default" : "outline"}
+                              size="sm"
+                              className={`w-full text-xs ${selectedTime === time ? 'bg-[#2853aa] hover:bg-[#1e3f7d]' : 'bg-white'}`}
+                            >
+                              {time}
+                            </Button>
+                          ))}
+                        </div>
+                        
+                        {selectedTime && (
+                          <div className="pt-4 flex justify-center sticky bottom-0 pb-2">
+                             <CartoonButton
+                              label="Continue"
+                              onClick={() => setStep(3)}
+                              className="w-full shadow-lg"
+                            />
+                          </div>
+                        )}
+                      </>
+                    ) : (
+                      <div className="h-full flex flex-col items-center justify-center text-center p-4 text-gray-500 opacity-60">
+                        <CalendarIcon className="h-10 w-10 mb-3" />
+                        <p className="text-sm font-medium">Select a date</p>
+                        <p className="text-xs mt-1">to view available times</p>
+                      </div>
+                    )}
+                  </div>
+                </ScrollArea>
               </div>
             </div>
           </Card>
