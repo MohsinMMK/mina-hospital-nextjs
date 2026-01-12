@@ -19,6 +19,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { CartoonButton } from "@/components/ui/cartoon-button"
 import { siteConfig } from "@/config/site"
 
 // Unified doctor data for consistency across pages
@@ -667,15 +668,12 @@ function BookAppointmentContent() {
 
             {/* Continue Button - Sticky on mobile */}
             <div className="fixed bottom-0 left-0 right-0 p-4 bg-white border-t shadow-lg sm:relative sm:bottom-auto sm:left-auto sm:right-auto sm:p-0 sm:bg-transparent sm:border-0 sm:shadow-none sm:mt-8 flex justify-center z-50">
-              <Button
-                size="lg"
+              <CartoonButton
+                label="Continue →"
                 onClick={() => setStep(2)}
                 disabled={!selectedDoctor}
-                className="w-full sm:w-auto sm:min-w-[200px]"
-              >
-                Continue
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+                className="w-full sm:w-auto"
+              />
             </div>
           </div>
         )}
@@ -769,14 +767,11 @@ function BookAppointmentContent() {
                       </div>
 
                       {selectedTime && (
-                        <Button
-                          className="w-full mt-4"
-                          size="lg"
+                        <CartoonButton
+                          label="Continue →"
                           onClick={() => setStep(3)}
-                        >
-                          Continue
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
+                          className="w-full mt-4"
+                        />
                       )}
                     </>
                   ) : (
@@ -875,14 +870,12 @@ function BookAppointmentContent() {
                     />
                   </div>
 
-                  <Button
+                  <CartoonButton
+                    label="✓ Confirm Booking"
                     type="submit"
-                    size="lg"
-                    className="w-full bg-[#2853aa] hover:bg-[#1e3f7d]"
-                  >
-                    <CheckCircle className="mr-2 h-4 w-4" />
-                    Confirm Booking
-                  </Button>
+                    color="bg-[#2853aa]"
+                    className="w-full"
+                  />
 
                   <p className="text-xs text-center text-gray-500">
                     By booking, you agree to our terms of service and privacy policy

@@ -63,7 +63,9 @@ src/
 │   ├── ui/                    # shadcn/ui components
 │   ├── layout/                # Header, Footer
 │   ├── sections/              # Homepage sections
-│   └── shared/
+│   └── shared/                # Reusable components
+│       ├── doctor-card.tsx    # Unified doctor profile card
+│       └── filter-bar.tsx     # Reusable filter component
 ├── lib/
 │   ├── supabase/              # Supabase clients
 │   │   ├── client.ts          # Browser client
@@ -196,12 +198,12 @@ admin_users (id, user_id, role, permissions)
 
 ## Custom UI Components
 
-| Component            | Path                                              | Description                                           |
-| -------------------- | ------------------------------------------------- | ----------------------------------------------------- |
-| `AnimatedBackground` | `components/ui/animated-blur-blob-background.tsx` | Animated blur blobs for hero backgrounds              |
-| `GlassCard`          | `components/ui/glass-card.tsx`                    | Glassmorphism card with backdrop blur                 |
-| `DoctorImage`        | `components/ui/doctor-image.tsx`                  | Doctor image with loading state and error fallback    |
-| `DoctorPlaceholder`  | `components/ui/doctor-placeholder.tsx`            | Animated SVG placeholder for missing doctor photos    |
+| Component            | Path                                              | Description                                        |
+| -------------------- | ------------------------------------------------- | -------------------------------------------------- |
+| `AnimatedBackground` | `components/ui/animated-blur-blob-background.tsx` | Animated blur blobs for hero backgrounds           |
+| `GlassCard`          | `components/ui/glass-card.tsx`                    | Glassmorphism card with backdrop blur              |
+| `DoctorImage`        | `components/ui/doctor-image.tsx`                  | Doctor image with loading state and error fallback |
+| `DoctorPlaceholder`  | `components/ui/doctor-placeholder.tsx`            | Animated SVG placeholder for missing doctor photos |
 
 ### DoctorImage Usage
 
@@ -214,6 +216,7 @@ admin_users (id, user_id, role, permissions)
 ```
 
 Features:
+
 - Shows animated placeholder while loading
 - Falls back to placeholder on error or empty src
 - Supports both `fill` mode and `width/height` mode
@@ -293,3 +296,43 @@ Features:
 - LCP: < 2.5s
 - FID: < 100ms
 - CLS: < 0.1
+
+## Custom UI Components
+
+### DoctorCard (`components/shared/doctor-card.tsx`)
+
+Unified doctor profile card used across home, doctors, and services pages.
+
+**Features:**
+
+- Rounded photo with padding
+- "Available" badge (top-right)
+- Stats row: Rating | Years | Reviews
+- Animated "Book Appointment" button
+
+**Usage:**
+
+```tsx
+<DoctorCard doctor={doctorData} animated animationDelay={100} />
+```
+
+### CartoonButton (`components/ui/cartoon-button.tsx`)
+
+Animated button with hover effects and sweep highlight.
+
+**Features:**
+
+- Hover lift animation (-translate-y-1)
+- Shadow on hover
+- White highlight sweep effect
+- Supports both `onClick` and `href`
+
+**Usage:**
+
+```tsx
+// As button
+<CartoonButton label="Click Me" onClick={handleClick} />
+
+// As link
+<CartoonButton label="Book Now" href="/book-appointment" />
+```

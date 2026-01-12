@@ -1,16 +1,20 @@
 "use client"
 
 import Link from "next/link"
-import { Calendar, ArrowRight, Star } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
 
-import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { DoctorImage } from "@/components/ui/doctor-image"
+import { DoctorCard, Doctor } from "@/components/shared/doctor-card"
 
-// Sample data - In production, this would come from Supabase
-const doctors = [
+/**
+ * Sample doctors data for the homepage.
+ * In production, this would come from Supabase.
+ * 
+ * Note: The homepage showcases a curated selection of doctors.
+ * For the full directory, users can navigate to /doctors.
+ */
+const doctors: Doctor[] = [
   {
     id: 1,
     name: "Dr. Rajesh Kumar",
@@ -21,6 +25,7 @@ const doctors = [
     image: "",
     rating: 4.9,
     reviews: 128,
+    available: true,
   },
   {
     id: 2,
@@ -32,6 +37,7 @@ const doctors = [
     image: "",
     rating: 4.8,
     reviews: 96,
+    available: true,
   },
   {
     id: 3,
@@ -43,6 +49,7 @@ const doctors = [
     image: "",
     rating: 4.9,
     reviews: 112,
+    available: true,
   },
   {
     id: 4,
@@ -54,9 +61,42 @@ const doctors = [
     image: "",
     rating: 4.7,
     reviews: 84,
+    available: true,
+  },
+  {
+    id: 5,
+    name: "Dr. Syed Ahmed",
+    slug: "dr-syed-ahmed",
+    specialty: "Neurology",
+    qualification: "DM Neurology, MBBS",
+    experience: 22,
+    image: "",
+    rating: 4.9,
+    reviews: 156,
+    available: true,
+  },
+  {
+    id: 6,
+    name: "Dr. Lakshmi Rao",
+    slug: "dr-lakshmi-rao",
+    specialty: "Dermatology",
+    qualification: "MD Dermatology",
+    experience: 14,
+    image: "",
+    rating: 4.8,
+    reviews: 92,
+    available: true,
   },
 ]
 
+/**
+ * Specialists Section - Homepage component showcasing our doctors.
+ * 
+ * Design Notes:
+ * - Uses the unified DoctorCard component for consistency
+ * - 6 columns on desktop, 4 on tablet, 2 on mobile
+ * - Subtle entrance animations for visual polish
+ */
 export function Specialists() {
   return (
     <section className="py-20">
@@ -105,53 +145,17 @@ export function Specialists() {
           </motion.div>
         </div>
 
-        {/* Doctors Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Doctors Grid - 6 on desktop, 4 on tablet, 2 on mobile */}
+        <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-4 md:gap-6">
           {doctors.map((doctor, index) => (
             <motion.div
               key={doctor.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.08 }}
             >
-              <Card className="overflow-hidden group hover:shadow-lg transition-shadow duration-300">
-                <div className="relative aspect-square overflow-hidden">
-                  <DoctorImage
-                    src={doctor.image}
-                    alt={doctor.name}
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <Button size="sm" className="w-full" asChild>
-                      <Link href={`/doctors/${doctor.slug}`}>
-                        <Calendar className="h-4 w-4 mr-2" />
-                        Book Appointment
-                      </Link>
-                    </Button>
-                  </div>
-                </div>
-                <CardContent className="p-5">
-                  <Badge variant="gold" className="mb-2">
-                    {doctor.specialty}
-                  </Badge>
-                  <h3 className="font-semibold text-lg text-[#2853aa]">
-                    <Link href={`/doctors/${doctor.slug}`} className="hover:text-[#f4b942] transition-colors">
-                      {doctor.name}
-                    </Link>
-                  </h3>
-                  <p className="text-gray-500 text-sm mb-3">{doctor.qualification}</p>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-600">{doctor.experience} yrs exp.</span>
-                    <div className="flex items-center gap-1">
-                      <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                      <span className="font-medium">{doctor.rating}</span>
-                      <span className="text-gray-400">({doctor.reviews})</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+              <DoctorCard doctor={doctor} />
             </motion.div>
           ))}
         </div>

@@ -3,13 +3,11 @@
 import { useState, useMemo, useEffect, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
 import Link from "next/link"
-import { Calendar, Star, User, Briefcase, Globe } from "lucide-react"
+import { User, Briefcase, Globe } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { DoctorImage } from "@/components/ui/doctor-image"
 import { FilterBar, FilterConfig } from "@/components/shared/filter-bar"
+import { DoctorCard } from "@/components/shared/doctor-card"
 import { siteConfig } from "@/config/site"
 
 // Real Mina Hospital doctors data
@@ -677,77 +675,9 @@ function DoctorsContent() {
       <section className="py-12">
         <div className="container mx-auto px-4">
           {filteredDoctors.length > 0 ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-4 md:gap-6">
               {filteredDoctors.map((doctor) => (
-                <Card key={doctor.id} className="overflow-hidden group hover:shadow-lg transition-shadow">
-                  <div className="relative aspect-square overflow-hidden">
-                    <DoctorImage
-                      src={doctor.image}
-                      alt={doctor.name}
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    {!doctor.available && (
-                      <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                        <span className="text-white font-medium bg-black/70 px-3 py-1 rounded-full text-sm">
-                          Currently Unavailable
-                        </span>
-                      </div>
-                    )}
-                    <div className="absolute top-4 right-4">
-                      <Badge
-                        variant={doctor.available ? "success" : "secondary"}
-                        className="shadow"
-                      >
-                        {doctor.available ? "Available" : "Unavailable"}
-                      </Badge>
-                    </div>
-                  </div>
-                  <CardContent className="p-5">
-                    <Badge variant="gold" className="mb-2">
-                      {doctor.specialty}
-                    </Badge>
-                    <h3 className="font-semibold text-lg text-[#2853aa]">
-                      <Link
-                        href={`/doctors/${doctor.slug}`}
-                        className="hover:text-[#f4b942] transition-colors"
-                      >
-                        {doctor.name}
-                      </Link>
-                    </h3>
-                    <p className="text-gray-500 text-sm mb-2">{doctor.qualification}</p>
-                    <p className="text-gray-600 text-sm mb-3">
-                      {doctor.experience} years experience
-                    </p>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-1">
-                        <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                        <span className="font-medium text-sm">{doctor.rating}</span>
-                        <span className="text-gray-400 text-sm">({doctor.reviews})</span>
-                      </div>
-                      <span className="text-xs text-gray-500">
-                        {doctor.languages.join(", ")}
-                      </span>
-                    </div>
-                    <Button
-                      className="w-full"
-                      size="sm"
-                      disabled={!doctor.available}
-                      asChild={doctor.available}
-                    >
-                      {doctor.available ? (
-                        <Link href={`/book-appointment?doctor=${doctor.id}`}>
-                          <Calendar className="h-4 w-4 mr-2" />
-                          Book Appointment
-                        </Link>
-                      ) : (
-                        <>
-                          <Calendar className="h-4 w-4 mr-2" />
-                          Book Appointment
-                        </>
-                      )}
-                    </Button>
-                  </CardContent>
-                </Card>
+                <DoctorCard key={doctor.id} doctor={doctor} />
               ))}
             </div>
           ) : (

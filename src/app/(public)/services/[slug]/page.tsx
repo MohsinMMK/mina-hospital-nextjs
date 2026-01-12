@@ -1,11 +1,9 @@
 import { Suspense } from "react"
 import { notFound } from "next/navigation"
-import Image from "next/image"
 import Link from "next/link"
 import { 
   ArrowLeft, 
   Calendar, 
-  Star, 
   CheckCircle2, 
   Stethoscope,
   Phone,
@@ -16,6 +14,7 @@ import type { Metadata } from "next"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { DoctorCard } from "@/components/shared/doctor-card"
 import { getSpecialtyBySlug, getAllSpecialtySlugs } from "@/lib/specialties"
 import { siteConfig } from "@/config/site"
 
@@ -573,65 +572,13 @@ export default async function SpecialtyPage({
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {specialtyDoctors.slice(0, 8).map((doctor) => (
-                <Card key={doctor.id} className="overflow-hidden group hover:shadow-lg transition-shadow bg-white">
-                  <div className="relative aspect-square overflow-hidden">
-                    <Image
-                      src={doctor.image}
-                      alt={doctor.name}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute top-4 right-4">
-                      <Badge
-                        variant={doctor.available ? "success" : "secondary"}
-                        className="shadow"
-                      >
-                        {doctor.available ? "Available" : "Unavailable"}
-                      </Badge>
-                    </div>
-                  </div>
-                  <CardContent className="p-5">
-                    <Badge variant="gold" className="mb-2">
-                      {doctor.specialty}
-                    </Badge>
-                    <h3 className="font-semibold text-lg text-[#2853aa]">
-                      {doctor.name}
-                    </h3>
-                    <p className="text-gray-500 text-sm mb-2">{doctor.qualification}</p>
-                    <p className="text-gray-600 text-sm mb-3">
-                      {doctor.experience} years experience
-                    </p>
-                    <div className="flex items-center gap-1 mb-4">
-                      <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                      <span className="font-medium text-sm">{doctor.rating}</span>
-                      <span className="text-gray-400 text-sm">({doctor.reviews})</span>
-                    </div>
-                    <Button
-                      className="w-full"
-                      size="sm"
-                      disabled={!doctor.available}
-                      asChild={doctor.available}
-                    >
-                      {doctor.available ? (
-                        <Link href={`/book-appointment?doctor=${doctor.id}`}>
-                          <Calendar className="h-4 w-4 mr-2" />
-                          Book Appointment
-                        </Link>
-                      ) : (
-                        <>
-                          <Calendar className="h-4 w-4 mr-2" />
-                          Book Appointment
-                        </>
-                      )}
-                    </Button>
-                  </CardContent>
-                </Card>
+            <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-4 md:gap-6">
+              {specialtyDoctors.slice(0, 12).map((doctor) => (
+                <DoctorCard key={doctor.id} doctor={doctor} />
               ))}
             </div>
 
-            {specialtyDoctors.length > 8 && (
+            {specialtyDoctors.length > 12 && (
               <div className="text-center mt-8">
                 <Button variant="outline" size="lg" asChild>
                   <Link href={`/doctors?specialty=${encodeURIComponent(specialty.doctorSpecialties[0])}`}>
