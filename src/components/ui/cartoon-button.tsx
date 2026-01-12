@@ -56,9 +56,9 @@ export function CartoonButton({
   };
 
   const buttonClasses = `
-    relative h-12 px-6 text-base rounded-full font-semibold text-white 
+    relative h-10 sm:h-12 px-4 sm:px-6 text-sm sm:text-base rounded-full font-semibold text-white 
     border-2 border-neutral-800 transition-all duration-150 overflow-hidden group
-    flex items-center justify-center
+    flex items-center justify-center w-full
     ${color} hover:shadow-[0_4px_0_0_#262626]
     ${disabled ? 'opacity-50 pointer-events-none' : 'hover:-translate-y-1 active:translate-y-0 active:shadow-none'}
   `.trim();
