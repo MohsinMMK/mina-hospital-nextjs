@@ -318,14 +318,17 @@ Unified doctor profile card used across home, doctors, and services pages.
 
 ### CartoonButton (`components/ui/cartoon-button.tsx`)
 
-Animated button with hover effects and sweep highlight.
+Animated button with hover/touch effects and sweep highlight.
 
 **Features:**
 
-- Hover lift animation (-translate-y-1)
-- Shadow on hover
-- White highlight sweep effect
+- Lift animation on hover (-translate-y-1)
+- Press animation on tap (active:translate-y-1)
+- Always-visible shadow for depth
+- White highlight sweep on hover/tap
+- Touch-friendly (works on mobile)
 - Supports both `onClick` and `href`
+- Responsive sizing (smaller on mobile)
 
 **Usage:**
 
@@ -335,4 +338,7 @@ Animated button with hover effects and sweep highlight.
 
 // As link
 <CartoonButton label="Book Now" href="/book-appointment" />
+
+// With custom color
+<CartoonButton label="Confirm" color="bg-[#2853aa]" />
 ```
