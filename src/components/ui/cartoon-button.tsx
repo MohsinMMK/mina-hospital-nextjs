@@ -41,7 +41,7 @@ interface CartoonButtonProps {
  */
 export function CartoonButton({
   label,
-  color = 'bg-gray-900',
+  color = 'bg-[#2853aa]',
   hasHighlight = true,
   disabled = false,
   onClick,
@@ -57,13 +57,13 @@ export function CartoonButton({
 
   const buttonClasses = `
     relative h-10 sm:h-12 px-4 sm:px-6 text-sm sm:text-base rounded-full font-semibold text-white 
-    border-2 border-neutral-800 transition-all duration-150 overflow-hidden group
+    border-2 border-[#1e3f7d] transition-all duration-150 overflow-hidden group
     flex items-center justify-center w-full
     ${color} 
-    shadow-[0_4px_0_0_#262626]
+    shadow-[0_4px_0_0_#1e3f7d]
     ${disabled 
       ? 'opacity-50 pointer-events-none' 
-      : 'hover:-translate-y-1 active:translate-y-1 active:shadow-none focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-800'
+      : 'hover:-translate-y-1 active:translate-y-1 active:shadow-none focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#2853aa]'
     }
   `.trim();
 
