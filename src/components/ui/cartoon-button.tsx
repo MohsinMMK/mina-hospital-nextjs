@@ -59,8 +59,12 @@ export function CartoonButton({
     relative h-10 sm:h-12 px-4 sm:px-6 text-sm sm:text-base rounded-full font-semibold text-white 
     border-2 border-neutral-800 transition-all duration-150 overflow-hidden group
     flex items-center justify-center w-full
-    ${color} hover:shadow-[0_4px_0_0_#262626]
-    ${disabled ? 'opacity-50 pointer-events-none' : 'hover:-translate-y-1 active:translate-y-0 active:shadow-none'}
+    ${color} 
+    shadow-[0_4px_0_0_#262626]
+    ${disabled 
+      ? 'opacity-50 pointer-events-none' 
+      : 'hover:-translate-y-1 active:translate-y-1 active:shadow-none focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-800'
+    }
   `.trim();
 
   const content = (
@@ -69,7 +73,7 @@ export function CartoonButton({
         {children || label}
       </span>
       {hasHighlight && !disabled && (
-        <div className="absolute top-1/2 left-[-100%] w-16 h-24 bg-white/30 -translate-y-1/2 rotate-12 transition-all duration-500 ease-in-out group-hover:left-[200%]" />
+        <div className="absolute top-1/2 left-[-100%] w-16 h-24 bg-white/30 -translate-y-1/2 rotate-12 transition-all duration-500 ease-in-out group-hover:left-[200%] group-active:left-[200%]" />
       )}
     </>
   );
