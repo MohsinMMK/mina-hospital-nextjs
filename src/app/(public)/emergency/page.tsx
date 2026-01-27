@@ -106,7 +106,7 @@ export default function EmergencyPage() {
             <div className="lg:col-span-2 space-y-12">
               {/* About Emergency Services */}
               <div>
-                <span className="text-[#f4b942] font-semibold text-sm uppercase tracking-wider">
+                <span className="text-[#3b82f6] font-semibold text-sm uppercase tracking-wider">
                   24/7 Emergency Care
                 </span>
                 <h2 className="font-display text-3xl md:text-4xl font-bold text-[#2853aa] mt-3 mb-6">
@@ -119,15 +119,15 @@ export default function EmergencyPage() {
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <div className="flex items-center gap-2 text-[#2853aa]">
-                    <Clock className="h-5 w-5 text-[#f4b942]" />
+                    <Clock className="h-5 w-5 text-[#3b82f6]" />
                     <span className="font-medium">24/7 Availability</span>
                   </div>
                   <div className="flex items-center gap-2 text-[#2853aa]">
-                    <Ambulance className="h-5 w-5 text-[#f4b942]" />
+                    <Ambulance className="h-5 w-5 text-[#3b82f6]" />
                     <span className="font-medium">Ambulance Service</span>
                   </div>
                   <div className="flex items-center gap-2 text-[#2853aa]">
-                    <Heart className="h-5 w-5 text-[#f4b942]" />
+                    <Heart className="h-5 w-5 text-[#3b82f6]" />
                     <span className="font-medium">ICU Backup</span>
                   </div>
                 </div>

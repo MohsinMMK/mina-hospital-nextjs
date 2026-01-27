@@ -48,12 +48,12 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full">
       {/* Top Bar */}
-      <div className="bg-[#2853aa] text-white py-2 text-sm hidden md:block">
+      <div className="bg-[#3b82f6] text-white py-2 text-sm hidden md:block">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center gap-6">
             <a
               href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
-              className="flex items-center gap-2 hover:text-[#f4b942] transition-colors"
+              className="flex items-center gap-2 hover:text-white/80 transition-colors"
             >
               <Phone className="h-4 w-4" />
               <span>{siteConfig.contact.phone}</span>
@@ -68,10 +68,10 @@ export function Header() {
             </span>
           </div>
           <div className="flex items-center gap-4">
-            <Link href="/emergency" className="text-red-400 font-semibold hover:text-red-300 animate-pulse">
+            <Link href="/emergency" className="font-semibold bg-white text-red-600 hover:bg-red-50 px-3 py-1 rounded-full text-xs uppercase tracking-wider transition-colors shadow-sm animate-pulse">
               Emergency Services
             </Link>
-            <Link href="/login" className="hover:text-[#f4b942] transition-colors">
+            <Link href="/login" className="hover:text-white/80 transition-colors">
               Patient Portal
             </Link>
           </div>
@@ -89,11 +89,11 @@ export function Header() {
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-[#2853aa] rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-[#3b82f6] rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xl">M</span>
               </div>
               <div>
-                <h1 className="font-display text-base sm:text-lg font-bold text-[#2853aa] leading-tight">
+                <h1 className="font-display text-base sm:text-lg font-bold text-[#3b82f6] leading-tight">
                   MINA Hospitals
                 </h1>
                 <p className="text-xs text-muted-foreground hidden sm:block">
@@ -111,8 +111,8 @@ export function Header() {
                     className={cn(
                       "px-4 py-2 text-sm font-medium rounded-md transition-colors",
                       pathname === item.href
-                        ? "text-[#2853aa] bg-[#2853aa]/5"
-                        : "text-gray-700 hover:text-[#2853aa] hover:bg-[#2853aa]/5"
+                        ? "text-[#3b82f6] bg-[#3b82f6]/5"
+                        : "text-gray-700 hover:text-[#3b82f6] hover:bg-[#3b82f6]/5"
                     )}
                   >
                     {item.name}
@@ -124,7 +124,7 @@ export function Header() {
                           <Link
                             key={child.name}
                             href={child.href}
-                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#2853aa]/5 hover:text-[#2853aa]"
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#3b82f6]/5 hover:text-[#3b82f6]"
                           >
                             {child.name}
                           </Link>
@@ -159,7 +159,7 @@ export function Header() {
                   Emergency
                 </a>
               </Button>
-              <Button asChild className="hidden md:flex">
+              <Button asChild className="hidden md:flex clay-button hover:text-white border-none">
                 <Link href="/book-appointment">Book Appointment</Link>
               </Button>
 
@@ -182,8 +182,8 @@ export function Header() {
                         className={cn(
                           "block py-2 text-lg font-medium transition-colors",
                           pathname === item.href
-                            ? "text-[#2853aa]"
-                            : "text-gray-700 hover:text-[#2853aa]"
+                            ? "text-[#3b82f6]"
+                            : "text-gray-700 hover:text-[#3b82f6]"
                         )}
                       >
                         {item.name}

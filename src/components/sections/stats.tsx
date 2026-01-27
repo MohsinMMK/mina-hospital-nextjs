@@ -82,7 +82,7 @@ function AnimatedCounter({
   }, [value, inView])
 
   return (
-    <span className="font-display text-4xl md:text-5xl font-bold text-white">
+    <span className="font-display text-3xl md:text-4xl font-bold text-[#3b82f6]">
       {count.toLocaleString()}
       {suffix}
     </span>
@@ -94,17 +94,7 @@ export function Stats() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <section ref={ref} className="py-20 bg-[#2853aa] relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}
-        />
-      </div>
-
+    <section ref={ref} className="py-12 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -120,7 +110,7 @@ export function Stats() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-display text-3xl md:text-4xl font-bold text-white mt-3 mb-4"
+            className="font-display text-3xl md:text-4xl font-bold text-[#3b82f6] mt-3 mb-4"
           >
             Trusted by Thousands
           </motion.h2>
@@ -129,14 +119,14 @@ export function Stats() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-gray-300 text-lg"
+            className="text-gray-600 text-lg"
           >
             Our commitment to excellence is reflected in the numbers that speak for themselves.
           </motion.p>
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -144,18 +134,18 @@ export function Stats() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="text-center"
+              className="clay-card p-4 text-center flex flex-col items-center justify-center hover:-translate-y-2 transition-transform duration-300"
             >
-              <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <stat.icon className="h-8 w-8 text-[#f4b942]" />
+              <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-3">
+                <stat.icon className="h-7 w-7 text-[#3b82f6]" />
               </div>
               <AnimatedCounter
                 value={stat.value}
                 suffix={stat.suffix}
                 inView={isInView}
               />
-              <p className="text-white font-semibold mt-2">{stat.label}</p>
-              <p className="text-gray-400 text-sm mt-1">{stat.description}</p>
+              <p className="text-[#3b82f6] font-bold text-sm mt-1">{stat.label}</p>
+              <p className="text-gray-500 text-xs mt-1 leading-tight">{stat.description}</p>
             </motion.div>
           ))}
         </div>

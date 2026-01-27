@@ -483,7 +483,7 @@ export default async function SpecialtyPage({
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-[#2853aa] to-[#1e3f7d]">
+      <section className="relative py-20 bg-[#3b82f6]">
         <div className="container mx-auto px-4">
           {/* Back Button */}
           <Link 
@@ -499,7 +499,7 @@ export default async function SpecialtyPage({
               <IconComponent className="h-10 w-10" />
             </div>
             <div>
-              <span className="text-[#f4b942] font-semibold text-sm uppercase tracking-wider">
+              <span className="text-[#3b82f6] font-semibold text-sm uppercase tracking-wider">
                 Department
               </span>
               <h1 className="font-display text-4xl md:text-5xl font-bold text-white mt-2 mb-4">
@@ -645,7 +645,7 @@ export default async function SpecialtyPage({
       )}
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-[#2853aa] to-[#1e3f7d]">
+      <section className="py-20 bg-[#3b82f6]">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6">
             Ready to Get Expert {specialty.name} Care?

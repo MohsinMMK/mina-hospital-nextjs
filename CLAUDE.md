@@ -187,13 +187,11 @@ admin_users (id, user_id, role, permissions)
 
 ```css
 :root {
-  --primary: #2853aa; /* Primary Blue */
-  --primary-dark: #1e3f7d;
+  --primary: #3b82f6; /* Vibrant Blue */
   --primary-light: #f0eee9; /* Cloud Dancer */
-  --accent: #f4b942; /* Golden Amber */
-  --accent-dark: #d9a02e;
-  --emergency: #dc2626; /* Red */
 }
+/* Note: Site follows a strict 2-color palette (Blue + Cloud Dancer/White). 
+   Deep Blue, Red (Emergency), and Gold (Accent) have been removed. */
 ```
 
 ## Custom UI Components
@@ -224,7 +222,7 @@ Features:
 ## Hero Section Features
 
 - Glassmorphism overlay with `backdrop-filter: blur(8px)`
-- Animated blur blobs (primary blue + amber accent)
+- Animated blur blobs (Strict Blue #3b82f6 Only)
 - GlassCard for Quick Appointment section
 - Frosty transparent effect
 

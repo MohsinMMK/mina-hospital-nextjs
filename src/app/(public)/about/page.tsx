@@ -48,11 +48,11 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-[#2853aa] to-[#1e3f7d]">
+      <section className="relative py-20 bg-[#3b82f6]">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <span className="text-[#f4b942] font-semibold text-sm uppercase tracking-wider">
-              About Us
+            <span className="text-[#3b82f6] font-semibold text-sm uppercase tracking-wider">
+              About MINA Hospitals
             </span>
             <h1 className="font-display text-4xl md:text-5xl font-bold text-white mt-3 mb-6">
               Your Trusted Healthcare Partner Since 2009
@@ -70,10 +70,10 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="text-[#f4b942] font-semibold text-sm uppercase tracking-wider">
+              <span className="text-[#3b82f6] font-semibold text-sm uppercase tracking-wider">
                 Our Story
               </span>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-[#2853aa] mt-3 mb-6">
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-[#3b82f6] mt-3 mb-6">
                 A Legacy of Healing
               </h2>
               <div className="space-y-4 text-gray-600">
@@ -118,10 +118,10 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 gap-8">
             <Card className="border-0 shadow-lg">
               <CardContent className="p-8">
-                <div className="w-14 h-14 bg-[#2853aa]/10 rounded-xl flex items-center justify-center mb-6">
-                  <Target className="h-7 w-7 text-[#2853aa]" />
+                <div className="w-14 h-14 bg-[#3b82f6]/10 rounded-xl flex items-center justify-center mb-6">
+                  <Target className="h-7 w-7 text-[#3b82f6]" />
                 </div>
-                <h3 className="font-display text-2xl font-bold text-[#2853aa] mb-4">
+                <h3 className="font-display text-2xl font-bold text-[#3b82f6] mb-4">
                   Our Mission
                 </h3>
                 <p className="text-gray-600">
@@ -134,10 +134,10 @@ export default function AboutPage() {
             </Card>
             <Card className="border-0 shadow-lg">
               <CardContent className="p-8">
-                <div className="w-14 h-14 bg-[#f4b942]/10 rounded-xl flex items-center justify-center mb-6">
-                  <Eye className="h-7 w-7 text-[#f4b942]" />
+                <div className="w-14 h-14 bg-[#3b82f6]/10 rounded-xl flex items-center justify-center mb-6">
+                  <Eye className="h-7 w-7 text-[#3b82f6]" />
                 </div>
-                <h3 className="font-display text-2xl font-bold text-[#2853aa] mb-4">
+                <h3 className="font-display text-2xl font-bold text-[#3b82f6] mb-4">
                   Our Vision
                 </h3>
                 <p className="text-gray-600">
@@ -156,10 +156,10 @@ export default function AboutPage() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-[#f4b942] font-semibold text-sm uppercase tracking-wider">
+            <span className="text-[#3b82f6] font-semibold text-sm uppercase tracking-wider">
               What We Stand For
             </span>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#2853aa] mt-3 mb-4">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#3b82f6] mt-3 mb-4">
               Our Core Values
             </h2>
             <p className="text-gray-600 text-lg">
@@ -171,10 +171,10 @@ export default function AboutPage() {
             {values.map((value) => (
               <Card key={value.title} className="text-center border-0 shadow-md hover:shadow-lg transition-shadow">
                 <CardContent className="p-6">
-                  <div className="w-16 h-16 bg-[#2853aa]/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <value.icon className="h-8 w-8 text-[#2853aa]" />
+                  <div className="w-16 h-16 bg-[#3b82f6]/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <value.icon className="h-8 w-8 text-[#3b82f6]" />
                   </div>
-                  <h3 className="font-semibold text-lg text-[#2853aa] mb-2">{value.title}</h3>
+                  <h3 className="font-semibold text-lg text-[#3b82f6] mb-2">{value.title}</h3>
                   <p className="text-gray-600 text-sm">{value.description}</p>
                 </CardContent>
               </Card>
@@ -184,11 +184,11 @@ export default function AboutPage() {
       </section>
 
       {/* Achievements */}
-      <section className="py-20 bg-[#2853aa]">
+      <section className="py-20 bg-[#3b82f6]">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-[#f4b942] font-semibold text-sm uppercase tracking-wider">
-              Recognition
+            <span className="text-[#3b82f6] font-semibold text-sm uppercase tracking-wider">
+              Our Vision
             </span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-white mt-3 mb-4">
               Our Achievements
@@ -200,7 +200,7 @@ export default function AboutPage() {
                 key={achievement}
                 className="flex items-center gap-3 bg-white/10 rounded-lg px-4 py-3"
               >
-                <CheckCircle className="h-5 w-5 text-[#f4b942] shrink-0" />
+                <CheckCircle className="h-5 w-5 text-[#3b82f6] shrink-0" />
                 <span className="text-white">{achievement}</span>
               </div>
             ))}

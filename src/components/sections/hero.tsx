@@ -7,7 +7,7 @@ import { motion } from "framer-motion"
 
 import { Button } from "@/components/ui/button"
 import { AnimatedBackground } from "@/components/ui/animated-blur-blob-background"
-import { GlassCard, GlassCardHeader, GlassCardTitle, GlassCardDescription, GlassCardContent, GlassCardFooter } from "@/components/ui/glass-card"
+
 import { siteConfig } from "@/config/site"
 
 const trustIndicators = [
@@ -18,29 +18,10 @@ const trustIndicators = [
 
 export function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80"
-          alt="MINA Hospital Building"
-          fill
-          className="object-cover"
-          priority
-        />
-        {/* Glassmorphism overlay instead of gradient */}
-        <div 
-          className="absolute inset-0"
-          style={{
-            background: 'linear-gradient(135deg, rgba(40, 83, 170, 0.7) 0%, rgba(40, 83, 170, 0.4) 50%, rgba(40, 83, 170, 0.3) 100%)',
-            backdropFilter: 'blur(8px)',
-            WebkitBackdropFilter: 'blur(8px)',
-          }}
-        />
-      </div>
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-20 lg:pt-0">
       
-      {/* Animated Blur Blobs - On top of glass, behind content */}
-      <AnimatedBackground className="z-[5]" />
+      {/* Animated Blur Blobs - Subtle background decoration */}
+      <AnimatedBackground className="z-[0] opacity-60" />
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
@@ -50,33 +31,33 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-white"
+            className="text-[#3b82f6]"
           >
             {/* Badge */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 bg-[#f4b942]/20 border border-[#f4b942]/30 rounded-full px-4 py-2 mb-6"
+              className="inline-flex items-center gap-2 bg-white border border-[#3b82f6]/20 rounded-full px-4 py-2 mb-6 shadow-sm"
             >
-              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-              <span className="text-sm font-medium">24/7 Emergency Services Available</span>
+              <span className="w-2 h-2 bg-[#3b82f6] rounded-full animate-pulse" />
+              <span className="text-sm font-medium text-gray-600">24/7 Emergency Services Available</span>
             </motion.div>
 
             {/* Headline */}
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-[#3b82f6]">
               Your Health,{" "}
-              <span className="text-[#f4b942]">Our Priority</span>
+              <span className="text-[#3b82f6]">Our Priority</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-xl">
+            <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-xl">
               Leading multi & super speciality hospital in Hyderabad providing affordable,
               compassionate healthcare with 50+ specialist doctors and state-of-the-art facilities.
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4 mb-10">
-              <Button size="xl" variant="gold" asChild>
+              <Button size="xl" className="clay-button hover:text-white" asChild>
                 <Link href="/book-appointment">
                   <Calendar className="h-5 w-5 mr-2" />
                   Book Appointment
@@ -84,8 +65,7 @@ export function Hero() {
               </Button>
               <Button
                 size="xl"
-                variant="outline"
-                className="bg-white/10 border-white/30 text-white hover:bg-white/20"
+                className="clay-button-secondary"
                 asChild
               >
                 <a href={`tel:${siteConfig.contact.emergencyPhone.replace(/\s/g, "")}`}>
@@ -103,14 +83,14 @@ export function Hero() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 + index * 0.1 }}
-                  className="flex items-center gap-3"
+                  className="flex items-center gap-3 bg-white/50 backdrop-blur-sm p-3 rounded-2xl border border-white/40"
                 >
-                  <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center">
-                    <item.icon className="h-6 w-6 text-[#f4b942]" />
+                  <div className="w-12 h-12 clay-card flex items-center justify-center text-[#3b82f6] rounded-2xl shadow-none">
+                    <item.icon className="h-6 w-6" />
                   </div>
                   <div>
-                    <p className="font-bold text-lg">{item.value}</p>
-                    <p className="text-sm text-gray-300">{item.label}</p>
+                    <p className="font-bold text-lg text-[#3b82f6]">{item.value}</p>
+                    <p className="text-sm text-gray-500">{item.label}</p>
                   </div>
                 </motion.div>
               ))}
@@ -122,58 +102,60 @@ export function Hero() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="hidden lg:block"
+            className="hidden lg:block relative"
           >
-            <GlassCard className="max-w-md ml-auto p-2">
-              <GlassCardHeader>
-                <GlassCardTitle className="font-display text-2xl">
+             {/* Decorative blob behind card */}
+             <div className="absolute -inset-4 bg-gradient-to-tr from-[#3b82f6]/20 to-[#3b82f6]/20 rounded-[40px] blur-2xl -z-10" />
+             
+            <div className="clay-card max-w-md ml-auto p-8 border border-white/80">
+              <div className="mb-6">
+                <h3 className="font-display text-2xl font-bold text-[#3b82f6]">
                   Quick Appointment
-                </GlassCardTitle>
-                <GlassCardDescription>
+                </h3>
+                <p className="text-gray-500 mt-2">
                   Book your appointment in just a few clicks
-                </GlassCardDescription>
-              </GlassCardHeader>
+                </p>
+              </div>
 
-              <GlassCardContent className="space-y-4">
-                <div className="flex items-center gap-3 p-4 bg-white/10 rounded-lg backdrop-blur-sm">
-                  <Clock className="h-5 w-5 text-[#f4b942]" />
+              <div className="space-y-4 mb-6">
+                <div className="flex items-center gap-3 p-4 bg-blue-50/50 rounded-2xl border border-blue-100">
+                  <Clock className="h-5 w-5 text-[#3b82f6]" />
                   <div>
-                    <p className="font-medium text-white">OPD Timings</p>
-                    <p className="text-sm text-white/70">{siteConfig.workingHours.opd}</p>
+                    <p className="font-medium text-[#3b82f6]">OPD Timings</p>
+                    <p className="text-sm text-gray-600">{siteConfig.workingHours.opd}</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 p-4 bg-red-500/20 rounded-lg backdrop-blur-sm">
-                  <Phone className="h-5 w-5 text-red-300" />
+                <div className="flex items-center gap-3 p-4 bg-blue-50/50 rounded-2xl border border-blue-100">
+                  <Phone className="h-5 w-5 text-[#3b82f6]" />
                   <div>
-                    <p className="font-medium text-red-200">Emergency</p>
-                    <p className="text-sm text-white/70">{siteConfig.workingHours.emergency}</p>
+                    <p className="font-medium text-[#3b82f6]">Emergency</p>
+                    <p className="text-sm text-gray-600">{siteConfig.workingHours.emergency}</p>
                   </div>
                 </div>
-              </GlassCardContent>
+              </div>
 
-              <GlassCardFooter className="flex-col gap-3">
-                <Button className="w-full" variant="gold" size="lg" asChild>
+              <div className="flex flex-col gap-3">
+                <Button className="w-full clay-button hover:text-white h-12 text-lg" asChild>
                   <Link href="/book-appointment">
                     Book Appointment Now
                   </Link>
                 </Button>
 
-                <p className="text-center text-sm text-white/70">
+                <p className="text-center text-sm text-gray-500 mt-2">
                   Or call us at{" "}
                   <a
                     href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
-                    className="text-[#f4b942] font-medium hover:underline"
+                    className="text-[#3b82f6] font-bold hover:underline"
                   >
                     {siteConfig.contact.phone}
                   </a>
                 </p>
-              </GlassCardFooter>
-            </GlassCard>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
-
       {/* Decorative Elements */}
       <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent z-10" />
     </section>

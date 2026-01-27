@@ -6,7 +6,7 @@ import { Star } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { DoctorImage } from "@/components/ui/doctor-image"
-import { CartoonButton } from "@/components/ui/cartoon-button"
+import { Button } from "@/components/ui/button"
 
 /**
  * Doctor data interface for the DoctorCard component.
@@ -52,17 +52,16 @@ interface DoctorCardProps {
  */
 export function DoctorCard({ doctor, animated = false, animationDelay = 0 }: DoctorCardProps) {
   return (
-    <Card 
+    <div 
       className={`
-        overflow-hidden group bg-white
-        hover:shadow-xl transition-all duration-300
+        clay-card overflow-hidden group relative
         ${animated ? 'animate-fade-in-up' : ''}
       `}
       style={animated ? { animationDelay: `${animationDelay}ms` } : undefined}
     >
       {/* Photo Section - Rounded corners like reference */}
-      <div className="p-3 pb-0">
-        <div className="relative aspect-square overflow-hidden rounded-2xl">
+      <div className="p-4 pb-0">
+        <div className="relative aspect-square overflow-hidden rounded-3xl">
           <DoctorImage
             src={doctor.image}
             alt={doctor.name}
@@ -85,31 +84,31 @@ export function DoctorCard({ doctor, animated = false, animationDelay = 0 }: Doc
       </div>
 
       {/* Content Section */}
-      <CardContent className="p-5">
+      <CardContent className="p-6">
         {/* Doctor Name */}
-        <h3 className="font-semibold text-lg text-gray-900 mb-1 line-clamp-1">
+        <h3 className="font-semibold text-xl text-gray-900 mb-1 line-clamp-1">
           <Link 
             href={`/doctors/${doctor.slug}`} 
-            className="hover:text-[#2853aa] transition-colors"
+            className="hover:text-[#3b82f6] transition-colors"
           >
             {doctor.name}
           </Link>
         </h3>
         
         {/* Specialty & Qualification */}
-        <p className="text-[#2853aa] text-sm font-medium mb-1">
+        <p className="text-[#3b82f6] text-sm font-bold uppercase tracking-wide mb-1">
           {doctor.specialty}
         </p>
-        <p className="text-gray-500 text-sm mb-4 line-clamp-1">
+        <p className="text-gray-500 text-sm mb-5 line-clamp-1">
           {doctor.qualification}
         </p>
 
         {/* Stats Row with Dividers */}
-        <div className="flex items-center justify-between text-sm border-t border-gray-100 pt-4 mb-4">
+        <div className="flex items-center justify-between text-sm border-t border-gray-100 pt-4 mb-5">
           {/* Rating */}
           <div className="text-center flex-1">
             <div className="flex items-center justify-center gap-1 mb-0.5">
-              <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
+              <Star className="h-4 w-4 fill-[#3b82f6] text-[#3b82f6]" />
               <span className="font-bold text-gray-900">{doctor.rating}</span>
             </div>
             <span className="text-gray-400 text-xs">Rating</span>
@@ -138,21 +137,25 @@ export function DoctorCard({ doctor, animated = false, animationDelay = 0 }: Doc
           </div>
         </div>
 
-        {/* CTA Button - Animated cartoon style */}
+        {/* CTA Button - Clay Style */}
         {doctor.available ? (
-          <CartoonButton
-            label="Book Appointment"
-            href={`/book-appointment?doctor=${doctor.id}`}
-            className="w-full"
-          />
+          <Button
+            className="w-full clay-button hover:text-white"
+            asChild
+          >
+            <Link href={`/book-appointment?doctor=${doctor.id}`}>
+              Book Appointment
+            </Link>
+          </Button>
         ) : (
-          <CartoonButton
-            label="Currently Unavailable"
+          <Button
             disabled
-            className="w-full"
-          />
+            className="w-full bg-gray-200 text-gray-400 rounded-full"
+          >
+            Currently Unavailable
+          </Button>
         )}
       </CardContent>
-    </Card>
+    </div>
   )
 }

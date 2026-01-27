@@ -58,7 +58,7 @@ export function Testimonials() {
   }
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -74,7 +74,7 @@ export function Testimonials() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-display text-3xl md:text-4xl font-bold text-[#2853aa] mt-3 mb-4"
+            className="font-display text-3xl md:text-4xl font-bold text-[#3b82f6] mt-3 mb-4"
           >
             What Our Patients Say
           </motion.h2>
@@ -98,9 +98,9 @@ export function Testimonials() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 }}
               transition={{ duration: 0.3 }}
-              className="bg-white rounded-2xl shadow-lg p-8 md:p-12"
+              className="clay-card p-8 md:p-12 relative z-10"
             >
-              <Quote className="h-12 w-12 text-[#f4b942]/20 mb-6" />
+              <Quote className="h-12 w-12 text-[#3b82f6]/20 mb-6" />
 
               <p className="text-gray-700 text-lg md:text-xl leading-relaxed mb-8">
                 &ldquo;{testimonials[current].text}&rdquo;
@@ -108,7 +108,7 @@ export function Testimonials() {
 
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div className="flex items-center gap-4">
-                  <div className="relative w-16 h-16 rounded-full overflow-hidden">
+                  <div className="relative w-16 h-16 rounded-full overflow-hidden ring-4 ring-white shadow-md">
                     <Image
                       src={testimonials[current].image}
                       alt={testimonials[current].name}
@@ -117,7 +117,7 @@ export function Testimonials() {
                     />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-[#2853aa]">
+                    <h4 className="font-semibold text-[#3b82f6] text-lg">
                       {testimonials[current].name}
                     </h4>
                     <p className="text-sm text-gray-500">
@@ -127,7 +127,7 @@ export function Testimonials() {
                       {[...Array(testimonials[current].rating)].map((_, i) => (
                         <Star
                           key={i}
-                          className="h-4 w-4 fill-yellow-400 text-yellow-400"
+                          className="h-4 w-4 fill-[#3b82f6] text-[#3b82f6]"
                         />
                       ))}
                     </div>
@@ -135,23 +135,21 @@ export function Testimonials() {
                 </div>
 
                 {/* Navigation */}
-                <div className="flex items-center gap-2">
-                  <Button
-                    variant="outline"
-                    size="icon"
+                <div className="flex items-center gap-3">
+                  <button
                     onClick={prev}
                     aria-label="Previous testimonial"
+                    className="w-12 h-12 rounded-full flex items-center justify-center bg-gray-100 hover:bg-white text-gray-600 hover:text-[#3b82f6] transition-all duration-300 shadow-[inset_4px_4px_8px_rgba(0,0,0,0.05),inset_-4px_-4px_8px_rgba(255,255,255,0.8)] hover:shadow-[6px_6px_12px_#d1d5db,-6px_-6px_12px_#ffffff]"
                   >
                     <ChevronLeft className="h-5 w-5" />
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="icon"
+                  </button>
+                  <button
                     onClick={next}
                     aria-label="Next testimonial"
+                    className="w-12 h-12 rounded-full flex items-center justify-center bg-[#3b82f6] text-white shadow-[6px_6px_12px_#bfdbfe,-6px_-6px_12px_#ffffff] hover:translate-y-[-2px] transition-all duration-300"
                   >
                     <ChevronRight className="h-5 w-5" />
-                  </Button>
+                  </button>
                 </div>
               </div>
             </motion.div>
@@ -164,7 +162,7 @@ export function Testimonials() {
                 key={index}
                 onClick={() => setCurrent(index)}
                 className={`w-3 h-3 rounded-full transition-colors ${
-                  index === current ? "bg-[#2853aa]" : "bg-gray-300"
+                  index === current ? "bg-[#3b82f6]" : "bg-gray-300"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />

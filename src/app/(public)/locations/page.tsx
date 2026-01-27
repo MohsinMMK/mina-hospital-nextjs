@@ -33,10 +33,10 @@ export default function LocationsPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-[#2853aa] to-[#1e3f7d]">
+      <section className="relative py-20 bg-[#3b82f6]">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <span className="text-[#f4b942] font-semibold text-sm uppercase tracking-wider">
+            <span className="text-[#3b82f6] font-semibold text-sm uppercase tracking-wider">
               Our Locations
             </span>
             <h1 className="font-display text-4xl md:text-5xl font-bold text-white mt-3 mb-6">
@@ -75,7 +75,7 @@ export default function LocationsPage() {
                 
                 <CardContent className="p-8">
                   {/* Location Name */}
-                  <h2 className="font-display text-2xl font-bold text-[#2853aa] mb-4 group-hover:text-[#f4b942] transition-colors">
+                  <h2 className="font-display text-2xl font-bold text-[#3b82f6] mb-4 group-hover:text-[#3b82f6] transition-colors">
                     {location.name}
                   </h2>
                   
@@ -101,7 +101,7 @@ export default function LocationsPage() {
                         <p className="font-medium text-gray-900">Phone</p>
                         <a
                           href={`tel:${location.phone.replace(/\s/g, "")}`}
-                          className="text-[#f4b942] hover:underline font-medium"
+                          className="text-[#3b82f6] hover:underline font-medium"
                         >
                           {location.phone}
                         </a>

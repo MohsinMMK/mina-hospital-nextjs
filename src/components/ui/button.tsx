@@ -21,6 +21,10 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         gold: "bg-[#f4b942] text-gray-900 shadow-sm hover:bg-[#d9a02e]",
         emergency: "bg-red-600 text-white shadow-sm hover:bg-red-700 animate-pulse-gentle",
+        clay: "clay-button",
+        claySecondary: "clay-button-secondary",
+        clayOnBlue: "clay-button-on-blue",
+        claySecondaryOnBlue: "clay-button-secondary-on-blue",
       },
       size: {
         default: "h-10 px-4 py-2",

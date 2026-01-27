@@ -9,7 +9,7 @@ import { siteConfig } from "@/config/site"
 
 export function CTAAppointment() {
   return (
-    <section className="py-20 bg-gradient-to-br from-[#2853aa] via-[#2853aa] to-[#1e3f7d] relative overflow-hidden">
+    <section className="py-20 bg-[#3b82f6] relative overflow-hidden">
       {/* Background Decorations */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#f4b942]/10 rounded-full blur-3xl" />
@@ -56,7 +56,7 @@ export function CTAAppointment() {
             transition={{ delay: 0.2 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Button size="xl" variant="gold" asChild>
+            <Button size="xl" variant="clayOnBlue" asChild>
               <Link href="/book-appointment">
                 <Calendar className="h-5 w-5 mr-2" />
                 Book Appointment
@@ -65,8 +65,7 @@ export function CTAAppointment() {
 
             <Button
               size="xl"
-              variant="outline"
-              className="bg-white/10 border-white/30 text-white hover:bg-white/20"
+              variant="claySecondaryOnBlue"
               asChild
             >
               <a href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}>
@@ -77,8 +76,7 @@ export function CTAAppointment() {
 
             <Button
               size="xl"
-              variant="outline"
-              className="bg-white/10 border-white/30 text-white hover:bg-white/20"
+              variant="claySecondaryOnBlue"
               asChild
             >
               <a

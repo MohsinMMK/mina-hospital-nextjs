@@ -14,7 +14,6 @@ import {
 } from "lucide-react"
 import { motion } from "framer-motion"
 
-import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 
 const services = [
@@ -136,25 +135,23 @@ export function ServicesOverview() {
           {services.map((service) => (
             <motion.div key={service.name} variants={itemVariants}>
               <Link href={service.href}>
-                <Card className="h-full hover:shadow-lg transition-shadow duration-300 group cursor-pointer border-0 shadow-md">
-                  <CardContent className="p-6">
+                <div className="clay-card h-full group cursor-pointer p-6">
                     <div
                       className={`w-14 h-14 rounded-xl ${service.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
                     >
                       <service.icon className="h-7 w-7" />
                     </div>
-                    <h3 className="font-semibold text-lg text-[#2853aa] mb-2 group-hover:text-[#f4b942] transition-colors">
+                    <h3 className="font-semibold text-lg text-[#2853aa] mb-2 group-hover:text-[#14b8a6] transition-colors">
                       {service.name}
                     </h3>
                     <p className="text-gray-600 text-sm mb-4">
                       {service.description}
                     </p>
-                    <span className="text-[#2853aa] text-sm font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                    <span className="text-[#2853aa] text-sm font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all group-hover:text-[#14b8a6]">
                       Learn More
                       <ArrowRight className="h-4 w-4" />
                     </span>
-                  </CardContent>
-                </Card>
+                </div>
               </Link>
             </motion.div>
           ))}

@@ -18,10 +18,10 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-[#2853aa] to-[#1e3f7d]">
+      <section className="relative py-20 bg-[#3b82f6]">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl">
-            <span className="text-[#f4b942] font-semibold text-sm uppercase tracking-wider">
+            <span className="text-[#3b82f6] font-semibold text-sm uppercase tracking-wider">
               Contact Us
             </span>
             <h1 className="font-display text-4xl md:text-5xl font-bold text-white mt-3 mb-6">
@@ -51,7 +51,7 @@ export default function ContactPage() {
                       <h3 className="font-semibold text-[#2853aa] mb-1">Phone</h3>
                       <a
                         href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
-                        className="text-gray-600 hover:text-[#f4b942] transition-colors"
+                        className="text-gray-600 hover:text-[#3b82f6] transition-colors"
                       >
                         {siteConfig.contact.phone}
                       </a>
@@ -237,13 +237,13 @@ export default function ContactPage() {
                   </h3>
                   <div className="space-y-2 text-gray-600">
                     <div className="flex items-start gap-2">
-                      <MapPin className="h-5 w-5 text-[#f4b942] shrink-0 mt-0.5" />
+                      <MapPin className="h-5 w-5 text-[#3b82f6] shrink-0 mt-0.5" />
                       <span>
                         {location.address}, {location.city}, {location.state} - {location.pincode}
                       </span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Phone className="h-5 w-5 text-[#f4b942] shrink-0" />
+                      <Phone className="h-5 w-5 text-[#3b82f6] shrink-0" />
                       <a
                         href={`tel:${location.phone.replace(/\s/g, "")}`}
                         className="hover:text-[#2853aa]"
